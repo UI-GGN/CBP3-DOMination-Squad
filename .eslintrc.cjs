@@ -5,10 +5,11 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'prettier'
   ],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh',"react", "import", "jsx-a11y", "unused-imports", "sequence", "prettier"],
+  plugins: ['react-refresh',"react", "import", "unused-imports", "sequence", "prettier"],
   rules: {
     'react-refresh/only-export-components': 'warn',
     "react/prop-types": 0,
@@ -17,6 +18,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "quotes": ["error", "single"],
     "unused-imports/no-unused-imports": "warn",
+    "prettier/prettier": "error",
     "sequence/ordered-imports-by-path": [
       "error", {
         "ignoreCase": true,
