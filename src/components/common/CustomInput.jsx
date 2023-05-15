@@ -1,6 +1,6 @@
-function CustomInput({ label }) {
+const CustomInput = ({ label }) => {
   return (
-    <>
+    <div>
       <input
         type="text"
         id={label}
@@ -9,12 +9,12 @@ function CustomInput({ label }) {
       />
       <label
         htmlFor={label}
-        className="text-gray-400 font-bold absolute left-4 top-3 text-gray-600 cursor-text peer-focus:text-xs peer-focus:-top-4 peer-focus:text-orange-500 transition-all"
+        className="font-bold absolute left-4 top-4 text-gray-600 cursor-text peer-focus:text-xs peer-focus:-top-4 peer-focus:text-orange-500 transition-all"
       >
         {label}
       </label>
-    </>
+    </div>
   );
-}
+};
 
 export default CustomInput;

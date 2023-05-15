@@ -3,7 +3,7 @@ import AuthenticationContext from '../context/AuthenticationContext';
 import Authenticator from './Authenticator/Authenticator';
 import { useState } from 'react';
 
-function App() {
+const App = () => {
   const [authenticationContext, setAuthenticationContext] = useState({
     authToken: localStorage.getItem('authToken'),
   });
@@ -15,6 +15,6 @@ function App() {
       </AuthenticationContext.Provider>
     </>
   );
-}
+};
 
 export default App;
