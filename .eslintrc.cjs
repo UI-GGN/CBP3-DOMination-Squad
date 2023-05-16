@@ -16,7 +16,6 @@ module.exports = {
     "indent": ["error", 2],
     "linebreak-style": 1,
     "react/react-in-jsx-scope": "off",
-    "quotes": ["error", "single"],
     "unused-imports/no-unused-imports": "warn",
     "prettier/prettier": "error",
     "sequence/ordered-imports-by-path": [
