@@ -10,7 +10,9 @@ const App = () => {
 
   return (
     <>
-      <AuthenticationContext.Provider value={[authenticationContext, setAuthenticationContext]}>
+      <AuthenticationContext.Provider
+        value={[authenticationContext, setAuthenticationContext]}
+      >
         <Authenticator />
       </AuthenticationContext.Provider>
     </>

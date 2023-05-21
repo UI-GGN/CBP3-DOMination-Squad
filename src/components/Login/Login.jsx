@@ -33,15 +33,20 @@ const Login = () => {
           </div>
 
           <div>
-            <p className="text-gray-400 font-weight-bold">Forgot your password?</p>
+            <p className="text-gray-400 font-weight-bold">
+              Forgot your password?
+            </p>
           </div>
         </div>
         <div className="basis-5/12 h-screen flex items-center justify-center">
           <div className="w-full h-full bg-landing_image bg-cover bg-no-repeat">
             <div className="w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center">
-              <div className="text-white font-bold text-6xl mb-8">New Here?</div>
+              <div className="text-white font-bold text-6xl mb-8">
+                New Here?
+              </div>
               <p className="text-white text-xl m-8">
-                Effortless Commutes: Sign Up Now for Hassle-Free Office Cab Booking!
+                Effortless Commutes: Sign Up Now for Hassle-Free Office Cab
+                Booking!
               </p>
               <button className="mb-4 bg-white font-bold rounded-3xl w-48 padding-lg hover:bg-orange-700 hover:text-white pt-3 pb-3">
                 Sign Up
