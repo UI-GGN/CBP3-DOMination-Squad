@@ -21,7 +21,7 @@ jobs:
           node-version: 16.x
           cache: 'npm'
       - name: Installing dependencies
-        run: npm ci
+        run: npm install
       - name: Running build
         run: npm run build --if-present
       - name: Running Lint
@@ -43,7 +43,7 @@ jobs:
         with:
           node-version: 16.x
       - name: Installing dependencies
-        run: npm ci
+        run: npm install
       - name: 'Running test'
         run: npm test
 
