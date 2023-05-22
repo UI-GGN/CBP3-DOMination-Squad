@@ -1,7 +1,6 @@
-import { useContext } from 'react';
 import AuthenticationContext from '../../context/AuthenticationContext';
 import Dashboard from '../Admin/Dashboard';
-import Card from '../../Employee/RequestStatusCard';
+import { useContext } from 'react';
 
 const Home = () => {
   const [, setAuthenticationContext] = useContext(AuthenticationContext);
@@ -9,7 +8,7 @@ const Home = () => {
   return (
     <div className="h-screen">
       <Dashboard />
-      {/* <button
+      <button
         className="bg-gray-500 text-white	font-bold rounded-3xl w-40 hover:bg-gray-900 pt-2 pb-2 m-8"
         onClick={() => {
           localStorage.removeItem('authToken');
@@ -19,7 +18,8 @@ const Home = () => {
         }}
       >
         Log out
-      </button> */}
+      </button>
+      z
     </div>
   );
 };

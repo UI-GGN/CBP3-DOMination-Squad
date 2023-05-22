@@ -1,4 +1,3 @@
-import React from 'react';
 import { Card, CardContent, CardActions, Button } from '@mui/material';
 
 const RequestStatusCard = ({ status, color, date }) => {

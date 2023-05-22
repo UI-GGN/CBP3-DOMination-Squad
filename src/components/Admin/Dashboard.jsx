@@ -1,7 +1,6 @@
-import React from 'react';
 import Logo from '../../assets/taxi.png';
-import RequestStatusCard from './RequestStatusCard';
 import EmployeeRequestCard from '../../Employee/RequestStatusCard';
+import RequestStatusCard from './RequestStatusCard';
 
 const data = [
   {

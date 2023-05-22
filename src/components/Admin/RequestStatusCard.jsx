@@ -1,7 +1,6 @@
-import React from 'react';
 import { Card, CardContent, CardActions, Button } from '@mui/material';
 
-const RequestStatusCard = ({ name, date, pickup, time, style }) => {
+const RequestStatusCard = ({ name, date, pickup, time }) => {
   return (
     <Card className="m-3 basis-1/6 shrink-0" sx={{ width: 275, display: 'flex', flexDirection: 'column' }}>
       <CardContent>
