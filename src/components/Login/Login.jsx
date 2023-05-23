@@ -2,11 +2,14 @@ import CONSTANTS from '../../constants/constants.json';
 import AuthenticationContext from '../../context/AuthenticationContext';
 import CustomInput from '../common/CustomInput';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const { LOGIN, LOGIN_HEADER } = CONSTANTS;
 
 const Login = () => {
+  const navigate = useNavigate();
   const [, setAuthenticationContext] = useContext(AuthenticationContext);
+
   return (
     <>
       <div className="flex bg-white flex-row h-screen w-screen">
@@ -26,6 +29,7 @@ const Login = () => {
                 setAuthenticationContext({
                   authToken: '123',
                 });
+                navigate('/');
               }}
             >
               {LOGIN}

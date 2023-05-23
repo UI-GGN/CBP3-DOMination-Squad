@@ -1,24 +1,26 @@
-import AuthenticationContext from '../../context/AuthenticationContext';
-import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const [, setAuthenticationContext] = useContext(AuthenticationContext);
+  const navigate = useNavigate();
 
   return (
-    <div className="flex flex-col h-screen justify-center items-center">
-      <div className="text-3xl font-bold">
-        <h1>on-track!</h1>
-      </div>
+    <div className="h-screen flex flex-row items-center justify-center">
       <button
-        className="bg-gray-500 text-white	font-bold rounded-3xl w-40 hover:bg-gray-900 pt-2 pb-2 m-8"
+        className="bg-blue-500 text-white font-bold rounded-3xl w-28 h-10 hover:bg-black pt-1 pb-1 mr-5"
         onClick={() => {
-          localStorage.removeItem('authToken');
-          setAuthenticationContext({
-            authToken: null,
-          });
+          navigate('/admin/dashboard');
         }}
       >
-        Log out
+        Admin
+      </button>
+
+      <button
+        className="bg-green-500 text-white font-bold rounded-3xl w-28 h-10 hover:bg-black pt-1 pb-1 mr-5"
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        Employee
       </button>
     </div>
   );
