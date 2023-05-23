@@ -1,7 +1,10 @@
 import '../../styles.css';
+import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import * as Dialog from '@radix-ui/react-dialog';
-const AddAddressDialog = () => {
-  console.log('I got called');
+
+const ScheduleCabDialogBox = () => {
   return (
     <Dialog.Root>
       <Dialog.Trigger asChild>
@@ -12,7 +15,7 @@ const AddAddressDialog = () => {
         <Dialog.Content className="DialogContent">
           <Dialog.Title className="DialogTitle">Add Address details</Dialog.Title>
           <Dialog.Description className="DialogDescription">
-            Add your address details. Click save when you are done.
+            Add your address details and Pickup schedule. Click save when you are done.
           </Dialog.Description>
           <fieldset className="Fieldset">
             <label className="Label" htmlFor="city">
@@ -38,6 +41,20 @@ const AddAddressDialog = () => {
             </label>
             <input className="Input" id="pincode" />
           </fieldset>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <fieldset className="Fieldset">
+              <label className="Label" htmlFor="timePicker">
+                Pickup time
+              </label>
+              <TimePicker />
+            </fieldset>
+            <fieldset className="Fieldset">
+              <label className="Label" htmlFor="datePicker">
+                Pickup Date
+              </label>
+              <DatePicker />
+            </fieldset>
+          </LocalizationProvider>
           <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
             <Dialog.Close asChild>
               <button className="Button green">Save</button>
@@ -52,4 +69,4 @@ const AddAddressDialog = () => {
   );
 };
 
-export default AddAddressDialog;
+export default ScheduleCabDialogBox;
