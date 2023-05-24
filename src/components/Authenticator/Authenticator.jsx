@@ -17,10 +17,21 @@ const CustomRouter = () => {
   );
 };
 
+const NonAuthRouter = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
+  );
+};
+
 const Authenticator = () => {
   const [context] = useContext(AuthenticationContext);
 
-  return <>{context.authToken === null ? <Login /> : <CustomRouter />}</>;
+  return <>{context.authToken === null ? <NonAuthRouter /> : <CustomRouter />}</>;
 };
 
 export default Authenticator;
