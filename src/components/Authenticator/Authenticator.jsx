@@ -20,13 +20,7 @@ const CustomRouter = () => {
 const Authenticator = () => {
   const [context] = useContext(AuthenticationContext);
 
-  console.log('valuee', context.authToken);
-
-  return (
-    <>
-      <CustomRouter />
-    </>
-  );
+  return <>{context.authToken === null ? <Login /> : <CustomRouter />}</>;
 };
 
 export default Authenticator;
