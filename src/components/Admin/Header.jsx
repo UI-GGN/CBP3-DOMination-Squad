@@ -13,7 +13,7 @@ const Header = () => {
         </div>
 
         <div className="flex flex-row justify-between items-center">
-          <div className="ml-3 mt-5 mb-3 inline-block bg-gradient-to-r from-black via-orange-700 to-red-900 bg-clip-text text-6xl text-transparent">
+          <div className="ml-3 mt-5 mb-3 inline-block bg-gradient-to-r from-violet-800 via-yellow-500 to-green-500 bg-clip-text text-6xl text-transparent">
             Dashboard
           </div>
           <button
