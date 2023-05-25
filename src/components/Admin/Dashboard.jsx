@@ -1,6 +1,6 @@
-import Header from '../Admin/Header';
-import Requests from '../Admin/Requests';
-import CustomTabs from '../common/CustomTabs/CustomTabs';
+import CustomTabs from '../common/CustomTabs';
+import Header from './Header';
+import Requests from './Requests';
 
 const data = [
   {
