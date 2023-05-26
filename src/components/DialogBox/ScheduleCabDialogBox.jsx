@@ -1,12 +1,12 @@
 import '../../styles.css';
-import { LocalizationProvider, TimePicker, DatePicker } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DialogContent, DialogTitle } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import { useState } from 'react';
 import DialogActions from '@mui/material/DialogActions';
+import { LocalizationProvider, TimePicker, DatePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Moment from 'moment';
+import { useState } from 'react';
 
 const ScheduleCabDialogBox = () => {
   const [open, setOpen] = useState(false);
@@ -37,10 +37,10 @@ const ScheduleCabDialogBox = () => {
     setPincode(event.target.value);
   };
   const handlePickupDateChange = (event) => {
-    setPickupDate(event.target.value);
+    setPickupDate(event.$d.toDateString());
   };
   const handlePickupTimeChange = (event) => {
-    setPickupTime(event.target.value);
+    setPickupTime(event.$d.toTimeString());
   };
 
   //const pinPattern = new RegExp("^[1-9][0-9]{5}$");
@@ -113,13 +113,25 @@ const ScheduleCabDialogBox = () => {
               <label className="Label" htmlFor="timePicker">
                 Pickup time
               </label>
-              <TimePicker className="Picker" name="pickupTime" value={pickupTime} onChange={handlePickupTimeChange} />
+              <TimePicker
+                className="Picker"
+                name="pickupTime"
+                value={pickupTime}
+                // minTime={pickupTime}
+                onChange={handlePickupTimeChange}
+              />
             </fieldset>
             <fieldset className="Fieldset">
               <label className="Label" htmlFor="datePicker">
                 Pickup Date
               </label>
-              <DatePicker className="Picker" name="pickupDate" value={pickupDate} onChange={handlePickupDateChange} />
+              <DatePicker
+                className="Picker"
+                name="pickupDate"
+                value={pickupDate}
+                // minDate={pickupDate}
+                onChange={handlePickupDateChange}
+              />
             </fieldset>
           </LocalizationProvider>
 
