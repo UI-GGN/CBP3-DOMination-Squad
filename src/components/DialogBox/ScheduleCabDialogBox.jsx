@@ -7,6 +7,7 @@ import { LocalizationProvider, TimePicker, DatePicker } from '@mui/x-date-picker
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Moment from 'moment';
 import { useState } from 'react';
+import addressDetailService from '../services/addressDetailService';
 
 const ScheduleCabDialogBox = () => {
   const [open, setOpen] = useState(false);
@@ -54,6 +55,8 @@ const ScheduleCabDialogBox = () => {
       pickupDate: pickupDate,
     };
     console.log(addressDetail);
+
+    addressDetailService.addAddressDetails(addressDetail);
 
     setAddress('');
     setArea('');
