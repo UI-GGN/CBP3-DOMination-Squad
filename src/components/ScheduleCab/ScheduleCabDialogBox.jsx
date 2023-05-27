@@ -1,13 +1,18 @@
-import '../../styles.css';
+import './styles.css';
+import addressDetailService from '../services/addressDetailService';
 import { DialogContent, DialogTitle } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
+import FormControl from '@mui/material/FormControl';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormLabel from '@mui/material/FormLabel';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
 import { LocalizationProvider, TimePicker, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Moment from 'moment';
 import { useState } from 'react';
-import addressDetailService from '../services/addressDetailService';
 
 const ScheduleCabDialogBox = () => {
   const [open, setOpen] = useState(false);
@@ -56,7 +61,7 @@ const ScheduleCabDialogBox = () => {
     };
     console.log(addressDetail);
 
-    addressDetailService.addAddressDetails(addressDetail);
+    //addressDetailService.addAddressDetails(addressDetail);
 
     setAddress('');
     setArea('');
@@ -67,11 +72,18 @@ const ScheduleCabDialogBox = () => {
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen} className="Button violet">
-        Schedule Cab
+        Schedule a Cab
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className="DialogContent">
-          <DialogTitle className="DialogTitle">Add Address details</DialogTitle>
+          <DialogTitle className="DialogTitle">Schedule a Cab</DialogTitle>
+          <FormControl>
+            <FormLabel id="direction-radio-buttons-group-label"></FormLabel>
+            <RadioGroup className="RadioGroup" defaultValue="HomeToOffice" name="radio-buttons-group" row>
+              <FormControlLabel value="HomeToOffice" control={<Radio />} label="Home To Office" />
+              <FormControlLabel value="OfficeToHome" control={<Radio />} label="Office To Home" />
+            </RadioGroup>
+          </FormControl>
           <fieldset className="Fieldset">
             <label className="Label" htmlFor="city">
               City
@@ -114,7 +126,7 @@ const ScheduleCabDialogBox = () => {
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <fieldset className="Fieldset">
               <label className="Label" htmlFor="timePicker">
-                Pickup time
+                Pickup Time
               </label>
               <TimePicker
                 className="Picker"
@@ -140,7 +152,7 @@ const ScheduleCabDialogBox = () => {
 
           <DialogActions>
             <Button onClick={onSaveButtonClick} className="Button save">
-              Save
+              Request Cab
             </Button>
           </DialogActions>
         </DialogContent>

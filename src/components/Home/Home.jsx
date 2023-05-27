@@ -1,5 +1,5 @@
 import AuthenticationContext from '../../context/AuthenticationContext';
-import ScheduleCabDialogBox from '../DialogBox/ScheduleCabDialogBox.jsx';
+import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox.jsx';
 import { useContext } from 'react';
 
 const Home = () => {

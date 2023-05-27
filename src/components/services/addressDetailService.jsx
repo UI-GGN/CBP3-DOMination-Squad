@@ -1,12 +1,8 @@
-import axios from "axios"
-import {API_URL} from "./url"
-
+import { API_URL } from './url';
+import axios from 'axios';
 
 export default {
-
-    addAddressDetails: async (payload) => {
-        console.log("service")
-        const response = await axios.post(`${API_URL.addAddressDetails}`,payload);
-        console.log(response);
-    },
-}
+  addAddressDetails: async (payload) => {
+    const response = await axios.post(`${API_URL.addAddressDetails}`, payload);
+  },
+};
