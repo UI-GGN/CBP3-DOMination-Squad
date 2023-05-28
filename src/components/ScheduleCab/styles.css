@@ -7,7 +7,7 @@
 
 .DialogContent {
   border-radius: 6px;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
+  box-shadow: hsl(206 22% 7% / 35%) 0 10px 38px -10px, hsl(206 22% 7% / 20%) 0 10px 20px -15px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -17,8 +17,7 @@
   max-height: 85vh;
   padding: 25px;
   animation: contentShow 150ms cubic-bezier(0.16, 1, 0.3, 1);
-  background-color: white;
-;
+  background-color: #ffffff;
 }
 .DialogContent:focus {
   outline: #067A6F;
@@ -30,7 +29,7 @@
   font-weight: 500;
   color: var(--mauve12);
   font-size: 17px;
-  padding: 0 0 0 0;
+  padding-top: 0;
 }
 
 .DialogDescription {
@@ -120,14 +119,6 @@
   text-align: right;
 }
 
-.RadioGroup {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 125%;
-  padding: 0 10px 15px 10px;
-}
-
 .Picker {
   width: 75%;
   height: 50%;
@@ -144,12 +135,11 @@
   font-size: 15px;
   line-height: 1;
   color: black;
-  /* color: var(--violet11); */
-  /* box-shadow: 0 0 0 1px var(--violet7); */
+   /*color: var(--violet11);*/
+   /*box-shadow: 0 0 0 1px var(--violet7);*/
   box-shadow: 0 0 0 1px rgb(206, 201, 201);
   height: 35px;
 }
 .Input:focus {
   box-shadow: 0 0 0 2px var(--violet8);
 }
-

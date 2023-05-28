@@ -1,21 +1,21 @@
 import './styles.css';
-import addressDetailService from '../services/addressDetailService';
+import createNewCabRequestService from '../services/createNewCabRequestService.jsx';
 import { DialogContent, DialogTitle } from '@mui/material';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormLabel from '@mui/material/FormLabel';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
 import { LocalizationProvider, TimePicker, DatePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Moment from 'moment';
 import { useState } from 'react';
 
+function handleError(e) {
+  return <p>Unable to Process your request. Please reach out to Admin team. </p>;
+}
+
 const ScheduleCabDialogBox = () => {
   const [open, setOpen] = useState(false);
+  const [city, setCity] = useState('');
   const [area, setArea] = useState('');
   const [address, setAddress] = useState('');
   const [pincode, setPincode] = useState('');
@@ -32,10 +32,12 @@ const ScheduleCabDialogBox = () => {
     setOpen(false);
   };
 
+  const handleCityChange = (event) => {
+    setCity(event.target.value);
+  };
   const handleAreaChange = (event) => {
     setArea(event.target.value);
   };
-
   const handleAddressChange = (event) => {
     setAddress(event.target.value);
   };
@@ -43,29 +45,40 @@ const ScheduleCabDialogBox = () => {
     setPincode(event.target.value);
   };
   const handlePickupDateChange = (event) => {
-    setPickupDate(event.$d.toDateString());
+    setPickupDate(event.$d.toISOString());
   };
   const handlePickupTimeChange = (event) => {
-    setPickupTime(event.$d.toTimeString());
+    setPickupTime(event.$d.toLocaleTimeString());
   };
 
   //const pinPattern = new RegExp("^[1-9][0-9]{5}$");
 
   const onSaveButtonClick = () => {
+    let pickupTimeInISO = `${pickupDate.slice(0, 11)}${pickupTime}.000Z`;
+    let pickupLocation = `${area}, ${address}, ${city}, ${pincode}`;
     const addressDetail = {
-      area: area,
-      address: address,
-      pincode: pincode,
-      pickupTime: pickupTime,
-      pickupDate: pickupDate,
+      employeeId: '11111',
+      employeeName: 'xyz',
+      pickupLocation: pickupLocation,
+      dropLocation: 'TW, Gurgaon',
+      pickupTime: pickupTimeInISO,
     };
     console.log(addressDetail);
 
-    //addressDetailService.addAddressDetails(addressDetail);
+    try {
+      createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
+        console.log(r);
+      });
+    } catch (e) {
+      handleError(e);
+    }
 
+    setCity('');
     setAddress('');
     setArea('');
     setPincode('');
+    setPickupDate(currentDate);
+    setPickupTime(currentTime);
     setOpen(false);
   };
 
@@ -77,18 +90,11 @@ const ScheduleCabDialogBox = () => {
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className="DialogContent">
           <DialogTitle className="DialogTitle">Schedule a Cab</DialogTitle>
-          <FormControl>
-            <FormLabel id="direction-radio-buttons-group-label"></FormLabel>
-            <RadioGroup className="RadioGroup" defaultValue="HomeToOffice" name="radio-buttons-group" row>
-              <FormControlLabel value="HomeToOffice" control={<Radio />} label="Home To Office" />
-              <FormControlLabel value="OfficeToHome" control={<Radio />} label="Office To Home" />
-            </RadioGroup>
-          </FormControl>
           <fieldset className="Fieldset">
             <label className="Label" htmlFor="city">
               City
             </label>
-            <input className="Input" id="city" defaultValue="Gurgaon" disabled />
+            <input className="Input" id="city" name="city" value={city} onChange={handleCityChange} required />
           </fieldset>
           <fieldset className="Fieldset">
             <label className="Label" htmlFor="area">
