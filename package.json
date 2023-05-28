@@ -33,8 +33,12 @@
     "axios": "^1.4.0",
     "dayjs": "^1.11.7",
     "moment": "^2.29.4",
+    "@radix-ui/react-popover": "1.0.5",
+    "@radix-ui/react-tabs": "1.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.11.2",
+    "styled-components": "5.3.9"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.16.5",
@@ -60,6 +64,6 @@
     "prettier": "^2.8.8",
     "tailwindcss": "^3.3.2",
     "vite": "^4.3.2",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.1"
   }
 }

@@ -2,11 +2,14 @@ import CONSTANTS from '../../constants/constants.json';
 import AuthenticationContext from '../../context/AuthenticationContext';
 import CustomInput from '../common/CustomInput';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const { LOGIN, LOGIN_HEADER } = CONSTANTS;
 
 const Login = () => {
+  const navigate = useNavigate();
   const [, setAuthenticationContext] = useContext(AuthenticationContext);
+
   return (
     <>
       <div className="flex bg-white flex-row h-screen w-screen">
@@ -20,12 +23,13 @@ const Login = () => {
           </div>
           <div>
             <button
-              className="mb-4 bg-orange-600 text-white	font-bold rounded-3xl w-48 padding-lg hover:bg-orange-700 pt-3 pb-3"
+              className="mb-4 bg-primary text-white	font-bold rounded-3xl w-48 padding-lg hover:bg-secondary pt-3 pb-3"
               onClick={() => {
                 localStorage.setItem('authToken', '123');
                 setAuthenticationContext({
                   authToken: '123',
                 });
+                navigate('/');
               }}
             >
               {LOGIN}
@@ -43,7 +47,7 @@ const Login = () => {
               <p className="text-white text-xl m-8">
                 Effortless Commutes: Sign Up Now for Hassle-Free Office Cab Booking!
               </p>
-              <button className="mb-4 bg-white font-bold rounded-3xl w-48 padding-lg hover:bg-orange-700 hover:text-white pt-3 pb-3">
+              <button className="mb-4 bg-white font-bold rounded-3xl w-48 padding-lg hover:bg-secondary hover:text-white pt-3 pb-3">
                 Sign Up
               </button>
             </div>
