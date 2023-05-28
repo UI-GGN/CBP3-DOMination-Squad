@@ -1,5 +1,6 @@
 import AuthenticationContext from '../../context/AuthenticationContext';
 import Dashboard from '../Admin/Dashboard';
+import EmployeeDashboard from '../Employee/Dashboard/EmployeeDashboard.jsx';
 import Home from '../Home/Home';
 import Login from '../Login/Login';
 import { useContext } from 'react';
@@ -12,6 +13,7 @@ const CustomRouter = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/admin/dashboard" element={<Dashboard />} />
+        <Route path="/employee/dashboard" element={<EmployeeDashboard />} />
       </Routes>
     </Router>
   );

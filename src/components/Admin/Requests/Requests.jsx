@@ -18,13 +18,14 @@ const data = [
   },
 ];
 
-const Requests = () => {
+const Requests = (type) => {
   return (
     <Container>
       <CardContainer>
         {data.map((request) => {
           return (
             <RequestStatusCard
+              user={type}
               key={request.id}
               name={request.name}
               date={request.date}
