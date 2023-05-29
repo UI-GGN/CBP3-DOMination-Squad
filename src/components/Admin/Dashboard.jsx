@@ -7,7 +7,7 @@ const data = [
     id: 1,
     tabValue: '1',
     tabTitle: 'Requests',
-    tabContent: <Requests />,
+    tabContent: <Requests type={'admin'} />,
   },
   {
     id: 2,
