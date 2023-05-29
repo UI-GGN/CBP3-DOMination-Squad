@@ -21,7 +21,7 @@ const data = [
 const EmployeeDashboard = () => {
   return (
     <div className="flex flex-col h-screen">
-      <Header />
+      <Header headerTitle="Dashboard" />
       <CustomTabs data={data} />
     </div>
   );

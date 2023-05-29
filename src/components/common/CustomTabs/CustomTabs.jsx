@@ -3,7 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 
 const CustomTabs = ({ data, onTriggerValueChange }) => {
   return (
-    <Tabs.Root className="TabsRoot" defaultValue="tab1" onValueChange={onTriggerValueChange}>
+    <Tabs.Root className="TabsRoot" defaultValue={data[0].tabValue} onValueChange={onTriggerValueChange}>
       <Tabs.List className="TabsList" aria-label="Manage your account">
         {data.map((tabItem) => {
           return (

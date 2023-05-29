@@ -5,6 +5,8 @@ export const Content = styled.div`
 `;
 
 export const Container = styled.div`
+  padding: 16px 20px;
+
   flex-shrink: 0;
   width: 325px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

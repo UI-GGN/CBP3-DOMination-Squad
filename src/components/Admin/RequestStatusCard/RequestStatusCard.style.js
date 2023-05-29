@@ -1,4 +1,13 @@
+import Card from '../../common/Card';
 import styled from 'styled-components';
+
+export const CardDetailsContainer = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const CardActionsContainer = styled.div``;
 
 export const HeaderContainer = styled.div`
   display: flex;
