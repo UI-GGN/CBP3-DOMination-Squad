@@ -1,23 +1,5 @@
-import RequestStatusCard from '../../Admin/RequestStatusCard/index.js';
 import Card from '../../common/Card';
 import { HeaderContainer, HeaderText, Button } from './CabRequestDetails.style';
-
-const data = [
-  {
-    id: 1,
-    name: 'Shivansh',
-    date: '29-05-2023',
-    pickup: 'Guru Dronacharya Metro Station',
-    time: '10:00 AM',
-  },
-  {
-    id: 2,
-    name: 'Ayush',
-    date: '29-05-2023',
-    pickup: 'Sector-56 Metro Station',
-    time: '10:30 AM',
-  },
-];
 
 const CabRequestDetails = ({ name, date, pickup, time }) => {
   return (
@@ -49,6 +31,5 @@ const CabRequestDetails = ({ name, date, pickup, time }) => {
     </Card>
   );
 };
-
 
 export default CabRequestDetails;

@@ -6,7 +6,7 @@ export const Content = styled.div`
 
 export const Container = styled.div`
   flex-shrink: 0;
-  width: 300px;
+  width: 325px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin: 20px;

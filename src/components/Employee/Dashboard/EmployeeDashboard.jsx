@@ -14,7 +14,7 @@ const data = [
     id: 2,
     tabValue: '2',
     tabTitle: 'Requested Cabs',
-    tabContent: <Requests type="employee"/>,
+    tabContent: <Requests type="employee" />,
   },
 ];
 

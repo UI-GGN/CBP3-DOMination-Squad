@@ -7,6 +7,13 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
+export const DetailsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+`;
+
 export const HeaderText = styled.text`
   font-size: 14px;
   line-height: 20px;

@@ -62,7 +62,6 @@ const RequestStatusCard = ({ user, name, date, pickup, time }) => {
       </Card>
     );
   }
-
 };
 
 export default RequestStatusCard;

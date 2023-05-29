@@ -2,7 +2,7 @@ import Logo from '../../../assets/taxi.png';
 import { Container, Title, Button } from './Header.style';
 import { useNavigate } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ headerTitle }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ const Header = () => {
       </div>
 
       <div className="flex flex-row justify-between items-center">
-        <Title>Dashboard</Title>
+        <Title>{headerTitle}</Title>
         <Button
           onClick={() => {
             navigate('/login');

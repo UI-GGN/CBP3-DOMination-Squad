@@ -1,9 +1,9 @@
 import './CustomTabs.css';
 import * as Tabs from '@radix-ui/react-tabs';
 
-const CustomTabs = ({ data }) => {
+const CustomTabs = ({ data, onTriggerValueChange }) => {
   return (
-    <Tabs.Root className="TabsRoot" defaultValue="tab1">
+    <Tabs.Root className="TabsRoot" defaultValue="tab1" onValueChange={onTriggerValueChange}>
       <Tabs.List className="TabsList" aria-label="Manage your account">
         {data.map((tabItem) => {
           return (
