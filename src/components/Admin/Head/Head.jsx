@@ -10,9 +10,13 @@ import {
   NavHeaderTitle,
   NavBar,
   NavBarOption,
+  LogoutButton,
 } from './Head.style';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ selected, onPress }) => {
+  const navigate = useNavigate();
+
   return (
     <Container>
       <NavigationContainer>
@@ -47,6 +51,14 @@ const Header = ({ selected, onPress }) => {
           </NavBarOption>
         </NavBar>
       </NavigationContainer>
+      <LogoutButton
+        isSelected={selected === 'Home'}
+        onClick={() => {
+          navigate('/login');
+        }}
+      >
+        Log out
+      </LogoutButton>
     </Container>
   );
 };

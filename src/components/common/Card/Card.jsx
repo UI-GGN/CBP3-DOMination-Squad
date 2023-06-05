@@ -1,8 +1,8 @@
 import { Container } from './Card.style';
 
-const Card = ({ children, className, color }) => {
+const Card = ({ children, className, color, width }) => {
   return (
-    <Container className={className} color={color}>
+    <Container className={className} color={color} width={width}>
       {children}
     </Container>
   );

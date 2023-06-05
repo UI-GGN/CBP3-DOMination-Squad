@@ -7,8 +7,6 @@ export const CardDetailsContainer = styled(Card)`
   justify-content: space-between;
 `;
 
-export const CardActionsContainer = styled.div``;
-
 export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;

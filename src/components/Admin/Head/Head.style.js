@@ -4,7 +4,18 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  height: 100vh;
   width: 20%;
+  background-color: ${dark};
+  justify-content: space-between;
+  padding-bottom: 8px;
+`;
+
+export const NavigationContainer = styled.div`
+  background-color: ${dark};
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const AccessContainer = styled.div`
@@ -34,13 +45,6 @@ export const ImageContainer = styled.div`
   width: 40px;
   border: 3px solid ${primary};
   border-radius: 20px;
-`;
-
-export const NavigationContainer = styled.div`
-  background-color: ${dark};
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const NavigationHeader = styled.div`
@@ -77,7 +81,6 @@ export const LogoutButton = styled.button`
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 4px 12px;
   margin: 16px;
-  align-self: end;
   color: black;
   &:hover {
     background-color: #b23b3b;
