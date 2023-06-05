@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 18%;
+  width: 20%;
 `;
 
 export const AccessContainer = styled.div`
@@ -50,6 +50,7 @@ export const NavigationHeader = styled.div`
 
 export const NavHeaderTitle = styled.h1`
   font-size: 20px;
+  letter-spacing: 3px;
   margin: 12px;
   color: white;
 `;

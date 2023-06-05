@@ -16,8 +16,9 @@ export const AccessContainer = styled.div`
 
 export const Title = styled.h1`
   font-size: 38px;
-  margin: 16px;
+  margin: 16px 24px;
   color: ${dark};
+  letter-spacing: 3px;
 `;
 
 export const HorizontalLine = styled.div`

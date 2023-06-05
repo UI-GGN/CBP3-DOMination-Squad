@@ -21,26 +21,26 @@ const Header = ({ selected, onPress }) => {
         </AccessContainer>
         <ProfileContainer>
           <ImageContainer>
-            <img src={user} style={{ maxWidth: '75%' }} />
+            <img src={user} style={{ maxWidth: '60%' }} />
           </ImageContainer>
           <NavHeaderTitle>Profile</NavHeaderTitle>
         </ProfileContainer>
         <NavigationHeader>
-          <NavHeaderTitle>Main Navigation</NavHeaderTitle>
+          <NavHeaderTitle>MAIN NAVIGATION</NavHeaderTitle>
         </NavigationHeader>
         <NavBar>
           <NavBarOption
-            isSelected={selected === 'Requests'}
+            isSelected={selected === 'REQUESTS'}
             onClick={() => {
-              onPress('Requests');
+              onPress('REQUESTS');
             }}
           >
             Requests
           </NavBarOption>
           <NavBarOption
-            isSelected={selected === 'Routes'}
+            isSelected={selected === 'ROUTES'}
             onClick={() => {
-              onPress('Routes');
+              onPress('ROUTES');
             }}
           >
             Routes
