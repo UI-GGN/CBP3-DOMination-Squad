@@ -23,14 +23,13 @@ export const DetailsContainer = styled.div`
   margin-bottom: 20px;
 `;
 
-export const HeaderText = styled.text`
+export const HeaderText = styled.h1`
   font-size: 14px;
   line-height: 20px;
   color: rgb(107 114 128);
 `;
 
 export const Button = styled.button`
-  margin-top: 20px;
   background-color: white;
   font-weight: 600;
   font-size: 16px;

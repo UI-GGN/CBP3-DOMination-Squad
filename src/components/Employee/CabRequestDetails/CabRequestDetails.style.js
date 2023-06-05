@@ -7,7 +7,7 @@ export const HeaderContainer = styled.div`
   justify-content: space-between;
 `;
 
-export const HeaderText = styled.text`
+export const HeaderText = styled.h1`
   font-size: 14px;
   line-height: 20px;
   color: rgb(107 114 128);

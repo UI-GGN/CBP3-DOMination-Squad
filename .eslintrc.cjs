@@ -5,28 +5,34 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
-    'prettier'
+    'prettier',
   ],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh',"react", "import", "unused-imports", "sequence", "prettier"],
+  plugins: ['react-refresh', 'react', 'import', 'unused-imports', 'sequence', 'prettier'],
   rules: {
     'react-refresh/only-export-components': 'warn',
-    "react/prop-types": 0,
-    "indent": ["error", 2],
-    "linebreak-style": 1,
-    "react/react-in-jsx-scope": "off",
-    "unused-imports/no-unused-imports": "warn",
-    "prettier/prettier": "error",
-    "sequence/ordered-imports-by-path": [
-      "error", {
-        "ignoreCase": true,
-        "sortSideEffectsFirst": true,
-        "allowSeparateGroups": true,
-        "sortTypeImportsFirst": true
-      }
-    ]
-  }
-}
-
-
+    'react/prop-types': 0,
+    indent: [
+      'error',
+      2,
+      {
+        SwitchCase: 1,
+        ignoredNodes: ['ConditionalExpression'],
+      },
+    ],
+    'linebreak-style': 1,
+    'react/react-in-jsx-scope': 'off',
+    'unused-imports/no-unused-imports': 'warn',
+    'prettier/prettier': 'error',
+    'sequence/ordered-imports-by-path': [
+      'error',
+      {
+        ignoreCase: true,
+        sortSideEffectsFirst: true,
+        allowSeparateGroups: true,
+        sortTypeImportsFirst: true,
+      },
+    ],
+  },
+};

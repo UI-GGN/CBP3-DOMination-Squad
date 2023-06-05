@@ -14,7 +14,7 @@ export const Container = styled.div`
   height: 50px;
 `;
 
-export const Title = styled.text`
+export const Title = styled.h1`
   margin: 2px 10px;
   font-size: 3.75rem;
   color: #17252a;
