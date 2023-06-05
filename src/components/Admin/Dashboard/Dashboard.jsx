@@ -28,7 +28,7 @@ const Dashboard = () => {
     <Container>
       <Head selected={selected} onPress={handleRoutes} />
       <Details>
-        <AdminTab selected={selected} onPress={handleRoutes} />
+        <AdminTab selected={selected} />
         {getComponent(selected)}
       </Details>
     </Container>

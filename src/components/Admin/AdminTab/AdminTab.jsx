@@ -1,36 +1,22 @@
-import { Container, Title, NavBar, NavBarOption, HorizontalLine } from './AdminTab.style';
+import { Container, AccessContainer, Title, LogoutButton } from './AdminTab.style';
+import { useNavigate } from 'react-router-dom';
 
-const AdminTab = ({ selected, onPress }) => {
+const AdminTab = ({ selected }) => {
+  const navigate = useNavigate();
+
   return (
     <Container>
-      <Title>{selected}</Title>
-      <NavBar>
-        <NavBarOption
-          isSelected={selected === 'Requests'}
+      <AccessContainer>
+        <Title>{selected}</Title>
+        <LogoutButton
+          isSelected={selected === 'Home'}
           onClick={() => {
-            onPress('Requests');
+            navigate('/login');
           }}
         >
-          Requests
-        </NavBarOption>
-        <NavBarOption
-          isSelected={selected === 'Routes'}
-          onClick={() => {
-            onPress('Routes');
-          }}
-        >
-          Routes
-        </NavBarOption>
-        <NavBarOption
-          isSelected={selected === 'Profile'}
-          onClick={() => {
-            onPress('Profile');
-          }}
-        >
-          Profile
-        </NavBarOption>
-      </NavBar>
-      <HorizontalLine />
+          Log out
+        </LogoutButton>
+      </AccessContainer>
     </Container>
   );
 };
