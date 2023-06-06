@@ -11,3 +11,8 @@ export const Details = styled.div`
   flex-direction: column;
   width: 100%;
 `;
+
+export const Content = styled.div`
+  overflow: auto;
+  max-height: 90vh;
+`;

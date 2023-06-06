@@ -2,7 +2,7 @@ import AdminTab from '../AdminTab';
 import Head from '../Head/Head';
 import Requests from '../Requests';
 import Routes from '../Routes/Routes';
-import { Container, Details } from './Dashboard.style';
+import { Container, Details, Content } from './Dashboard.style';
 import { useState } from 'react';
 
 const Dashboard = () => {
@@ -28,7 +28,7 @@ const Dashboard = () => {
       <Head selected={selected} onPress={handleRoutes} />
       <Details>
         <AdminTab selected={selected} />
-        {getComponent(selected)}
+        <Content>{getComponent(selected)}</Content>
       </Details>
     </Container>
   );
