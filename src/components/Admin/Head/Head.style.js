@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: 20%;
   background-color: ${dark};
   justify-content: space-between;
@@ -13,17 +13,22 @@ export const Container = styled.div`
 
 export const NavigationContainer = styled.div`
   background-color: ${dark};
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 export const AccessContainer = styled.div`
-  background-color: #006466;
+  background-color: #058282;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 10vh;
+`;
+
+export const HorizontalLine = styled.div`
+  height: 0.5px;
+  background-color: ${secondary};
 `;
 
 export const AccessTitle = styled.h1`
@@ -33,7 +38,7 @@ export const AccessTitle = styled.h1`
 export const ProfileContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  margin: 8px 12px;
   align-items: center;
 `;
 
@@ -65,7 +70,7 @@ export const NavBar = styled.div`
 `;
 
 export const NavBarOption = styled.button`
-  font-size: 16px;
+  font-size: 20px;
   padding: 16px 8px;
   border-left: ${(props) => (props.isSelected ? `5px solid ${primary}` : '')};
   background-color: ${(props) => (props.isSelected ? secondary : '')};
@@ -77,10 +82,10 @@ export const NavBarOption = styled.button`
 
 export const LogoutButton = styled.button`
   background-color: ${secondary};
-  font-size: 16px;
+  font-size: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  padding: 4px 12px;
-  margin: 16px;
+  padding: 6px;
+  margin: 16px 0px;
   color: black;
   &:hover {
     background-color: #b23b3b;

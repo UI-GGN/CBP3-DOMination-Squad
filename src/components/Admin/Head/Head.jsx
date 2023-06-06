@@ -6,7 +6,7 @@ import {
   AccessContainer,
   AccessTitle,
   NavigationContainer,
-  NavigationHeader,
+  HorizontalLine,
   NavHeaderTitle,
   NavBar,
   NavBarOption,
@@ -23,15 +23,14 @@ const Header = ({ selected, onPress }) => {
         <AccessContainer>
           <AccessTitle>Admin Access</AccessTitle>
         </AccessContainer>
+        <HorizontalLine />
         <ProfileContainer>
           <ImageContainer>
             <img src={user} style={{ maxWidth: '60%' }} />
           </ImageContainer>
-          <NavHeaderTitle>Profile</NavHeaderTitle>
+          <NavHeaderTitle>Hi Vinod!</NavHeaderTitle>
         </ProfileContainer>
-        <NavigationHeader>
-          <NavHeaderTitle>MAIN NAVIGATION</NavHeaderTitle>
-        </NavigationHeader>
+        <HorizontalLine />
         <NavBar>
           <NavBarOption
             isSelected={selected === 'REQUESTS'}
@@ -41,6 +40,7 @@ const Header = ({ selected, onPress }) => {
           >
             Requests
           </NavBarOption>
+          <HorizontalLine />
           <NavBarOption
             isSelected={selected === 'ROUTES'}
             onClick={() => {
@@ -49,6 +49,7 @@ const Header = ({ selected, onPress }) => {
           >
             Routes
           </NavBarOption>
+          <HorizontalLine />
         </NavBar>
       </NavigationContainer>
       <LogoutButton
