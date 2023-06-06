@@ -1,6 +1,7 @@
 import AdminTab from '../AdminTab';
 import Head from '../Head/Head';
 import Requests from '../Requests';
+import Routes from '../Routes/Routes';
 import { Container, Details } from './Dashboard.style';
 import { useState } from 'react';
 
@@ -16,7 +17,7 @@ const Dashboard = () => {
       case 'REQUESTS':
         return <Requests type={'admin'} />;
       case 'ROUTES':
-        return <h1>Routes</h1>;
+        return <Routes />;
       default:
         return <Requests type={'admin'} />;
     }
