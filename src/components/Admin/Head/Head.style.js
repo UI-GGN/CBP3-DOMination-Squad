@@ -33,6 +33,7 @@ export const HorizontalLine = styled.div`
 
 export const AccessTitle = styled.h1`
   font-size: 30px;
+  color: white;
 `;
 
 export const ProfileContainer = styled.div`

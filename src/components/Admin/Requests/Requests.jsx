@@ -21,15 +21,15 @@ const Requests = (type) => {
   const formatDate = (input) => {
     const date = new Date(input);
     var day = date.getDate();
-    var month = date.getMonth();
+    var month = date.getMonth() + 1;
     var year = date.getFullYear();
     return day + '-' + month + '-' + year;
   };
 
   const formatTime = (input) => {
     const date = new Date(input);
-    var hours = date.getHours();
-    var minutes = date.getMinutes();
+    var hours = date.getUTCHours();
+    var minutes = date.getUTCMinutes();
     const ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12;

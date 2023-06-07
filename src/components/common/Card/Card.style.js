@@ -5,6 +5,7 @@ export const Content = styled.div`
 `;
 
 export const Container = styled.div`
+  border-radius: 20px;
   padding: 16px 20px;
   background-color: ${(props) => (props.color ? props.color : 'white')};
   flex-shrink: 0;

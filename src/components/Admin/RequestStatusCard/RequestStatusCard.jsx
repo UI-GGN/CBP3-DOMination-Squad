@@ -1,17 +1,24 @@
-import { CardDetailsContainer, DetailsContainer, HeaderContainer, HeaderText, Button } from './RequestStatusCard.style';
+import {
+  CardDetailsContainer,
+  DetailsContainer,
+  HeaderContainer,
+  HeaderText,
+  Button,
+  HorizontalLine,
+} from './RequestStatusCard.style';
 
-const RequestStatusCard = ({ user, name, employeeID, date, time, pickup, drop }) => {
+const RequestStatusCard = ({ user, name, date, time, pickup, drop }) => {
   if (user.type === 'admin') {
     return (
       <CardDetailsContainer>
         <HeaderContainer>
           <HeaderText>Name</HeaderText>
-          <HeaderText>Employee ID</HeaderText>
         </HeaderContainer>
         <DetailsContainer>
           <div className="text-base font-bold">{name}</div>
-          <div className="text-base ">{employeeID}</div>
         </DetailsContainer>
+        <HorizontalLine />
+
         <HeaderContainer>
           <HeaderText>Date </HeaderText>
           <HeaderText>Time</HeaderText>
@@ -20,6 +27,8 @@ const RequestStatusCard = ({ user, name, employeeID, date, time, pickup, drop })
           <div className="text-base w-2/3">{date}</div>
           <div className="text-base ">{time}</div>
         </DetailsContainer>
+        <HorizontalLine />
+
         <HeaderContainer>
           <HeaderText>Pickup</HeaderText>
           <HeaderText>Drop</HeaderText>
@@ -29,6 +38,7 @@ const RequestStatusCard = ({ user, name, employeeID, date, time, pickup, drop })
           <div className="text-base text-right">{drop}</div>
         </DetailsContainer>
 
+        <HorizontalLine />
         <HeaderContainer>
           <Button color="#3aafa9">Assign Route</Button>
           <Button color="#d22b2b" marginTop="4px">
