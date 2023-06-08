@@ -38,7 +38,7 @@ const RequestStatusCard = ({ user, name, employeeID, date, time, pickup, drop })
         </HeaderContainer>
         <DetailsContainer>
           <HighlightedText className="w-2/4">{pickup}</HighlightedText>
-          <div className="text-base text-right w-1/4">{drop}</div>
+          <div className="text-base text-right">{drop}</div>
         </DetailsContainer>
 
         <HorizontalLine />

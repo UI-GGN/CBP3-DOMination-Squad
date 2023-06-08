@@ -38,7 +38,7 @@ export const Button = styled.button`
   margin-top: 4px;
   color: ${(props) => (props?.color ? props.color : '#17252a')};
   &:hover {
-    font-family: 'roboto-medium';
+    font-weight: 700;
   }
 `;
 
