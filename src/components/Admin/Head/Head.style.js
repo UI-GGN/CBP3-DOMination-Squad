@@ -19,7 +19,7 @@ export const NavigationContainer = styled.div`
 `;
 
 export const AccessContainer = styled.div`
-  background-color: #058282;
+  background-color: #008080;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,7 +33,8 @@ export const HorizontalLine = styled.div`
 
 export const AccessTitle = styled.h1`
   font-size: 30px;
-  color: white;
+  color: ${secondary};
+  font-family: 'roboto-regular';
 `;
 
 export const ProfileContainer = styled.div`

@@ -3,11 +3,12 @@ import {
   DetailsContainer,
   HeaderContainer,
   HeaderText,
+  HighlightedText,
   Button,
   HorizontalLine,
 } from './RequestStatusCard.style';
 
-const RequestStatusCard = ({ user, name, date, time, pickup, drop }) => {
+const RequestStatusCard = ({ user, name, employeeID, date, time, pickup, drop }) => {
   if (user.type === 'admin') {
     return (
       <CardDetailsContainer>
@@ -15,7 +16,9 @@ const RequestStatusCard = ({ user, name, date, time, pickup, drop }) => {
           <HeaderText>Name</HeaderText>
         </HeaderContainer>
         <DetailsContainer>
-          <div className="text-base font-bold">{name}</div>
+          <div className="text-base ">
+            {name} ({employeeID})
+          </div>
         </DetailsContainer>
         <HorizontalLine />
 
@@ -25,17 +28,17 @@ const RequestStatusCard = ({ user, name, date, time, pickup, drop }) => {
         </HeaderContainer>
         <DetailsContainer>
           <div className="text-base w-2/3">{date}</div>
-          <div className="text-base ">{time}</div>
+          <HighlightedText>{time}</HighlightedText>
         </DetailsContainer>
         <HorizontalLine />
 
         <HeaderContainer>
-          <HeaderText>Pickup</HeaderText>
-          <HeaderText>Drop</HeaderText>
+          <HeaderText>Start Point</HeaderText>
+          <HeaderText>End Point</HeaderText>
         </HeaderContainer>
         <DetailsContainer>
-          <div className="text-base font-bold text-left">{pickup}</div>
-          <div className="text-base text-right">{drop}</div>
+          <HighlightedText className="w-2/4">{pickup}</HighlightedText>
+          <div className="text-base text-right w-1/4">{drop}</div>
         </DetailsContainer>
 
         <HorizontalLine />

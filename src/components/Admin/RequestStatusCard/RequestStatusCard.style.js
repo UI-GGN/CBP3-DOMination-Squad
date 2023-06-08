@@ -26,6 +26,10 @@ export const HeaderText = styled.h1`
   color: rgb(156, 163, 175);
 `;
 
+export const HighlightedText = styled.h1`
+  font-weight: 700;
+`;
+
 export const Button = styled.button`
   background-color: white;
   font-weight: 600;
@@ -34,7 +38,7 @@ export const Button = styled.button`
   margin-top: 4px;
   color: ${(props) => (props?.color ? props.color : '#17252a')};
   &:hover {
-    font-weight: 700;
+    font-family: 'roboto-medium';
   }
 `;
 

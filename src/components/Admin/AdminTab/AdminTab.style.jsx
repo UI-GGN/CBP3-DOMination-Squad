@@ -14,4 +14,5 @@ export const Title = styled.h1`
   margin: 16px 24px;
   color: ${dark};
   letter-spacing: 3px;
+  font-family: 'roboto-regular';
 `;
