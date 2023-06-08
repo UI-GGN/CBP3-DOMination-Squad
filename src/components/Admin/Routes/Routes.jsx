@@ -199,7 +199,7 @@ const Routes = () => {
                       </div>
                     </div>
                     <div style={{ flex: '2', display: 'flex', justifyContent: 'flex-end' }}>
-                      <img src="../../../../public/delete_icon.png" style={{ width: '50px', height: '50px' }}></img>
+                      <img src="../../../../delete_icon.png" style={{ width: '50px', height: '50px' }}></img>
                     </div>
                   </CardTop>
                 </CardSegment>
