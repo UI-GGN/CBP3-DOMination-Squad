@@ -3,10 +3,17 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   background-color: ${primary};
-  justify-content: center;
-  height: 10vh;
+  align-items: center;
+  height: 8vh;
+`;
+
+export const HamburgerIcon = styled.img`
+  height: 60%;
+  width: 45px;
+  margin-left: 8px;
+  cursor: pointer;
 `;
 
 export const Title = styled.h1`

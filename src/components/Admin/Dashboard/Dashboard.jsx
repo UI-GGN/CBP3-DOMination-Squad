@@ -7,9 +7,14 @@ import { useState } from 'react';
 
 const Dashboard = () => {
   const [selected, setSelected] = useState('REQUESTS');
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
   const handleRoutes = (input) => {
     setSelected(input);
+  };
+
+  const handleHeaderVisibility = () => {
+    setIsHeaderVisible(!isHeaderVisible);
   };
 
   const getComponent = (input) => {
@@ -25,9 +30,9 @@ const Dashboard = () => {
 
   return (
     <Container>
-      <Head selected={selected} onPress={handleRoutes} />
+      {isHeaderVisible && <Head selected={selected} onPress={handleRoutes} />}
       <Details>
-        <AdminTab selected={selected} />
+        <AdminTab selected={selected} onIconPress={handleHeaderVisibility} />
         <Content>{getComponent(selected)}</Content>
       </Details>
     </Container>

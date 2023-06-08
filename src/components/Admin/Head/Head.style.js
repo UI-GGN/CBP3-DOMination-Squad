@@ -23,7 +23,7 @@ export const AccessContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+  height: 8vh;
 `;
 
 export const HorizontalLine = styled.div`
