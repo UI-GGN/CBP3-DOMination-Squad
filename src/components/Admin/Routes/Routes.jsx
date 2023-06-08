@@ -211,7 +211,7 @@ const Routes = () => {
                   <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
                     <div style={{ flex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       <div>
-                        <img src="../../../../public/circle_icon.png" className="my-1 w-3 h-3"></img>
+                        <img src="../../../../circle_icon.png" className="my-1 w-3 h-3"></img>
                       </div>
                     </div>
                     <div style={{ flex: 6, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -219,7 +219,7 @@ const Routes = () => {
                     </div>
                     <div style={{ flex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                       <div>
-                        <img src="../../../../public/destination_icon.png" className="my-1 w-3 h-3"></img>
+                        <img src="../../../../destination_icon.png" className="my-1 w-3 h-3"></img>
                       </div>
                     </div>
                   </div>
@@ -260,7 +260,7 @@ const Routes = () => {
                       >
                         <div style={{ flex: 1, marginRight: '4px' }}>
                           <img
-                            src="../../../../public/driver_icon.png"
+                            src="../../../../driver_icon.png"
                             style={{ objectFit: 'contain', maxHeight: '100%', width: 'auto' }}
                           ></img>
                         </div>
@@ -278,7 +278,7 @@ const Routes = () => {
                           alignItems: 'center',
                         }}
                       >
-                        <img src="../../../../public/phone_icon.png" style={{ width: '25px', height: '25px' }}></img>
+                        <img src="../../../../phone_icon.png" style={{ width: '25px', height: '25px' }}></img>
                       </div>
                     </div>
                   </div>
