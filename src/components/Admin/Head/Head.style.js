@@ -73,6 +73,7 @@ export const NavBar = styled.div`
 
 export const NavBarOption = styled.button`
   font-size: 20px;
+  font-family: 'roboto-regular';
   padding: 16px 8px;
   border-left: ${(props) => (props.isSelected ? `5px solid ${primary}` : '')};
   background-color: ${(props) => (props.isSelected ? secondary : '')};
