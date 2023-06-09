@@ -45,6 +45,6 @@ export const Button = styled.button`
 export const HorizontalLine = styled.div`
   height: 0.5px;
   background-color: rgb(229, 231, 235);
-  margin-top: 12px;
-  margin-bottom: 12px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 `;

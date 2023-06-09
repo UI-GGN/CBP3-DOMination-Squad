@@ -22,6 +22,7 @@ const Requests = (type) => {
     const date = new Date(input);
     var day = date.getDate();
     var month = date.getMonth() + 1;
+    month = month < 10 ? '0' + month : month;
     var year = date.getFullYear();
     return day + '-' + month + '-' + year;
   };
