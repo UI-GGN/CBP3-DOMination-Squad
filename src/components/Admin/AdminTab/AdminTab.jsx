@@ -1,10 +1,10 @@
 import hamburger from '../../../assets/menu.png';
 import { Container, HamburgerIcon, Title } from './AdminTab.style';
 
-const AdminTab = ({ selected, onIconPress }) => {
+const AdminTab = ({ selected, onIconPress, isHeaderVisible }) => {
   return (
     <Container>
-      <HamburgerIcon src={hamburger} onClick={() => onIconPress()} />
+      {!isHeaderVisible && <HamburgerIcon src={hamburger} onClick={() => onIconPress()} />}
       <Title>{selected}</Title>
     </Container>
   );

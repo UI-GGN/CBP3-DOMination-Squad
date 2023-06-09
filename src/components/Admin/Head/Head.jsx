@@ -1,3 +1,4 @@
+import close from '../../../assets/close.png';
 import user from '../../../assets/user.png';
 import {
   Container,
@@ -14,13 +15,18 @@ import {
 } from './Head.style';
 import { useNavigate } from 'react-router-dom';
 
-const Header = ({ selected, onPress }) => {
+const Header = ({ selected, onPress, onHeaderClose }) => {
   const navigate = useNavigate();
 
   return (
     <Container>
       <NavigationContainer>
         <AccessContainer>
+          <img
+            src={close}
+            style={{ height: 18, alignSelf: 'end', cursor: 'pointer' }}
+            onClick={() => onHeaderClose()}
+          />
           <AccessTitle>Admin Access</AccessTitle>
         </AccessContainer>
         <HorizontalLine />

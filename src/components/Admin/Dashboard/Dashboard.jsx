@@ -30,9 +30,9 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {isHeaderVisible && <Head selected={selected} onPress={handleRoutes} />}
+      {isHeaderVisible && <Head selected={selected} onPress={handleRoutes} onHeaderClose={handleHeaderVisibility} />}
       <Details>
-        <AdminTab selected={selected} onIconPress={handleHeaderVisibility} />
+        <AdminTab selected={selected} onIconPress={handleHeaderVisibility} isHeaderVisible={isHeaderVisible} />
         <Content>{getComponent(selected)}</Content>
       </Details>
     </Container>

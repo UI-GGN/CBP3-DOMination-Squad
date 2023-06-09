@@ -21,8 +21,10 @@ export const NavigationContainer = styled.div`
 export const AccessContainer = styled.div`
   background-color: #008080;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 12px;
   height: 8vh;
 `;
 
