@@ -20,10 +20,42 @@ export const DetailsContainer = styled.div`
   justify-content: space-between;
 `;
 
+export const LocationSegment = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin: 1px;
+`;
+
+export const LocationPathIconSegment = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  align-items: center;
+`;
+
+export const LocationPathIcon = styled.div`
+  display: flex;
+  height: 20%;
+  align-items: center;
+`;
+
+export const LocationDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: space-between;
+`;
+
 export const HeaderText = styled.h1`
   font-size: 14px;
   line-height: 20px;
   color: rgb(156, 163, 175);
+`;
+
+export const DetailsText = styled.h1`
+  font-size: 16px;
+  line-height: 24px;
 `;
 
 export const HighlightedText = styled.h1`
@@ -47,4 +79,10 @@ export const HorizontalLine = styled.div`
   background-color: rgb(229, 231, 235);
   margin-top: 14px;
   margin-bottom: 14px;
+`;
+
+export const VerticalLine = styled.div`
+  height: 60%;
+  border-style: dotted;
+  border-left-width: 5px;
 `;
