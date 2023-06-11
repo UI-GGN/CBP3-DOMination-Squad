@@ -2,7 +2,6 @@ import Header from '../../Admin/Header/index.js';
 import Requests from '../../Admin/Requests/index.js';
 import CustomTabs from '../../common/CustomTabs/index.js';
 import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox.jsx';
-import { useNavigate } from 'react-router-dom';
 
 const data = [
   {
@@ -20,9 +19,6 @@ const data = [
 ];
 
 const EmployeeDashboard = () => {
-  const navigate = useNavigate();
-
-
   return (
     <div className="flex flex-col h-screen">
       <Header headerTitle="Dashboard" />
