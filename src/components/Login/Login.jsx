@@ -1,14 +1,28 @@
 import CONSTANTS from '../../constants/constants.json';
 import AuthenticationContext from '../../context/AuthenticationContext';
 import CustomInput from '../common/CustomInput';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import InputLabel from '@mui/material/InputLabel';
+import FormHelperText from "@mui/material/FormHelperText";
 
 const { LOGIN, LOGIN_HEADER } = CONSTANTS;
+
+
 
 const Login = () => {
   const navigate = useNavigate();
   const [, setAuthenticationContext] = useContext(AuthenticationContext);
+
+  const[userType,setUserType] = useState(null);
+  const[hasError,setHasError] = useState(false);
+
+  const handleChange = (event) => {
+  setUserType(event.target.value);
+};
 
   return (
     <>
@@ -21,7 +35,26 @@ const Login = () => {
           <div className="relative w-4/12 mb-16">
             <CustomInput label="Password" />
           </div>
-          <div>
+           
+         <FormControl  className="relative w-4/12 mb-16" error={hasError} >
+        <InputLabel id="demo-simple-select-label">Select User Type</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          
+          id="demo-simple-select"
+          className="bg-gray-100"
+          value={userType}
+          label="Select User Type"
+          style={{borderRadius: '100px'}}
+           onChange={handleChange}
+        >
+          <MenuItem value="Admin">Admin</MenuItem>
+          <MenuItem value="Employee">Employee</MenuItem>
+        </Select>
+        {hasError && <FormHelperText>This is required!</FormHelperText>}
+        </FormControl>
+        
+          <div style={{paddingTop:"60px"}}>
             <button
               className="mb-4 bg-primary text-white	font-bold rounded-3xl w-48 padding-lg hover:bg-secondary pt-3 pb-3"
               onClick={() => {
@@ -29,7 +62,9 @@ const Login = () => {
                 setAuthenticationContext({
                   authToken: '123',
                 });
-                navigate('/');
+                if(!userType) setHasError(true);
+                else if(userType=="Admin")navigate('/admin/dashboard')
+                else if(userType=="Employee")navigate('/employee/dashboard');               
               }}
             >
               {LOGIN}

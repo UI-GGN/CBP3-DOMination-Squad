@@ -22,13 +22,10 @@ const data = [
 const EmployeeDashboard = () => {
   const navigate = useNavigate();
 
-  const handleOnClick = () => {
-    navigate('/');
-  };
 
   return (
     <div className="flex flex-col h-screen">
-      <Header headerTitle="Dashboard" onPress={handleOnClick} />
+      <Header headerTitle="Dashboard" />
       <CustomTabs data={data} />
     </div>
   );
