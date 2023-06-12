@@ -1,36 +1,35 @@
-import Header from '../../Admin/Header/index.js';
-import Requests from '../../Admin/Requests/index.js';
-import CustomTabs from '../../common/CustomTabs/index.js';
+import CabRequestDetails from '../CabRequestDetails/CabRequestDetails.jsx';
 import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox.jsx';
-import { useNavigate } from 'react-router-dom';
+import { Container, CabRequests, ScheduleCab } from './EmployeeDashboard.style.js';
 
-const data = [
-  {
-    id: 1,
-    tabValue: '1',
-    tabTitle: 'New Cab Request',
-    tabContent: <ScheduleCabDialogBox />,
-  },
-  {
-    id: 2,
-    tabValue: '2',
-    tabTitle: 'Requested Cabs',
-    tabContent: <Requests type="employee" />,
-  },
-];
+// const data = [
+//   {
+//     id: 1,
+//     tabValue: '1',
+//     tabTitle: 'New Cab Request',
+//     tabContent: <ScheduleCabDialogBox />,
+//   },
+//   {
+//     id: 2,
+//     tabValue: '2',
+//     tabTitle: 'Requested Cabs',
+//     tabContent: <Requests type="employee" />,
+//   },
+// ];
 
 const EmployeeDashboard = () => {
-  const navigate = useNavigate();
-
-  const handleOnClick = () => {
-    navigate('/');
-  };
-
   return (
-    <div className="flex flex-col h-screen">
-      <Header headerTitle="Dashboard" onPress={handleOnClick} />
-      <CustomTabs data={data} />
-    </div>
+    <main className="flex flex-col h-screen">
+      <Container>
+        <ScheduleCab>
+          <ScheduleCabDialogBox />
+        </ScheduleCab>
+        <CabRequests>
+          <header className="heading">Your Scheduled Cabs</header>
+          <CabRequestDetails />
+        </CabRequests>
+      </Container>
+    </main>
   );
 };
 

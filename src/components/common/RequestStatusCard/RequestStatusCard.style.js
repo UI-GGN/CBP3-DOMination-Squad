@@ -1,4 +1,4 @@
-import Card from '../../common/Card';
+import Card from '../Card/index.js';
 import styled from 'styled-components';
 
 export const CardDetailsContainer = styled(Card)`
@@ -60,6 +60,7 @@ export const DetailsText = styled.h1`
 
 export const HighlightedText = styled.h1`
   font-weight: 700;
+  line-height: 24px;
 `;
 
 export const Button = styled.button`

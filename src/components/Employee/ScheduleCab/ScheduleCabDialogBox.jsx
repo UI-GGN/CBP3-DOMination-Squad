@@ -138,7 +138,7 @@ const ScheduleCabDialogBox = () => {
               <TimePicker
                 className="Picker"
                 name="pickupTime"
-                value={pickupTime}
+                // value={pickupTime}
                 // minTime={pickupTime}
                 onChange={handlePickupTimeChange}
               />
@@ -150,7 +150,7 @@ const ScheduleCabDialogBox = () => {
               <DatePicker
                 className="Picker"
                 name="pickupDate"
-                value={pickupDate}
+                // value={pickupDate}
                 // minDate={pickupDate}
                 onChange={handlePickupDateChange}
               />

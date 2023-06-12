@@ -1,10 +1,10 @@
-import RequestStatusCard from '../RequestStatusCard/RequestStatusCard.jsx';
+import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard.jsx';
 import { Container, CardContainer } from './Request.style.js';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
-const Requests = (type) => {
+const Requests = () => {
   const [requests, setRequests] = useState([]);
 
   const getRequests = () => {
@@ -48,7 +48,6 @@ const Requests = (type) => {
         {requests.map((request) => {
           return (
             <RequestStatusCard
-              user={type}
               key={request.id}
               name={request.employeeName}
               employeeID={request.employeeId}
