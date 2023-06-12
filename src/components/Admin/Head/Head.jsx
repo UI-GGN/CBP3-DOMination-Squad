@@ -5,8 +5,11 @@ import {
   ProfileContainer,
   ImageContainer,
   AccessContainer,
+  CrossContainer,
+  CrossImage,
   AccessTitle,
   NavigationContainer,
+  ProfileImage,
   HorizontalLine,
   NavHeaderTitle,
   NavBar,
@@ -22,17 +25,15 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
     <Container>
       <NavigationContainer>
         <AccessContainer>
-          <img
-            src={close}
-            style={{ height: 18, alignSelf: 'end', cursor: 'pointer' }}
-            onClick={() => onHeaderClose()}
-          />
+          <CrossContainer>
+            <CrossImage src={close} onClick={() => onHeaderClose()} />
+          </CrossContainer>
           <AccessTitle>Admin Access</AccessTitle>
         </AccessContainer>
         <HorizontalLine />
         <ProfileContainer>
           <ImageContainer>
-            <img src={user} style={{ maxWidth: '60%' }} />
+            <ProfileImage src={user} />
           </ImageContainer>
           <NavHeaderTitle>Hi Vinod!</NavHeaderTitle>
         </ProfileContainer>

@@ -22,10 +22,10 @@ export const AccessContainer = styled.div`
   background-color: #008080;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  padding: 12px;
+  padding: 8px;
   height: 8vh;
+  overflow: auto;
 `;
 
 export const HorizontalLine = styled.div`
@@ -34,9 +34,25 @@ export const HorizontalLine = styled.div`
 `;
 
 export const AccessTitle = styled.h1`
-  font-size: 30px;
+  font-size: 1.6em;
   color: ${secondary};
   font-family: 'roboto-regular';
+`;
+
+export const CrossContainer = styled.div`
+  height: 1em;
+  align-self: end;
+  margin-right: 4px;
+  margin-top: 4px;
+`;
+
+export const CrossImage = styled.img`
+  max-height: 80%;
+  cursor: pointer;
+`;
+
+export const ProfileImage = styled.img`
+  max-width: 60%;
 `;
 
 export const ProfileContainer = styled.div`
