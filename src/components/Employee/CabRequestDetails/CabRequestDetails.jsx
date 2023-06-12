@@ -40,7 +40,7 @@ const CabRequestDetails = () => {
 
   useEffect(() => {
     getCabDetails();
-  });
+  }, []);
 
   return (
     <>

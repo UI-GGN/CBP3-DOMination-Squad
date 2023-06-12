@@ -20,7 +20,7 @@ const Dashboard = () => {
   const getComponent = (input) => {
     switch (input) {
       case 'REQUESTS':
-        return <Requests type={'admin'} />;
+        return <Requests />;
       case 'ROUTES':
         return <Routes />;
       default:
