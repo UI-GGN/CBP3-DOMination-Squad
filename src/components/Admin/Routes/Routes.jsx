@@ -1,3 +1,4 @@
+import trashIcon from '../../../assets/trash.png';
 import { Card, CardBody, CardContainer, CardSegment, CardTop, Container } from './Routes.style';
 
 const data = [
@@ -199,7 +200,10 @@ const Routes = () => {
                       </div>
                     </div>
                     <div style={{ flex: '2', display: 'flex', justifyContent: 'flex-end' }}>
-                      <img src="../../../../delete_icon.png" style={{ width: '50px', height: '50px' }}></img>
+                      <img
+                        src={trashIcon}
+                        style={{ width: '25px', height: '25px', cursor: 'pointer', margin: 8 }}
+                      ></img>
                     </div>
                   </CardTop>
                 </CardSegment>
