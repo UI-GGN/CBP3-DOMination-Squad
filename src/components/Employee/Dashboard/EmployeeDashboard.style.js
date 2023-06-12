@@ -18,21 +18,18 @@ export const Container = styled.div`
   }
 `;
 
-export const Title = styled.text`
-  margin: 2px 10px;
-  font-size: 3.75rem;
-  color: #17252a;
-  font-weight: 700;
-`;
-
 export const ScheduleCab = styled.section`
   display: flex;
   flex: 1;
-  margin-top: 1em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   position: relative;
-  height: 50%;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 100vh) {
+    height: 98.5vh;
+  }
 
   @media (max-width: 800px) {
     flex-wrap: wrap;
@@ -54,6 +51,10 @@ export const CabRequests = styled.section`
     //position: fixed;
     //top: 0;
   }
+
+  //@media (max-height: 100vh) {
+  //  height: 100vh;
+  //}
   //justify-content: center;
   //align-items: center;
   //display: flex;
