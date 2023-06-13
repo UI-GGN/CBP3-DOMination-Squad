@@ -21,7 +21,7 @@ const ScheduleCabDialogBox = () => {
   const [address, setAddress] = useState('');
   const [pincode, setPincode] = useState('');
   const currentDate = Moment(new Date()).format('DD/MM/YYYY');
-  const currentTime = Moment(new Date()).format('hh:mm:ss a');
+  const currentTime = Moment(new Date()).format('hh:mm:ss.000Z');
   const [pickupDate, setPickupDate] = useState(currentDate);
   const [pickupTime, setPickupTime] = useState(currentTime);
 
@@ -46,7 +46,7 @@ const ScheduleCabDialogBox = () => {
     setPincode(event.target.value);
   };
   const handlePickupDateChange = (event) => {
-    setPickupDate(event.$d.toISOString());
+    setPickupDate(event.$d.toLocaleDateString('en-CA'));
   };
   const handlePickupTimeChange = (event) => {
     setPickupTime(event.$d.toLocaleTimeString());
@@ -55,14 +55,16 @@ const ScheduleCabDialogBox = () => {
   //const pinPattern = new RegExp("^[1-9][0-9]{5}$");
 
   const onSaveButtonClick = () => {
-    let pickupTimeInISO = `${pickupDate.slice(0, 11)}${pickupTime}.000Z`;
-    let pickupLocation = `${area}, ${address}, ${city}, ${pincode}`;
+    let pickupTimeInISO = `${pickupDate}T${pickupTime}.000Z`;
+    let pickupLocation = `${address}, ${area}, ${city}, ${pincode}`;
     const addressDetail = {
-      employeeId: '11111',
+      employeeId: '12345',
       employeeName: 'xyz',
       pickupLocation: pickupLocation,
-      dropLocation: 'TW, Gurgaon',
+      dropLocation: 'Thoughtworks Technologies',
       pickupTime: pickupTimeInISO,
+      projectCode: 'ABC123',
+      phoneNumber: '9876543210',
     };
     console.log(addressDetail);
 
@@ -138,7 +140,7 @@ const ScheduleCabDialogBox = () => {
               <TimePicker
                 className="Picker"
                 name="pickupTime"
-                // value={pickupTime}
+                value={pickupTime}
                 // minTime={pickupTime}
                 onChange={handlePickupTimeChange}
               />
@@ -150,7 +152,8 @@ const ScheduleCabDialogBox = () => {
               <DatePicker
                 className="Picker"
                 name="pickupDate"
-                // value={pickupDate}
+                value={pickupDate}
+                format="YYYY-MM-DD"
                 // minDate={pickupDate}
                 onChange={handlePickupDateChange}
               />
