@@ -13,6 +13,8 @@ export const Details = styled.div`
 `;
 
 export const Content = styled.div`
-  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
   max-height: 90vh;
 `;
