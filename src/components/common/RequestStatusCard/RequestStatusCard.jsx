@@ -16,7 +16,7 @@ import {
   VerticalLine,
 } from './RequestStatusCard.style.js';
 
-const RequestStatusCard = ({ name, employeeID, date, time, pickup, drop }) => {
+const RequestStatusCard = ({ name, employeeID, date, time, pickup, drop, onApprove }) => {
   return (
     <CardDetailsContainer>
       <HeaderContainer>
@@ -59,7 +59,9 @@ const RequestStatusCard = ({ name, employeeID, date, time, pickup, drop }) => {
       <HorizontalLine />
 
       <HeaderContainer>
-        <Button color="#3aafa9">Assign Route</Button>
+        <Button color="#3aafa9" onClick={() => onApprove()}>
+          Assign Vendor
+        </Button>
         <Button color="#d22b2b" marginTop="4px">
           Reject Request
         </Button>
