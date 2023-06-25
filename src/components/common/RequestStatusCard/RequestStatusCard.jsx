@@ -1,5 +1,6 @@
 import circle from '../../../assets/circle_icon.png';
 import destination from '../../../assets/destination_icon.png';
+import VendorModal from '../../Admin/VendorModal';
 import {
   CardDetailsContainer,
   DetailsContainer,
@@ -11,14 +12,65 @@ import {
   HeaderText,
   DetailsText,
   HighlightedText,
+  ApprovedText,
+  DeclinedText,
   Button,
   HorizontalLine,
   VerticalLine,
 } from './RequestStatusCard.style.js';
+import { Modal } from '@mui/material';
+import axios from 'axios';
+import { useState } from 'react';
 
-const RequestStatusCard = ({ name, employeeID, date, time, pickup, drop, onApprove }) => {
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: '30%',
+  backgroundColor: 'white',
+  boxShadow: 24,
+  outline: 0,
+};
+
+const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pickup, drop }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [status, setStatus] = useState(requestStatus);
+
+  const onAssignVendor = () => {
+    setIsVisible(false);
+    axios.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';
+    axios.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
+    axios
+      .put(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, { status: 'APPROVED' })
+      .then(() => {
+        setStatus('APPROVED');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onModalClose = () => {
+    setIsVisible(false);
+  };
+
+  const onApprove = () => {
+    setIsVisible(true);
+  };
+
   return (
     <CardDetailsContainer>
+      <Modal
+        open={isVisible}
+        onClose={() => {}}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <div style={style}>
+          <VendorModal onClose={onModalClose} onAssignVendor={onAssignVendor} />
+        </div>
+      </Modal>
       <HeaderContainer>
         <HeaderText>Name</HeaderText>
       </HeaderContainer>
@@ -58,14 +110,28 @@ const RequestStatusCard = ({ name, employeeID, date, time, pickup, drop, onAppro
       </LocationSegment>
       <HorizontalLine />
 
-      <HeaderContainer>
-        <Button color="#3aafa9" onClick={() => onApprove()}>
-          Assign Vendor
-        </Button>
-        <Button color="#d22b2b" marginTop="4px">
-          Reject Request
-        </Button>
-      </HeaderContainer>
+      {status === 'PENDING' && (
+        <HeaderContainer>
+          <Button color="#3aafa9" onClick={() => onApprove()}>
+            Approve
+          </Button>
+          <Button color="#d22b2b" marginTop="4px">
+            Reject Request
+          </Button>
+        </HeaderContainer>
+      )}
+
+      {status === 'APPROVED' && (
+        <HeaderContainer>
+          <ApprovedText>Vendor Assigned</ApprovedText>
+        </HeaderContainer>
+      )}
+
+      {status === 'DECLINED' && (
+        <HeaderContainer>
+          <DeclinedText>Request declined</DeclinedText>
+        </HeaderContainer>
+      )}
     </CardDetailsContainer>
   );
 };

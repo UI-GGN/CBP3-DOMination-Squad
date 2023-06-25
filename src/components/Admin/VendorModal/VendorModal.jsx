@@ -10,11 +10,11 @@ import {
 } from './VendorModal.style';
 import { useState } from 'react';
 
-const VendorModal = ({ onClose, onApprove, request }) => {
+const VendorModal = ({ onClose, onAssignVendor }) => {
   const vendors = [
-    { id: 1, name: 'Vendor 1' },
-    { id: 2, name: 'Vendor 2' },
-    { id: 3, name: 'Vendor 3' },
+    { id: 1, name: 'Shyam' },
+    { id: 2, name: 'Subodh' },
+    { id: 3, name: 'Ram' },
   ];
 
   const [selected, setSelected] = useState(vendors[0].id);
@@ -36,8 +36,8 @@ const VendorModal = ({ onClose, onApprove, request }) => {
       })}
 
       <ActionContainer>
-        <ActionButton color="#3aafa9" onClick={() => onApprove(request)}>
-          Approve
+        <ActionButton color="#3aafa9" onClick={() => onAssignVendor()}>
+          Assign Vendor
         </ActionButton>
         <ActionButton color="#d22b2b" onClick={() => onClose()}>
           Cancel

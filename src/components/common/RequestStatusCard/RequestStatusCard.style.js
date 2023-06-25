@@ -1,3 +1,4 @@
+import { primary } from '../../colors.json';
 import Card from '../Card/index.js';
 import styled from 'styled-components';
 
@@ -56,6 +57,18 @@ export const HeaderText = styled.h1`
 export const DetailsText = styled.h1`
   font-size: 16px;
   line-height: 24px;
+`;
+
+export const ApprovedText = styled.h1`
+  font-size: 18px;
+  font-weight: 700;
+  color: ${primary};
+`;
+
+export const DeclinedText = styled.h1`
+  font-size: 18px;
+  font-weight: 700;
+  color: #b23b3b;
 `;
 
 export const HighlightedText = styled.h1`
