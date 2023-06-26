@@ -1,7 +1,6 @@
 import AdminTab from '../AdminTab';
 import Head from '../Head/Head';
 import Requests from '../Requests';
-import Routes from '../Routes/Routes';
 import { Container, Details, Content } from './Dashboard.style';
 import { useState } from 'react';
 
@@ -21,8 +20,8 @@ const Dashboard = () => {
     switch (input) {
       case 'REQUESTS':
         return <Requests />;
-      case 'ROUTES':
-        return <Routes />;
+      // case 'ROUTES':
+      //   return <Routes />;
       default:
         return <Requests type={'admin'} />;
     }

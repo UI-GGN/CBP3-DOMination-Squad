@@ -48,7 +48,7 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
             Requests
           </NavBarOption>
           <HorizontalLine />
-          <NavBarOption
+          {/* <NavBarOption
             isSelected={selected === 'ROUTES'}
             onClick={() => {
               onPress('ROUTES');
@@ -56,7 +56,7 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
           >
             Routes
           </NavBarOption>
-          <HorizontalLine />
+          <HorizontalLine /> */}
         </NavBar>
       </NavigationContainer>
       <LogoutButton
