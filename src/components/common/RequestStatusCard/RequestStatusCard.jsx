@@ -138,7 +138,7 @@ const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pi
       {status === 'PENDING' && (
         <HeaderContainer>
           <Button color="#3aafa9" onClick={() => onApprove()}>
-            Approve
+            Approve Request
           </Button>
           <Button color="#d22b2b" marginTop="4px" onClick={() => onReject()}>
             Reject Request
