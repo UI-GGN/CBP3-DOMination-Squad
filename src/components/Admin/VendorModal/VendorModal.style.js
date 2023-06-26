@@ -52,12 +52,12 @@ export const ActionContainer = styled.div`
 `;
 
 export const ActionButton = styled.button`
-  width: 30%;
+  width: 40%;
   background-color: ${(props) => (props?.color ? props.color : 'white')};
   color: white;
   border-radius: 24px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   padding-top: 4px;
   padding-bottom: 4px;
   &:hover {

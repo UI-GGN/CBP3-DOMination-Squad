@@ -19,7 +19,6 @@ import {
   VerticalLine,
 } from './RequestStatusCard.style.js';
 import { Modal } from '@mui/material';
-import axios from 'axios';
 import { useState } from 'react';
 
 const style = {
@@ -39,12 +38,36 @@ const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pi
 
   const onAssignVendor = () => {
     setIsVisible(false);
-    axios.defaults.headers.put['Content-Type'] = 'application/json;charset=utf-8';
-    axios.defaults.headers.put['Access-Control-Allow-Origin'] = '*';
-    axios
-      .put(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, { status: 'APPROVED' })
+
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ status: 'APPROVED' }),
+    };
+    fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('APPROVED');
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const onReject = () => {
+    setIsVisible(false);
+
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ status: 'DECLINED' }),
+    };
+    fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
+      .then(() => {
+        setStatus('DECLINED');
       })
       .catch((error) => {
         console.log(error);
@@ -115,7 +138,7 @@ const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pi
           <Button color="#3aafa9" onClick={() => onApprove()}>
             Approve
           </Button>
-          <Button color="#d22b2b" marginTop="4px">
+          <Button color="#d22b2b" marginTop="4px" onClick={() => onReject()}>
             Reject Request
           </Button>
         </HeaderContainer>
