@@ -17,7 +17,7 @@ const VendorModal = ({ onClose, onAssignVendor }) => {
     { id: 3, name: 'Ram' },
   ];
 
-  const [selected, setSelected] = useState(vendors[0].id);
+  const [selected, setSelected] = useState(vendors[0].name);
 
   return (
     <Container>
@@ -27,7 +27,7 @@ const VendorModal = ({ onClose, onAssignVendor }) => {
       {vendors.map((vendor) => {
         return (
           <div key={vendor.id}>
-            <Button color="#3aafa9" onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
+            <Button color="#3aafa9" onClick={() => setSelected(vendor.name)} isSelected={selected === vendor.name}>
               {vendor.name}
             </Button>
             <HorizontalLine />
@@ -36,7 +36,7 @@ const VendorModal = ({ onClose, onAssignVendor }) => {
       })}
 
       <ActionContainer>
-        <ActionButton color="#3aafa9" onClick={() => onAssignVendor()}>
+        <ActionButton color="#3aafa9" onClick={() => onAssignVendor(selected)}>
           Assign Vendor
         </ActionButton>
         <ActionButton color="#d22b2b" onClick={() => onClose()}>

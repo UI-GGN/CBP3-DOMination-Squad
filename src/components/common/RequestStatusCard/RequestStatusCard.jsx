@@ -35,8 +35,9 @@ const style = {
 const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pickup, drop }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [status, setStatus] = useState(requestStatus);
+  const [vendorName, setVendorName] = useState('');
 
-  const onAssignVendor = () => {
+  const onAssignVendor = (input) => {
     setIsVisible(false);
 
     const options = {
@@ -49,6 +50,7 @@ const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pi
     fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('APPROVED');
+        setVendorName('- ' + input);
       })
       .catch((error) => {
         console.log(error);
@@ -146,7 +148,7 @@ const RequestStatusCard = ({ id, requestStatus, name, employeeID, date, time, pi
 
       {status === 'APPROVED' && (
         <HeaderContainer>
-          <ApprovedText>Vendor Assigned</ApprovedText>
+          <ApprovedText>Vendor Assigned {vendorName}</ApprovedText>
         </HeaderContainer>
       )}
 
