@@ -11,7 +11,8 @@ const Requests = () => {
     axios
       .get('https://cab-schedule-serverless.vercel.app/api/v1/cab-request')
       .then((response) => {
-        setRequests(response.data);
+        const sortRequests = response?.data.sort((a, b) => a?.pickupTime.localeCompare(b?.pickupTime));
+        setRequests(sortRequests);
       })
       .catch((error) => {
         console.log(error);
