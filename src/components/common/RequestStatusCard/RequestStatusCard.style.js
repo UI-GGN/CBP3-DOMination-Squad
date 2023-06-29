@@ -1,4 +1,3 @@
-import { primary } from '../../colors.json';
 import Card from '../Card/index.js';
 import styled from 'styled-components';
 
@@ -8,7 +7,17 @@ export const CardDetailsContainer = styled(Card)`
   justify-content: space-between;
 `;
 
-export const HeaderContainer = styled.div`
+export const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Location = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +57,12 @@ export const LocationDetails = styled.div`
   justify-content: space-between;
 `;
 
-export const HeaderText = styled.h1`
+export const HighlightedText = styled.h1`
+  font-weight: 700;
+  line-height: 24px;
+`;
+
+export const TitleText = styled.h1`
   font-size: 14px;
   line-height: 20px;
   color: rgb(156, 163, 175);
@@ -57,35 +71,6 @@ export const HeaderText = styled.h1`
 export const DetailsText = styled.h1`
   font-size: 16px;
   line-height: 24px;
-`;
-
-export const ApprovedText = styled.h1`
-  font-size: 18px;
-  font-weight: 700;
-  color: ${primary};
-`;
-
-export const DeclinedText = styled.h1`
-  font-size: 18px;
-  font-weight: 700;
-  color: #b23b3b;
-`;
-
-export const HighlightedText = styled.h1`
-  font-weight: 700;
-  line-height: 24px;
-`;
-
-export const Button = styled.button`
-  background-color: white;
-  font-weight: 600;
-  font-size: 16px;
-  color: #17252a;
-  margin-top: 4px;
-  color: ${(props) => (props?.color ? props.color : '#17252a')};
-  &:hover {
-    font-weight: 700;
-  }
 `;
 
 export const HorizontalLine = styled.div`

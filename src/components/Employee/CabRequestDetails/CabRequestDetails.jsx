@@ -7,8 +7,8 @@ import {
   LocationPathIconSegment,
   LocationPathIcon,
   LocationDetails,
-  HeaderContainer,
-  HeaderText,
+  TitleContainer,
+  TitleText,
   DetailsText,
   HighlightedText,
   HorizontalLine,
@@ -46,10 +46,10 @@ const CabRequestDetails = () => {
     <>
       {cabDetails.map((cab, id) => (
         <CardDetailsContainer key={id}>
-          <HeaderContainer>
-            <HeaderText>Date </HeaderText>
-            <HeaderText>Pickup Time</HeaderText>
-          </HeaderContainer>
+          <TitleContainer>
+            <TitleText>Date </TitleText>
+            <TitleText>Pickup Time</TitleText>
+          </TitleContainer>
           <DetailsContainer>
             {dayjs(cab.pickupTime).isToday() ? (
               <DetailsText>Today</DetailsText>
@@ -73,16 +73,16 @@ const CabRequestDetails = () => {
               </LocationPathIcon>
             </LocationPathIconSegment>
             <LocationDetails>
-              <HeaderText>Start Point</HeaderText>
+              <TitleText>Start Point</TitleText>
               <DetailsText style={{ marginBottom: 10 }}>{cab.pickupLocation}</DetailsText>
-              <HeaderText style={{ marginTop: 10 }}>End Point</HeaderText>
+              <TitleText style={{ marginTop: 10 }}>End Point</TitleText>
               <DetailsText>{cab.dropLocation}</DetailsText>
             </LocationDetails>
           </LocationSegment>
           <HorizontalLine />
 
           <section className={'flex flex-row justify-between'}>
-            <HeaderText>Status</HeaderText>
+            <TitleText>Status</TitleText>
             <DetailsText>{cab.status}</DetailsText>
           </section>
         </CardDetailsContainer>

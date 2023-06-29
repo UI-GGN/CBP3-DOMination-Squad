@@ -1,4 +1,4 @@
-import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard.jsx';
+import RequestCard from '../RequestCard/RequestCard.jsx';
 import { Container, CardContainer } from './Request.style.js';
 import axios from 'axios';
 import { useState } from 'react';
@@ -21,6 +21,7 @@ const Requests = () => {
   const formatDate = (input) => {
     const date = new Date(input);
     var day = date.getDate();
+    day = day < 10 ? '0' + day : day;
     var month = date.getMonth() + 1;
     month = month < 10 ? '0' + month : month;
     var year = date.getFullYear();
@@ -47,12 +48,13 @@ const Requests = () => {
       <CardContainer>
         {requests.map((request) => {
           return (
-            <RequestStatusCard
+            <RequestCard
               key={request?.id}
               id={request?.id}
               requestStatus={request?.status}
               name={request?.employeeName}
               employeeID={request?.employeeId}
+              projectCode={request?.projectCode}
               date={formatDate(request?.pickupTime)}
               time={formatTime(request?.pickupTime)}
               pickup={request?.pickupLocation}
