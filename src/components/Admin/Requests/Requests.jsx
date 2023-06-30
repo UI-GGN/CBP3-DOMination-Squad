@@ -1,11 +1,22 @@
+import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
-import { Container, CardContainer } from './Request.style.js';
+import { Container, CardContainer, Button } from './Request.style.js';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
+  const csvHeader = [
+    { label: 'ID', key: 'id' },
+    { label: 'Employee ID', key: 'employeeId' },
+    { label: 'Employee Name', key: 'employeeName' },
+    { label: 'Project Code', key: 'projectCode' },
+    { label: 'Date', key: 'date' },
+    { label: 'Time', key: 'time' },
+    { label: 'Pickup location', key: 'pickupLocation' },
+    { label: 'Drop location', key: 'dropLocation' },
+  ];
 
   const getRequests = () => {
     axios
@@ -40,6 +51,16 @@ const Requests = () => {
     return hours + ':' + minutes + ' ' + ampm;
   };
 
+  const downloadCSV = () => {
+    const csvRequest = requests.map((obj) => ({
+      ...obj,
+      date: formatDate(obj.pickupTime),
+      time: formatTime(obj.pickupTime),
+    }));
+
+    generateCSV(csvHeader, csvRequest, 'Employee requests');
+  };
+
   useEffect(() => {
     getRequests();
   }, []);
@@ -64,6 +85,9 @@ const Requests = () => {
           );
         })}
       </CardContainer>
+      <Button color="#d22b2b" marginTop="4px" onClick={() => downloadCSV()}>
+        Export requests
+      </Button>
     </Container>
   );
 };
