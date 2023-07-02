@@ -16,11 +16,11 @@ export const AccessContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 8px;
-  min-height: 8%;
+  height: 10%;
 `;
 
 export const NavigationContainer = styled.div`
-  height: 92%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -38,6 +38,7 @@ export const AccessTitle = styled.h1`
   font-size: 1.6em;
   color: ${secondary};
   font-family: 'roboto-regular';
+  margin: 10px;
 `;
 
 export const CrossContainer = styled.div`
