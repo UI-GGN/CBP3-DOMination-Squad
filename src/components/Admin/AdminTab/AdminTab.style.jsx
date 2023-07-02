@@ -6,7 +6,7 @@ export const Container = styled.div`
   flex-direction: row;
   background-color: ${primary};
   align-items: center;
-  height: 8vh;
+  height: 8%;
 `;
 
 export const HamburgerIcon = styled.img`

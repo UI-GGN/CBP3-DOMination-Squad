@@ -2,13 +2,14 @@ import close from '../../../assets/close.png';
 import user from '../../../assets/user.png';
 import {
   Container,
-  ProfileContainer,
-  ImageContainer,
   AccessContainer,
   CrossContainer,
+  NavigationContainer,
+  Sections,
+  ProfileContainer,
+  ImageContainer,
   CrossImage,
   AccessTitle,
-  NavigationContainer,
   ProfileImage,
   HorizontalLine,
   NavHeaderTitle,
@@ -23,32 +24,33 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
 
   return (
     <Container>
+      <AccessContainer>
+        <CrossContainer>
+          <CrossImage src={close} onClick={() => onHeaderClose()} />
+        </CrossContainer>
+        <AccessTitle>Admin Access</AccessTitle>
+      </AccessContainer>
+      <HorizontalLine />
       <NavigationContainer>
-        <AccessContainer>
-          <CrossContainer>
-            <CrossImage src={close} onClick={() => onHeaderClose()} />
-          </CrossContainer>
-          <AccessTitle>Admin Access</AccessTitle>
-        </AccessContainer>
-        <HorizontalLine />
-        <ProfileContainer>
-          <ImageContainer>
-            <ProfileImage src={user} />
-          </ImageContainer>
-          <NavHeaderTitle>Hi Vinod!</NavHeaderTitle>
-        </ProfileContainer>
-        <HorizontalLine />
-        <NavBar>
-          <NavBarOption
-            isSelected={selected === 'REQUESTS'}
-            onClick={() => {
-              onPress('REQUESTS');
-            }}
-          >
-            Requests
-          </NavBarOption>
+        <Sections>
+          <ProfileContainer>
+            <ImageContainer>
+              <ProfileImage src={user} />
+            </ImageContainer>
+            <NavHeaderTitle>Hi Vinod!</NavHeaderTitle>
+          </ProfileContainer>
           <HorizontalLine />
-          {/* <NavBarOption
+          <NavBar>
+            <NavBarOption
+              isSelected={selected === 'REQUESTS'}
+              onClick={() => {
+                onPress('REQUESTS');
+              }}
+            >
+              Requests
+            </NavBarOption>
+            <HorizontalLine />
+            {/* <NavBarOption
             isSelected={selected === 'ROUTES'}
             onClick={() => {
               onPress('ROUTES');
@@ -57,16 +59,17 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
             Routes
           </NavBarOption>
           <HorizontalLine /> */}
-        </NavBar>
+          </NavBar>
+        </Sections>
+        <LogoutButton
+          isSelected={selected === 'Home'}
+          onClick={() => {
+            navigate('/login');
+          }}
+        >
+          Log out
+        </LogoutButton>
       </NavigationContainer>
-      <LogoutButton
-        isSelected={selected === 'Home'}
-        onClick={() => {
-          navigate('/login');
-        }}
-      >
-        Log out
-      </LogoutButton>
     </Container>
   );
 };

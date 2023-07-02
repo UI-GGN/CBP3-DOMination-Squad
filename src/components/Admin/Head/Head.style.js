@@ -5,17 +5,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  width: 20%;
+  min-width: 18%;
   background-color: ${dark};
-  justify-content: space-between;
   padding-bottom: 8px;
-`;
-
-export const NavigationContainer = styled.div`
-  background-color: ${dark};
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const AccessContainer = styled.div`
@@ -24,9 +16,19 @@ export const AccessContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 8px;
-  height: 8vh;
+  min-height: 8%;
   overflow: auto;
 `;
+
+export const NavigationContainer = styled.div`
+  height: 92%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+export const Sections = styled.div`
+;`;
 
 export const HorizontalLine = styled.div`
   height: 0.5px;
