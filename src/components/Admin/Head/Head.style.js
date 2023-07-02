@@ -17,7 +17,6 @@ export const AccessContainer = styled.div`
   align-items: center;
   padding: 8px;
   min-height: 8%;
-  overflow: auto;
 `;
 
 export const NavigationContainer = styled.div`
