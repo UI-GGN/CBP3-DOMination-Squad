@@ -16,6 +16,7 @@ const Requests = () => {
     { label: 'Time', key: 'time' },
     { label: 'Pickup location', key: 'pickupLocation' },
     { label: 'Drop location', key: 'dropLocation' },
+    { label: 'Status', key: 'status' },
   ];
 
   const getRequests = () => {

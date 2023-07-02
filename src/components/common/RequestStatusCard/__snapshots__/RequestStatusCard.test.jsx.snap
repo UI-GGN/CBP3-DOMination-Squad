@@ -1,0 +1,150 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Card > should render RequestStatusCard component 1`] = `
+<div>
+  <div
+    class="sc-gueYoa dEghkT sc-dmqHEX cbUebc"
+  >
+    <div
+      class="sc-hLseeU jMASXh"
+      data-testid="employee-details-section"
+    >
+      <div
+        class="sc-jTrPJq cbYTZA"
+      >
+        <h1
+          class="sc-irTswW idYxti"
+          data-testid="name-label"
+        >
+          Name
+        </h1>
+        <h1
+          class="sc-irTswW idYxti"
+          data-testid="project-code-label"
+        >
+          Project Code
+        </h1>
+      </div>
+      <div
+        class="sc-gLDzan cRnfVH"
+      >
+        <h1
+          class="sc-csCMJt cLtcod"
+          data-testid="name"
+        >
+          Shivansh Garg
+           (
+          33067
+          )
+        </h1>
+        <h1
+          class="sc-csCMJt cLtcod"
+          data-testid="project-code"
+        >
+          123
+        </h1>
+      </div>
+      <div
+        class="sc-fbJfA ctMUZD"
+      />
+    </div>
+    <div
+      class="sc-jTrPJq cbYTZA"
+    >
+      <h1
+        class="sc-irTswW idYxti"
+        data-testid="date-label"
+      >
+        Date
+      </h1>
+      <h1
+        class="sc-irTswW idYxti"
+        data-testid="pickup-time-label"
+      >
+        Pickup Time
+      </h1>
+    </div>
+    <div
+      class="sc-gLDzan cRnfVH"
+    >
+      <h1
+        class="sc-csCMJt cLtcod"
+        data-testid="date"
+      >
+        2023-07-03
+      </h1>
+      <h1
+        class="sc-kFuwaP bvqnsa"
+        data-testid="pickup-time"
+      >
+        10:00 AM
+      </h1>
+    </div>
+    <div
+      class="sc-fbJfA ctMUZD"
+    />
+    <div
+      class="sc-eDDNvR duEbAE"
+      data-testid="location-section"
+    >
+      <div
+        class="sc-iAEyYk eMNOZM"
+      >
+        <div
+          class="sc-fsQiph ifyGUR"
+        >
+          <div
+            class="sc-qRumB wJgIV"
+          >
+            <img
+              src="/src/assets/circle_icon.png"
+              style="max-height: 70%;"
+            />
+          </div>
+          <div
+            class="sc-brKeYL jptdDD"
+          />
+          <div
+            class="sc-qRumB wJgIV"
+          >
+            <img
+              src="/src/assets/destination_icon.png"
+              style="max-height: 70%;"
+            />
+          </div>
+        </div>
+        <div
+          class="sc-jsMahE gWmBQk"
+        >
+          <h1
+            class="sc-irTswW idYxti"
+            data-testid="start-point-label"
+          >
+            Start Point
+          </h1>
+          <h1
+            class="sc-csCMJt cLtcod"
+            data-testid="pickup-location"
+            style="margin-bottom: 10px;"
+          >
+            Home
+          </h1>
+          <h1
+            class="sc-irTswW idYxti"
+            data-testid="end-point-label"
+            style="margin-top: 10px;"
+          >
+            End Point
+          </h1>
+          <h1
+            class="sc-csCMJt cLtcod"
+            data-testid="drop-location"
+          >
+            Office
+          </h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

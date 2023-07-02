@@ -21,34 +21,33 @@ const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location
   return (
     <CardDetailsContainer>
       {name && (
-        <Header>
+        <Header data-testid="employee-details-section">
           <TitleContainer>
-            <TitleText>Name</TitleText>
-            <TitleText>Project Code</TitleText>
+            <TitleText data-testid="name-label">Name</TitleText>
+            <TitleText data-testid="project-code-label">Project Code</TitleText>
           </TitleContainer>
           <DetailsContainer>
-            <DetailsText>
+            <DetailsText data-testid="name">
               {name} ({employeeID})
             </DetailsText>
-            <DetailsText>{projectCode}</DetailsText>
+            <DetailsText data-testid="project-code">{projectCode}</DetailsText>
           </DetailsContainer>
           <HorizontalLine />
         </Header>
       )}
 
       <TitleContainer>
-        <TitleText>Date </TitleText>
-        <TitleText>Pickup Time</TitleText>
+        <TitleText data-testid="date-label">Date</TitleText>
+        <TitleText data-testid="pickup-time-label">Pickup Time</TitleText>
       </TitleContainer>
       <DetailsContainer>
-        <DetailsText>{date}</DetailsText>
-        <HighlightedText>{time}</HighlightedText>
+        <DetailsText data-testid="date">{date}</DetailsText>
+        <HighlightedText data-testid="pickup-time">{time}</HighlightedText>
       </DetailsContainer>
       <HorizontalLine />
-      {Header && <Header />}
 
       {location && (
-        <Location>
+        <Location data-testid="location-section">
           <LocationSegment>
             <LocationPathIconSegment>
               <LocationPathIcon>
@@ -60,10 +59,14 @@ const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location
               </LocationPathIcon>
             </LocationPathIconSegment>
             <LocationDetails>
-              <TitleText>Start Point</TitleText>
-              <DetailsText style={{ marginBottom: 10 }}>{pickup}</DetailsText>
-              <TitleText style={{ marginTop: 10 }}>End Point</TitleText>
-              <DetailsText>{drop}</DetailsText>
+              <TitleText data-testid="start-point-label">Start Point</TitleText>
+              <DetailsText style={{ marginBottom: 10 }} data-testid="pickup-location">
+                {pickup}
+              </DetailsText>
+              <TitleText style={{ marginTop: 10 }} data-testid="end-point-label">
+                End Point
+              </TitleText>
+              <DetailsText data-testid="drop-location">{drop}</DetailsText>
             </LocationDetails>
           </LocationSegment>
           {Footer && <HorizontalLine />}

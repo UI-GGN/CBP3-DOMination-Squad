@@ -23,10 +23,10 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
   const navigate = useNavigate();
 
   return (
-    <Container>
+    <Container data-testid="main">
       <AccessContainer>
         <CrossContainer>
-          <CrossImage src={close} onClick={() => onHeaderClose()} />
+          <CrossImage src={close} onClick={() => onHeaderClose()} data-testid="header-close" />
         </CrossContainer>
         <AccessTitle>Admin Access</AccessTitle>
       </AccessContainer>
@@ -37,7 +37,7 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
             <ImageContainer>
               <ProfileImage src={user} />
             </ImageContainer>
-            <NavHeaderTitle>Hi Vinod!</NavHeaderTitle>
+            <NavHeaderTitle data-testid="profile-title">Hi Vinod!</NavHeaderTitle>
           </ProfileContainer>
           <HorizontalLine />
           <NavBar>
@@ -46,26 +46,28 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
               onClick={() => {
                 onPress('REQUESTS');
               }}
+              data-testid="header-nav-option-requests"
             >
               Requests
             </NavBarOption>
             <HorizontalLine />
             {/* <NavBarOption
-            isSelected={selected === 'ROUTES'}
-            onClick={() => {
-              onPress('ROUTES');
-            }}
-          >
-            Routes
-          </NavBarOption>
+              isSelected={selected === 'ROUTES'}
+              onClick={() => {
+                onPress('ROUTES');
+              }}
+              data-testid="header-nav-option-routes"
+            >
+              Routes
+            </NavBarOption>
           <HorizontalLine /> */}
           </NavBar>
         </Sections>
         <LogoutButton
-          isSelected={selected === 'Home'}
           onClick={() => {
             navigate('/login');
           }}
+          data-testid="header-logout-button"
         >
           Log out
         </LogoutButton>

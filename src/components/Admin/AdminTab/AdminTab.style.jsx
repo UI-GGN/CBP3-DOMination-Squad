@@ -10,8 +10,8 @@ export const Container = styled.div`
 `;
 
 export const HamburgerIcon = styled.img`
-  height: 60%;
-  width: 45px;
+  height: 50%;
+  width: 50px;
   margin-left: 8px;
   cursor: pointer;
 `;

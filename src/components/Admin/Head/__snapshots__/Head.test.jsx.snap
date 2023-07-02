@@ -1,0 +1,80 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Head > should render Head component 1`] = `
+<div>
+  <div
+    class="sc-beqWaB jwXsjE"
+    data-testid="main"
+  >
+    <div
+      class="sc-gueYoa jDqMaZ"
+    >
+      <div
+        class="sc-gLDzan hRFYXL"
+      >
+        <img
+          class="sc-iAEyYk hWbHTT"
+          data-testid="header-close"
+          src="/src/assets/close.png"
+        />
+      </div>
+      <h1
+        class="sc-jTrPJq eMSvBq"
+      >
+        Admin Access
+      </h1>
+    </div>
+    <div
+      class="sc-eDDNvR kfivcA"
+    />
+    <div
+      class="sc-dmqHEX jFKZMM"
+    >
+      <div
+        class="sc-hLseeU jmgCdO"
+      >
+        <div
+          class="sc-qRumB gdVmCe"
+        >
+          <div
+            class="sc-jsMahE lzUdM"
+          >
+            <img
+              class="sc-fsQiph hVDqoN"
+              src="/src/assets/user.png"
+            />
+          </div>
+          <h1
+            class="sc-irTswW btXJHY"
+            data-testid="profile-title"
+          >
+            Hi Vinod!
+          </h1>
+        </div>
+        <div
+          class="sc-eDDNvR kfivcA"
+        />
+        <div
+          class="sc-csCMJt elNvL"
+        >
+          <button
+            class="sc-fbJfA hGHcJu"
+            data-testid="header-nav-option-requests"
+          >
+            Requests
+          </button>
+          <div
+            class="sc-eDDNvR kfivcA"
+          />
+        </div>
+      </div>
+      <button
+        class="sc-brKeYL eScEZD"
+        data-testid="header-logout-button"
+      >
+        Log out
+      </button>
+    </div>
+  </div>
+</div>
+`;
