@@ -1,0 +1,17 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Admin Tab > should render Admin Tab component 1`] = `
+<div>
+  <div
+    class="sc-beqWaB jGrQuz"
+    data-testid="container"
+  >
+    <h1
+      class="sc-dmqHEX dsssyt"
+      data-testid="admin-tab-title"
+    >
+      Requests
+    </h1>
+  </div>
+</div>
+`;

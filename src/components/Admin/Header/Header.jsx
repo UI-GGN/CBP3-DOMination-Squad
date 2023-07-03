@@ -16,7 +16,7 @@ import {
   NavBar,
   NavBarOption,
   LogoutButton,
-} from './Head.style';
+} from './Header.style';
 import { useNavigate } from 'react-router-dom';
 
 const Header = ({ selected, onPress, onHeaderClose }) => {
@@ -46,7 +46,7 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
               onClick={() => {
                 onPress('REQUESTS');
               }}
-              data-testid="header-nav-option-requests"
+              data-testid="nav-option-requests"
             >
               Requests
             </NavBarOption>
@@ -67,7 +67,7 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
           onClick={() => {
             navigate('/login');
           }}
-          data-testid="header-logout-button"
+          data-testid="logout-button"
         >
           Log out
         </LogoutButton>

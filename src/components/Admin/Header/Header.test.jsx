@@ -1,10 +1,10 @@
-import Head from './Head';
+import Head from './Header';
 import { render, fireEvent } from '@testing-library/react';
 import { describe, it, vi, expect } from 'vitest';
 
 const mocks = vi.hoisted(() => {
   return {
-    useNavigate: vi.fn(),
+    navigate: vi.fn(),
   };
 });
 
@@ -12,7 +12,7 @@ vi.mock('react-router-dom', async (importOriginal) => {
   const mod = await importOriginal();
   return {
     ...mod,
-    useNavigate: mocks.useNavigate,
+    useNavigate: () => mocks.navigate,
   };
 });
 
@@ -23,8 +23,8 @@ describe('Head', () => {
     expect(getByTestId('main')).toBeInTheDocument();
     expect(getByTestId('header-close')).toBeInTheDocument();
     expect(getByTestId('profile-title')).toBeInTheDocument();
-    expect(getByTestId('header-nav-option-requests')).toBeInTheDocument();
-    expect(getByTestId('header-logout-button')).toBeInTheDocument();
+    expect(getByTestId('nav-option-requests')).toBeInTheDocument();
+    expect(getByTestId('logout-button')).toBeInTheDocument();
     expect(container).toMatchSnapshot();
   });
 
@@ -41,9 +41,18 @@ describe('Head', () => {
     const mockOnPress = vi.fn();
     const { getByTestId } = render(<Head selected="REQUESTS" onPress={mockOnPress} />);
 
-    fireEvent.click(getByTestId('header-nav-option-requests'));
+    fireEvent.click(getByTestId('nav-option-requests'));
 
     expect(mockOnPress).toHaveBeenCalledTimes(1);
     expect(mockOnPress).toHaveBeenCalledWith('REQUESTS');
+  });
+
+  it('should call navigate when logout button is clicked', () => {
+    const { getByTestId } = render(<Head />);
+
+    fireEvent.click(getByTestId('logout-button'));
+
+    expect(mocks.navigate).toHaveBeenCalledTimes(1);
+    expect(mocks.navigate).toHaveBeenCalledWith('/login');
   });
 });

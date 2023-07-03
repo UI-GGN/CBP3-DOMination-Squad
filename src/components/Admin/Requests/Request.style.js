@@ -1,3 +1,4 @@
+import { primary, secondary, dark } from '../../colors.json';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -17,13 +18,14 @@ export const CardContainer = styled.div`
 export const Button = styled.button`
   position: absolute;
   align-self: end;
-  bottom: 30px;
-  background-color: lightgray;
+  bottom: 20px;
+  background-color: ${secondary};
   font-weight: 600;
   font-size: 16px;
-  color: #17252a;
+  color: ${dark};
   padding: 12px;
   &:hover {
-    font-weight: 700;
+    background-color: ${primary};
+    color: white;
   }
 `;

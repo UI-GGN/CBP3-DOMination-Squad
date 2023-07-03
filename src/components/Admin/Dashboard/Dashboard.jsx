@@ -1,5 +1,5 @@
 import AdminTab from '../AdminTab';
-import Head from '../Head/Head';
+import Header from '../Header';
 import Requests from '../Requests';
 import { Container, Details, Content } from './Dashboard.style';
 import { useState } from 'react';
@@ -29,7 +29,7 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {isHeaderVisible && <Head selected={selected} onPress={handleRoutes} onHeaderClose={handleHeaderVisibility} />}
+      {isHeaderVisible && <Header selected={selected} onPress={handleRoutes} onHeaderClose={handleHeaderVisibility} />}
       <Details>
         <AdminTab selected={selected} onIconPress={handleHeaderVisibility} isHeaderVisible={isHeaderVisible} />
         <Content>{getComponent(selected)}</Content>

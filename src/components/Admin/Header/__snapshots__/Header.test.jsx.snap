@@ -59,7 +59,7 @@ exports[`Head > should render Head component 1`] = `
         >
           <button
             class="sc-fbJfA hGHcJu"
-            data-testid="header-nav-option-requests"
+            data-testid="nav-option-requests"
           >
             Requests
           </button>
@@ -69,8 +69,8 @@ exports[`Head > should render Head component 1`] = `
         </div>
       </div>
       <button
-        class="sc-brKeYL eScEZD"
-        data-testid="header-logout-button"
+        class="sc-brKeYL jtuOhI"
+        data-testid="logout-button"
       >
         Log out
       </button>

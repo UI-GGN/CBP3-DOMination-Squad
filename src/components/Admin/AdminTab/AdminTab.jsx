@@ -3,9 +3,9 @@ import { Container, HamburgerIcon, Title } from './AdminTab.style';
 
 const AdminTab = ({ selected, onIconPress, isHeaderVisible }) => {
   return (
-    <Container>
-      {!isHeaderVisible && <HamburgerIcon src={hamburger} onClick={() => onIconPress()} />}
-      <Title>{selected}</Title>
+    <Container data-testid="container">
+      {!isHeaderVisible && <HamburgerIcon data-testid="hamburger-icon" src={hamburger} onClick={() => onIconPress()} />}
+      <Title data-testid="admin-tab-title">{selected}</Title>
     </Container>
   );
 };

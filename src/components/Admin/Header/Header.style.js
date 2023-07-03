@@ -108,7 +108,7 @@ export const LogoutButton = styled.button`
   font-size: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   padding: 6px;
-  margin: 4px 0px;
+  margin: 12px 0px;
   color: black;
   &:hover {
     background-color: #b23b3b;
