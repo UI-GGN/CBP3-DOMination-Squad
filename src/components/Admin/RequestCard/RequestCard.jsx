@@ -1,6 +1,16 @@
 import VendorModal from '../../Admin/VendorModal';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
-import { TitleContainer, ApprovedText, DeclinedText, Button } from './RequestCard.style.js';
+import {
+  TitleContainer,
+  ApprovedContainer,
+  ShowDetailsContainer,
+  DetailsContainer,
+  DetailsText,
+  ApprovedText,
+  DeclinedText,
+  ShowDetailsText,
+  Button,
+} from './RequestCard.style.js';
 import { Modal } from '@mui/material';
 import { useState } from 'react';
 
@@ -11,14 +21,28 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: '30%',
   backgroundColor: 'white',
+  borderRadius: 20,
   boxShadow: 24,
   outline: 0,
 };
 
-const RequestCard = ({ id, requestStatus, name, employeeID, projectCode, date, time, pickup, drop }) => {
+const RequestCard = ({
+  id,
+  requestStatus,
+  name,
+  employeeID,
+  projectCode,
+  date,
+  time,
+  pickup,
+  drop,
+  vendorList,
+  vendorId,
+}) => {
   const [isVisible, setIsVisible] = useState(false);
   const [status, setStatus] = useState(requestStatus);
-  const [vendorName, setVendorName] = useState('');
+  const [showDetails, setShowDetails] = useState(false);
+  const [vendorID, setVendorID] = useState(vendorId);
 
   const onAssignVendor = (input) => {
     setIsVisible(false);
@@ -28,12 +52,12 @@ const RequestCard = ({ id, requestStatus, name, employeeID, projectCode, date, t
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({ status: 'APPROVED' }),
+      body: JSON.stringify({ status: 'APPROVED', vendorId: input }),
     };
     fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('APPROVED');
-        setVendorName('- ' + input);
+        setVendorID(input);
       })
       .catch((error) => {
         console.log(error);
@@ -68,6 +92,8 @@ const RequestCard = ({ id, requestStatus, name, employeeID, projectCode, date, t
   };
 
   const Footer = () => {
+    const vendor = vendorList.find((vendor) => vendor.id === vendorID);
+
     return (
       <div>
         <Modal
@@ -77,25 +103,43 @@ const RequestCard = ({ id, requestStatus, name, employeeID, projectCode, date, t
           aria-describedby="modal-modal-description"
         >
           <div style={style}>
-            <VendorModal onClose={onModalClose} onAssignVendor={onAssignVendor} />
+            <VendorModal onClose={onModalClose} onAssignVendor={onAssignVendor} vendorList={vendorList} />
           </div>
         </Modal>
 
         {status === 'PENDING' && (
           <TitleContainer>
             <Button color="#3aafa9" onClick={() => onApprove()}>
-              Approve Request
+              Approve
             </Button>
             <Button color="#d22b2b" marginTop="4px" onClick={() => onReject()}>
-              Reject Request
+              Reject
             </Button>
           </TitleContainer>
         )}
 
         {status === 'APPROVED' && (
-          <TitleContainer>
-            <ApprovedText>Vendor Assigned {vendorName}</ApprovedText>
-          </TitleContainer>
+          <ApprovedContainer>
+            <ApprovedText>Vendor Assigned </ApprovedText>
+            {!showDetails && (
+              <ShowDetailsText
+                onClick={() => {
+                  setShowDetails(true);
+                }}
+              >
+                Show Details
+              </ShowDetailsText>
+            )}
+            {showDetails && (
+              <ShowDetailsContainer>
+                <DetailsContainer>
+                  <DetailsText data-testid="vendor-name">{vendor?.name}</DetailsText>
+                  <DetailsText data-testid="vendor-phone-number">{vendor?.phoneNumber}</DetailsText>
+                </DetailsContainer>
+                <ShowDetailsText onClick={() => setShowDetails(false)}>Hide Details</ShowDetailsText>
+              </ShowDetailsContainer>
+            )}
+          </ApprovedContainer>
         )}
 
         {status === 'DECLINED' && (

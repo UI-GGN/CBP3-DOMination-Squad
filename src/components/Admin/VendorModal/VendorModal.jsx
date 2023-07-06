@@ -12,14 +12,8 @@ import {
 } from './VendorModal.style';
 import { useState } from 'react';
 
-const VendorModal = ({ onClose, onAssignVendor }) => {
-  const vendors = [
-    { id: 1, name: 'Shyam' },
-    { id: 2, name: 'Subodh' },
-    { id: 3, name: 'Ram' },
-  ];
-
-  const [selected, setSelected] = useState(vendors[0].name);
+const VendorModal = ({ onClose, onAssignVendor, vendorList }) => {
+  const [selected, setSelected] = useState(vendorList[0].id);
 
   return (
     <Container>
@@ -29,10 +23,10 @@ const VendorModal = ({ onClose, onAssignVendor }) => {
           <CrossImage src={closeModalIcon} onClick={() => onClose()} />
         </CrossContainer>
       </Header>
-      {vendors.map((vendor) => {
+      {vendorList.map((vendor) => {
         return (
           <div key={vendor.id}>
-            <Button color="#3aafa9" onClick={() => setSelected(vendor.name)} isSelected={selected === vendor.name}>
+            <Button color="#3aafa9" onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
               {vendor.name}
             </Button>
             <HorizontalLine />

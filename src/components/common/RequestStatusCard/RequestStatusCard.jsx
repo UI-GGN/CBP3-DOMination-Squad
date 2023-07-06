@@ -3,6 +3,7 @@ import destination from '../../../assets/destination_icon.png';
 import {
   CardDetailsContainer,
   Header,
+  DateSection,
   Location,
   TitleContainer,
   DetailsContainer,
@@ -36,15 +37,17 @@ const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location
         </Header>
       )}
 
-      <TitleContainer>
-        <TitleText data-testid="date-label">Date</TitleText>
-        <TitleText data-testid="pickup-time-label">Pickup Time</TitleText>
-      </TitleContainer>
-      <DetailsContainer>
-        <DetailsText data-testid="date">{date}</DetailsText>
-        <HighlightedText data-testid="pickup-time">{time}</HighlightedText>
-      </DetailsContainer>
-      <HorizontalLine />
+      <DateSection>
+        <TitleContainer>
+          <TitleText data-testid="date-label">Date</TitleText>
+          <TitleText data-testid="pickup-time-label">Pickup Time</TitleText>
+        </TitleContainer>
+        <DetailsContainer>
+          <DetailsText data-testid="date">{date}</DetailsText>
+          <HighlightedText data-testid="pickup-time">{time}</HighlightedText>
+        </DetailsContainer>
+        <HorizontalLine />
+      </DateSection>
 
       {location && (
         <Location data-testid="location-section">

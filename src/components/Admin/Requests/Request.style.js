@@ -1,4 +1,4 @@
-import { primary, secondary, dark } from '../../colors.json';
+import { dark } from '../../colors.json';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -19,14 +19,16 @@ export const Button = styled.button`
   position: absolute;
   align-self: end;
   bottom: 20px;
+  flex-shrink: 1;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid ${(props) => (props?.color ? props.color : dark)};
   border-radius: 20px;
-  background-color: ${secondary};
-  font-weight: 600;
-  font-size: 16px;
-  color: ${dark};
-  padding: 15px;
+  padding: 12px;
+  color: ${(props) => (props?.isSelected ? dark : props.color)};
   &:hover {
-    background-color: ${primary};
+    font-weight: 700;
     color: white;
+    background-color: ${(props) => (props?.color ? props.color : dark)};
   }
 `;

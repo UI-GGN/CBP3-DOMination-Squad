@@ -11,6 +11,7 @@ export const Header = styled.div`
   display: flex;
   width: 100%;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 `;
@@ -18,6 +19,8 @@ export const Header = styled.div`
 export const HeaderTitle = styled.h1`
   font-size: 24px;
   line-height: 24px;
+  color: ${dark};
+  font-family: roboto-regular;
 `;
 
 export const CrossContainer = styled.div`
@@ -67,14 +70,16 @@ export const ActionContainer = styled.div`
 
 export const ActionButton = styled.button`
   width: 40%;
-  background-color: ${(props) => (props?.color ? props.color : 'white')};
-  color: white;
-  border-radius: 24px;
-  font-weight: 600;
-  font-size: 15px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  flex-shrink: 1;
+  font-weight: 700;
+  font-size: 14px;
+  border: 1px solid ${(props) => (props?.color ? props.color : dark)};
+  border-radius: 20px;
+  padding: 4px;
+  color: ${(props) => (props?.isSelected ? dark : props.color)};
   &:hover {
     font-weight: 700;
+    color: white;
+    background-color: ${(props) => (props?.color ? props.color : dark)};
   }
 `;

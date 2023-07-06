@@ -12,6 +12,11 @@ export const Header = styled.div`
   flex-direction: column;
 `;
 
+export const DateSection = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export const Location = styled.div`
   display: flex;
   flex-direction: column;

@@ -1,3 +1,4 @@
+import { dark } from '../../colors.json';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import { Container, CardContainer, Button } from './Request.style.js';
@@ -7,6 +8,7 @@ import { useEffect } from 'react';
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
+  const [vendorList, setVendorList] = useState([]);
   const csvHeader = [
     { label: 'ID', key: 'id' },
     { label: 'Employee ID', key: 'employeeId' },
@@ -25,6 +27,17 @@ const Requests = () => {
       .then((response) => {
         const sortRequests = response?.data.sort((a, b) => a?.pickupTime.localeCompare(b?.pickupTime));
         setRequests(sortRequests);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const getVendors = () => {
+    axios
+      .get('https://cab-schedule-serverless.vercel.app/api/v1/vendor')
+      .then((response) => {
+        setVendorList(response?.data);
       })
       .catch((error) => {
         console.log(error);
@@ -64,6 +77,7 @@ const Requests = () => {
 
   useEffect(() => {
     getRequests();
+    getVendors();
   }, []);
 
   return (
@@ -82,11 +96,13 @@ const Requests = () => {
               time={formatTime(request?.pickupTime)}
               pickup={request?.pickupLocation}
               drop={request?.dropLocation}
+              vendorList={vendorList}
+              vendorId={request?.vendorId}
             />
           );
         })}
       </CardContainer>
-      <Button color="#d22b2b" marginTop="4px" onClick={() => downloadCSV()}>
+      <Button color={dark} marginTop="4px" onClick={() => downloadCSV()}>
         Export requests
       </Button>
     </Container>
