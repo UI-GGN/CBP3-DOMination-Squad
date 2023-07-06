@@ -7,6 +7,19 @@ export const Container = styled.div`
   margin: 24px;
 `;
 
+export const Header = styled.div`
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 12px;
+`;
+
+export const HeaderTitle = styled.h1`
+  font-size: 24px;
+  line-height: 24px;
+`;
+
 export const CrossContainer = styled.div`
   height: 1em;
   align-self: end;
@@ -26,6 +39,7 @@ export const Button = styled.button`
   font-weight: 600;
   font-size: 16px;
   color: #17252a;
+  border: 0.5px solid ${secondary};
   padding-top: 12px;
   padding-bottom: 12px;
   color: ${(props) => (props?.isSelected ? dark : props.color)};

@@ -19,11 +19,12 @@ export const Button = styled.button`
   position: absolute;
   align-self: end;
   bottom: 20px;
+  border-radius: 20px;
   background-color: ${secondary};
   font-weight: 600;
   font-size: 16px;
   color: ${dark};
-  padding: 12px;
+  padding: 15px;
   &:hover {
     background-color: ${primary};
     color: white;

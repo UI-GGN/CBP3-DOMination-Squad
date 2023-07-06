@@ -1,6 +1,8 @@
 import closeModalIcon from '../../../assets/closeModal.png';
 import {
   Container,
+  Header,
+  HeaderTitle,
   CrossContainer,
   CrossImage,
   Button,
@@ -21,9 +23,12 @@ const VendorModal = ({ onClose, onAssignVendor }) => {
 
   return (
     <Container>
-      <CrossContainer>
-        <CrossImage src={closeModalIcon} onClick={() => onClose()} />
-      </CrossContainer>
+      <Header>
+        <HeaderTitle>Assign Vendor</HeaderTitle>
+        <CrossContainer>
+          <CrossImage src={closeModalIcon} onClick={() => onClose()} />
+        </CrossContainer>
+      </Header>
       {vendors.map((vendor) => {
         return (
           <div key={vendor.id}>
