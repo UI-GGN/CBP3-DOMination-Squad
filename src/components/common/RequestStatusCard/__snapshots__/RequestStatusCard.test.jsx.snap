@@ -10,26 +10,26 @@ exports[`Card > should render RequestStatusCard component 1`] = `
       data-testid="employee-details-section"
     >
       <div
-        class="sc-jTrPJq cbYTZA"
+        class="sc-gLDzan hmbCMJ"
       >
         <h1
-          class="sc-irTswW idYxti"
+          class="sc-csCMJt byeZtC"
           data-testid="name-label"
         >
           Name
         </h1>
         <h1
-          class="sc-irTswW idYxti"
+          class="sc-csCMJt byeZtC"
           data-testid="project-code-label"
         >
           Project Code
         </h1>
       </div>
       <div
-        class="sc-gLDzan cRnfVH"
+        class="sc-iAEyYk czncTD"
       >
         <h1
-          class="sc-csCMJt cLtcod"
+          class="sc-fbJfA EwfjU"
           data-testid="name"
         >
           Shivansh Garg
@@ -38,63 +38,67 @@ exports[`Card > should render RequestStatusCard component 1`] = `
           )
         </h1>
         <h1
-          class="sc-csCMJt cLtcod"
+          class="sc-fbJfA EwfjU"
           data-testid="project-code"
         >
           123
         </h1>
       </div>
       <div
-        class="sc-fbJfA ctMUZD"
+        class="sc-brKeYL dlFDN"
       />
     </div>
     <div
-      class="sc-jTrPJq cbYTZA"
-    >
-      <h1
-        class="sc-irTswW idYxti"
-        data-testid="date-label"
-      >
-        Date
-      </h1>
-      <h1
-        class="sc-irTswW idYxti"
-        data-testid="pickup-time-label"
-      >
-        Pickup Time
-      </h1>
-    </div>
-    <div
-      class="sc-gLDzan cRnfVH"
-    >
-      <h1
-        class="sc-csCMJt cLtcod"
-        data-testid="date"
-      >
-        2023-07-03
-      </h1>
-      <h1
-        class="sc-kFuwaP bvqnsa"
-        data-testid="pickup-time"
-      >
-        10:00 AM
-      </h1>
-    </div>
-    <div
-      class="sc-fbJfA ctMUZD"
-    />
-    <div
       class="sc-eDDNvR duEbAE"
+    >
+      <div
+        class="sc-gLDzan hmbCMJ"
+      >
+        <h1
+          class="sc-csCMJt byeZtC"
+          data-testid="date-label"
+        >
+          Date
+        </h1>
+        <h1
+          class="sc-csCMJt byeZtC"
+          data-testid="pickup-time-label"
+        >
+          Pickup Time
+        </h1>
+      </div>
+      <div
+        class="sc-iAEyYk czncTD"
+      >
+        <h1
+          class="sc-fbJfA EwfjU"
+          data-testid="date"
+        >
+          2023-07-03
+        </h1>
+        <h1
+          class="sc-irTswW eVfxgY"
+          data-testid="pickup-time"
+        >
+          10:00 AM
+        </h1>
+      </div>
+      <div
+        class="sc-brKeYL dlFDN"
+      />
+    </div>
+    <div
+      class="sc-jTrPJq cvChAg"
       data-testid="location-section"
     >
       <div
-        class="sc-iAEyYk eMNOZM"
+        class="sc-fsQiph fzWrD"
       >
         <div
-          class="sc-fsQiph ifyGUR"
+          class="sc-qRumB hkIvZd"
         >
           <div
-            class="sc-qRumB wJgIV"
+            class="sc-jsMahE iQgzMo"
           >
             <img
               src="/src/assets/circle_icon.png"
@@ -102,10 +106,10 @@ exports[`Card > should render RequestStatusCard component 1`] = `
             />
           </div>
           <div
-            class="sc-brKeYL jptdDD"
+            class="sc-ktEKTO jXJbVu"
           />
           <div
-            class="sc-qRumB wJgIV"
+            class="sc-jsMahE iQgzMo"
           >
             <img
               src="/src/assets/destination_icon.png"
@@ -114,30 +118,30 @@ exports[`Card > should render RequestStatusCard component 1`] = `
           </div>
         </div>
         <div
-          class="sc-jsMahE gWmBQk"
+          class="sc-kFuwaP iYgQDa"
         >
           <h1
-            class="sc-irTswW idYxti"
+            class="sc-csCMJt byeZtC"
             data-testid="start-point-label"
           >
             Start Point
           </h1>
           <h1
-            class="sc-csCMJt cLtcod"
+            class="sc-fbJfA EwfjU"
             data-testid="pickup-location"
             style="margin-bottom: 10px;"
           >
             Home
           </h1>
           <h1
-            class="sc-irTswW idYxti"
+            class="sc-csCMJt byeZtC"
             data-testid="end-point-label"
             style="margin-top: 10px;"
           >
             End Point
           </h1>
           <h1
-            class="sc-csCMJt cLtcod"
+            class="sc-fbJfA EwfjU"
             data-testid="drop-location"
           >
             Office
