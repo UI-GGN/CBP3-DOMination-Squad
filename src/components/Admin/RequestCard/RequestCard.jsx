@@ -1,14 +1,19 @@
+import phoneIcon from '../../../assets/call.png';
 import VendorModal from '../../Admin/VendorModal';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
 import {
   TitleContainer,
   ApprovedContainer,
+  VendorAssignedContainer,
   ShowDetailsContainer,
   DetailsContainer,
+  PhoneNumberContainer,
+  PhoneNumberIcon,
   DetailsText,
   ApprovedText,
   DeclinedText,
   ShowDetailsText,
+  PhoneNumberText,
   Button,
 } from './RequestCard.style.js';
 import { Modal } from '@mui/material';
@@ -43,7 +48,7 @@ const RequestCard = ({
   const [status, setStatus] = useState(requestStatus);
   const [showDetails, setShowDetails] = useState(false);
   const [vendorID, setVendorID] = useState(vendorId);
-
+  const showDetailsText = showDetails ? 'Hide Details' : 'Show details';
   const onAssignVendor = (input) => {
     setIsVisible(false);
 
@@ -120,23 +125,29 @@ const RequestCard = ({
 
         {status === 'APPROVED' && (
           <ApprovedContainer>
-            <ApprovedText>Vendor Assigned </ApprovedText>
-            {!showDetails && (
+            <VendorAssignedContainer>
+              <ApprovedText>Vendor Assigned </ApprovedText>
               <ShowDetailsText
                 onClick={() => {
-                  setShowDetails(true);
+                  setShowDetails(!showDetails);
                 }}
               >
-                Show Details
+                {showDetailsText}
               </ShowDetailsText>
-            )}
+            </VendorAssignedContainer>
             {showDetails && (
               <ShowDetailsContainer>
                 <DetailsContainer>
                   <DetailsText data-testid="vendor-name">{vendor?.name}</DetailsText>
-                  <DetailsText data-testid="vendor-phone-number">{vendor?.phoneNumber}</DetailsText>
+                  <PhoneNumberContainer>
+                    <PhoneNumberIcon>
+                      <img src={phoneIcon} style={{ maxHeight: '70%' }} />
+                    </PhoneNumberIcon>
+                    <PhoneNumberText href={`tel:${vendor?.phoneNumber}`} data-testid="vendor-phone-number">
+                      {vendor?.phoneNumber}
+                    </PhoneNumberText>
+                  </PhoneNumberContainer>
                 </DetailsContainer>
-                <ShowDetailsText onClick={() => setShowDetails(false)}>Hide Details</ShowDetailsText>
               </ShowDetailsContainer>
             )}
           </ApprovedContainer>

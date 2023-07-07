@@ -45,7 +45,7 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         </h1>
       </div>
       <div
-        class="sc-brKeYL dlFDN"
+        class="sc-brKeYL gLJAgJ"
       />
     </div>
     <div
@@ -84,7 +84,7 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         </h1>
       </div>
       <div
-        class="sc-brKeYL dlFDN"
+        class="sc-brKeYL gLJAgJ"
       />
     </div>
     <div

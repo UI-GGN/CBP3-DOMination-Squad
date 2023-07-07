@@ -18,11 +18,40 @@ export const ShowDetailsContainer = styled.div`
   flex-direction: column;
 `;
 
+export const VendorAssignedContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
 export const DetailsContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 4px;
+  align-items: center;
+  margin-top: 8px;
+`;
+
+export const PhoneNumberContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const PhoneNumberIcon = styled.div`
+  display: flex;
+  height: 20px;
+  margin-right: 4px;
+  align-items: center;
+`;
+
+export const PhoneNumberText = styled.a`
+  font-size: 16px;
+  line-height: 24px;
+  color: ${dark};
+  font-family: roboto-medium;
 `;
 
 export const DetailsText = styled.h1`
@@ -33,13 +62,13 @@ export const DetailsText = styled.h1`
 export const ApprovedText = styled.h1`
   font-size: 18px;
   font-weight: 700;
-  color: ${primary};
+  color: ${dark};
 `;
 
 export const ShowDetailsText = styled.h1`
   font-size: 12px;
-  font-weight: 600;
-  color: ${dark};
+  font-weight: 700;
+  color: ${primary};
   cursor: pointer;
 `;
 

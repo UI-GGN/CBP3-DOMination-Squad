@@ -81,8 +81,8 @@ export const DetailsText = styled.h1`
 export const HorizontalLine = styled.div`
   height: 0.5px;
   background-color: rgb(229, 231, 235);
-  margin-top: 14px;
-  margin-bottom: 14px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `;
 
 export const VerticalLine = styled.div`

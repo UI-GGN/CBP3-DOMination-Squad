@@ -1,4 +1,4 @@
-import { secondary, dark } from '../../colors.json';
+import { primary, secondary, dark } from '../../colors.json';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -38,18 +38,17 @@ export const CrossImage = styled.img`
 
 export const Button = styled.button`
   width: 100%;
-  background-color: ${(props) => (props?.isSelected ? secondary : 'white')};
+  background-color: ${(props) => (props?.isSelected ? primary : 'white')};
   font-weight: 600;
   font-size: 16px;
-  color: #17252a;
   border: 0.5px solid ${secondary};
   padding-top: 12px;
   padding-bottom: 12px;
-  color: ${(props) => (props?.isSelected ? dark : props.color)};
+  color: ${(props) => (props?.isSelected ? 'white' : props.color)};
   &:hover {
     font-weight: 700;
-    background-color: ${secondary};
-    color: ${dark};
+    background-color: ${(props) => (props?.isSelected ? primary : secondary)};
+    color: ${(props) => (props?.isSelected ? 'white' : dark)};
   }
 `;
 
