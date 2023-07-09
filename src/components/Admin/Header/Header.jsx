@@ -17,10 +17,12 @@ import {
   NavBarOption,
   LogoutButton,
 } from './Header.style';
+import { useSignOut } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
 const Header = ({ selected, onPress, onHeaderClose }) => {
   const navigate = useNavigate();
+  const signOut = useSignOut();
 
   return (
     <Container data-testid="main">
@@ -65,6 +67,9 @@ const Header = ({ selected, onPress, onHeaderClose }) => {
         </Sections>
         <LogoutButton
           onClick={() => {
+            () => {
+              signOut();
+            };
             navigate('/login');
           }}
           data-testid="logout-button"

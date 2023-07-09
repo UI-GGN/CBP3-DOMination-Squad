@@ -1,91 +1,136 @@
-import CONSTANTS from '../../constants/constants.json';
-import AuthenticationContext from '../../context/AuthenticationContext';
-import CustomInput from '../common/CustomInput';
-import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import Select from '@mui/material/Select';
-import { useContext, useState } from 'react';
+import { primary, dark } from '../colors.json';
+import { validateCredentials } from '../common/utils';
+import { useState } from 'react';
+import { useSignIn } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
-const { LOGIN, LOGIN_HEADER } = CONSTANTS;
+import {
+  Container,
+  SignInSection,
+  SignUpSection,
+  SignInSegment,
+  SignInTitle,
+  StyledTextField,
+  Button,
+  AlertText,
+} from './Login.style';
 
 const Login = () => {
+  const signIn = useSignIn();
   const navigate = useNavigate();
-  const [, setAuthenticationContext] = useContext(AuthenticationContext);
 
-  const [userType, setUserType] = useState(null);
-  const [hasError, setHasError] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [emailError, setEmailError] = useState(null);
+  const [passwordError, setPasswordError] = useState(null);
+  const [showAlert, setShowAlert] = useState(false);
 
-  const handleChange = (event) => {
-    setUserType(event.target.value);
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+    setPasswordError(null);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+    setEmailError(null);
+  };
+
+  const validateEmail = () => {
+    var re = /\S+@\S+\.\S+/;
+    const isEmailValid = re.test(email);
+
+    if (isEmailValid) {
+      setEmailError(null);
+      return true;
+    } else {
+      setEmailError(true);
+      return false;
+    }
+  };
+
+  const validatePassword = () => {
+    if (password !== '') {
+      setPasswordError(null);
+      return true;
+    } else {
+      setPasswordError(true);
+      return false;
+    }
+  };
+
+  const handleOnSubmit = () => {
+    if (validateEmail() && validatePassword()) {
+      const result = validateCredentials(email, password);
+      if (result?.isUserValid) {
+        localStorage.setItem('authToken', result?.type);
+        signIn({
+          token: 'someToken',
+          expiresIn: 3600,
+        });
+
+        navigate('/');
+      } else {
+        setShowAlert(true);
+        setTimeout(() => {
+          setShowAlert(false);
+        }, 2000);
+      }
+    }
   };
 
   return (
     <>
-      <div className="flex bg-white flex-row h-screen w-screen">
-        <div className="basis-7/12 h-screen flex flex-col items-center justify-center">
-          <div className="text-6xl mb-40 mx-12">{LOGIN_HEADER}</div>
-          <div className="relative w-4/12 mb-16">
-            <CustomInput label="Email Id" />
-          </div>
-          <div className="relative w-4/12 mb-16">
-            <CustomInput label="Password" />
-          </div>
+      <Container>
+        <SignInSection>
+          <SignInSegment>
+            <SignInTitle>Sign In</SignInTitle>
+            <StyledTextField
+              margin="normal"
+              fullWidth
+              id="email"
+              label="Email Address"
+              name="email"
+              autoComplete="email"
+              autoFocus
+              value={email}
+              onChange={handleEmailChange}
+              error={emailError}
+              helperText={emailError ? 'Please provide a valid email' : null}
+            />
+            <StyledTextField
+              margin="normal"
+              fullWidth
+              name="password"
+              label="Password"
+              type="password"
+              id="password"
+              autoComplete="current-password"
+              value={password}
+              onChange={handlePasswordChange}
+              error={passwordError}
+              helperText={passwordError ? 'Password field cannot be empty' : null}
+            />
 
-          <FormControl className="relative w-4/12 mb-16" error={hasError}>
-            <InputLabel id="demo-simple-select-label">Select User Type</InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              className="bg-gray-100"
-              value={userType}
-              label="Select User Type"
-              style={{ borderRadius: '100px' }}
-              onChange={handleChange}
-            >
-              <MenuItem value="Admin">Admin</MenuItem>
-              <MenuItem value="Employee">Employee</MenuItem>
-            </Select>
-            {hasError && <FormHelperText>This is required!</FormHelperText>}
-          </FormControl>
-
-          <div style={{ paddingTop: '60px' }}>
-            <button
-              className="mb-4 bg-primary text-white	font-bold rounded-3xl w-48 padding-lg hover:bg-secondary pt-3 pb-3"
-              onClick={() => {
-                localStorage.setItem('authToken', '123');
-                setAuthenticationContext({
-                  authToken: '123',
-                });
-                if (!userType) setHasError(true);
-                else if (userType == 'Admin') navigate('/admin/dashboard');
-                else if (userType == 'Employee') navigate('/employee/dashboard');
-              }}
-            >
-              {LOGIN}
-            </button>
-          </div>
-
-          <div>
-            <p className="text-gray-400 font-weight-bold">Forgot your password?</p>
-          </div>
-        </div>
-        <div className="basis-5/12 h-screen flex items-center justify-center">
+            <Button color={primary} onClick={() => handleOnSubmit()}>
+              Sign in
+            </Button>
+            {showAlert && <AlertText>Please enter valid credentials !</AlertText>}
+          </SignInSegment>
+        </SignInSection>
+        <SignUpSection>
           <div className="w-full h-full bg-landing_image bg-cover bg-no-repeat">
             <div className="w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center">
               <div className="text-white font-bold text-6xl mb-8">New Here?</div>
               <p className="text-white text-xl m-8">
                 Effortless Commutes: Sign Up Now for Hassle-Free Office Cab Booking!
               </p>
-              <button className="mb-4 bg-white font-bold rounded-3xl w-48 padding-lg hover:bg-secondary hover:text-white pt-3 pb-3">
-                Sign Up
-              </button>
+              <Button color="white" bgColor={dark}>
+                Sign up
+              </Button>
             </div>
           </div>
-        </div>
-      </div>
+        </SignUpSection>
+      </Container>
     </>
   );
 };

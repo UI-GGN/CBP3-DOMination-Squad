@@ -1,3 +1,8 @@
+const validCredentials = [
+  { email: 'user@gmail.com', password: 'domination' },
+  { email: 'admin@gmail.com', password: 'domination' },
+];
+
 const arrayToCsv = (headers, data) => {
   const csvRows = [];
 
@@ -29,4 +34,28 @@ const download = (data, fileName) => {
 export const generateCSV = (header, data, filename) => {
   const csvData = arrayToCsv(header, data);
   download(csvData, filename);
+};
+
+export const validateCredentials = (email, password) => {
+  const userDetails = validCredentials.find((obj) => {
+    return obj.email === email;
+  });
+
+  if (userDetails && userDetails.password === password) {
+    if (userDetails.email.includes('user')) {
+      return {
+        isUserValid: true,
+        type: 'user',
+      };
+    } else if (userDetails.email.includes('admin')) {
+      return {
+        isUserValid: true,
+        type: 'admin',
+      };
+    }
+  } else {
+    return {
+      isUserValid: false,
+    };
+  }
 };
