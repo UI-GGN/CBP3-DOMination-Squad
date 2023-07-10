@@ -5,6 +5,7 @@ import { describe, it, vi, expect } from 'vitest';
 const mocks = vi.hoisted(() => {
   return {
     navigate: vi.fn(),
+    signOut: vi.fn(),
   };
 });
 
@@ -13,6 +14,14 @@ vi.mock('react-router-dom', async (importOriginal) => {
   return {
     ...mod,
     useNavigate: () => mocks.navigate,
+  };
+});
+
+vi.mock('react-auth-kit', async (importOriginal) => {
+  const mod = await importOriginal();
+  return {
+    ...mod,
+    useSignOut: () => mocks.signOut,
   };
 });
 
