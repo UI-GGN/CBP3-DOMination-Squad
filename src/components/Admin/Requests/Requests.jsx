@@ -2,6 +2,11 @@ import { dark } from '../../colors.json';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import { Container, CardContainer, Button } from './Request.style.js';
+import Box from '@mui/material/Box';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import Select from '@mui/material/Select';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -9,6 +14,8 @@ import { useEffect } from 'react';
 const Requests = () => {
   const [requests, setRequests] = useState([]);
   const [vendorList, setVendorList] = useState([]);
+  const [filteredRequests, setFilteredRequests] = useState([]);
+  const [requestType, setRequestType] = useState('all');
   const csvHeader = [
     { label: 'ID', key: 'id' },
     { label: 'Employee ID', key: 'employeeId' },
@@ -21,12 +28,39 @@ const Requests = () => {
     { label: 'Status', key: 'status' },
   ];
 
+  const filterRequests = (requestType) => {
+    let filteredRequests = [];
+    if (requestType === 'adhoc') {
+      filteredRequests = requests.filter((request) => {
+        let pickup = new Date(request.pickupTime);
+        let expire = new Date(request.expireDate);
+        return pickup.getTime() == expire.getTime();
+      });
+    } else if (requestType === 'regular') {
+      filteredRequests = requests.filter((request) => {
+        let pickup = new Date(request.pickupTime);
+        let expire = new Date(request.expireDate);
+        return pickup.getTime() != expire.getTime();
+      });
+    } else {
+      filteredRequests = requests;
+    }
+
+    setFilteredRequests(filteredRequests);
+  };
+
+  const handleChange = (event) => {
+    setRequestType(event.target.value);
+    filterRequests(event.target.value);
+  };
+
   const getRequests = () => {
     axios
       .get('https://cab-schedule-serverless.vercel.app/api/v1/cab-request')
       .then((response) => {
         const sortRequests = response?.data.sort((a, b) => a?.pickupTime.localeCompare(b?.pickupTime));
         setRequests(sortRequests);
+        setFilteredRequests(sortRequests);
       })
       .catch((error) => {
         console.log(error);
@@ -82,8 +116,27 @@ const Requests = () => {
 
   return (
     <Container>
+      <div style={{ width: '10%' }}>
+        <Box sx={{ minWidth: 120 }}>
+          <FormControl fullWidth>
+            <InputLabel id="demo-simple-select-label">Request type</InputLabel>
+            <Select
+              labelId="demo-simple-select-label"
+              id="demo-simple-select"
+              value={requestType}
+              label="Request type"
+              onChange={handleChange}
+            >
+              <MenuItem value={'all'}>All</MenuItem>
+              <MenuItem value={'adhoc'}>Ad-hoc</MenuItem>
+              <MenuItem value={'regular'}>Regular</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+      </div>
+
       <CardContainer>
-        {requests.map((request) => {
+        {filteredRequests.map((request) => {
           return (
             <RequestCard
               key={request?.id}
