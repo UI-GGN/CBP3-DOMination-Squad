@@ -8,7 +8,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 const Private = ({ Component }) => {
   const isAuthenticated = useIsAuthenticated();
-  const auth = isAuthenticated(); //your logic
+  const auth = isAuthenticated();
   return auth ? <Component /> : <Navigate to="/login" />;
 };
 
@@ -19,7 +19,8 @@ const App = () => {
         <Route path="/" element={<Private Component={Home} />} />
         <Route path="/admin/dashboard" element={<Private Component={Dashboard} />} />
         <Route path="/employee/dashboard" element={<Private Component={EmployeeDashboard} />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </>
   );
