@@ -9,6 +9,17 @@ export const Container = styled.div`
   margin: 20px;
 `;
 
+export const FilterContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const Filters = styled.div`
+  width: 10%;
+`;
+
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -16,9 +27,6 @@ export const CardContainer = styled.div`
 `;
 
 export const Button = styled.button`
-  position: absolute;
-  align-self: end;
-  bottom: 20px;
   flex-shrink: 1;
   font-weight: 700;
   font-size: 14px;

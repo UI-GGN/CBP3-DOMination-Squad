@@ -59,7 +59,7 @@ const RequestCard = ({
       },
       body: JSON.stringify({ status: 'APPROVED', vendorId: input }),
     };
-    fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
+    fetch(`https://shuttle-service-tw.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('APPROVED');
         setVendorID(input);
