@@ -30,6 +30,12 @@ function handleError(e) {
 
 const CabRequestDetails = () => {
   const [cabDetails, setCabDetails] = useState([]);
+  const timeConversion = (timeString) => {
+    const timeWithAMPM = timeString.substring(11, 16);
+    const hour = parseInt(timeWithAMPM.substring(0, 2), 10);
+    const ampm = hour >= 12 ? 'PM' : 'AM';
+    return (hour % 12) + ':' + timeWithAMPM.substring(3, 5) + ' ' + ampm;
+  };
   const getCabDetails = async () => {
     try {
       fetchCabRequestDetailsService.fetchCabRequestDetails().then((response) => setCabDetails(response.data));
@@ -58,7 +64,7 @@ const CabRequestDetails = () => {
             ) : (
               <DetailsText>{dayjs(cab.pickupTime).format('MMM D, YYYY')}</DetailsText>
             )}
-            <HighlightedText>{dayjs(cab.pickupTime).format('hh:mm A')}</HighlightedText>
+            <HighlightedText>{timeConversion(cab.pickupTime)}</HighlightedText>
           </DetailsContainer>
           <HorizontalLine />
 
