@@ -119,7 +119,7 @@ const Login = () => {
         </SignInSection>
         <SignUpSection>
           <div className="w-full h-full bg-landing_image bg-cover bg-no-repeat">
-            <div className="w-full h-full bg-black bg-opacity-75 flex flex-col items-center justify-center">
+            <div className="w-full h-full bg-black bg-opacity-50 flex flex-col items-center justify-center">
               <div className="text-white font-bold text-6xl mb-8">New Here?</div>
               <p className="text-white text-xl m-8">
                 Effortless Commutes: Sign Up Now for Hassle-Free Office Cab Booking!
