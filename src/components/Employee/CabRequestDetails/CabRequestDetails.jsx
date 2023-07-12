@@ -48,9 +48,15 @@ const CabRequestDetails = () => {
     getCabDetails();
   }, []);
 
+  const sortedCabDetails = cabDetails.sort((a, b) => {
+    const timeA = dayjs(a.pickupTime);
+    const timeB = dayjs(b.pickupTime);
+    return timeA.diff(timeB);
+  });
+
   return (
     <>
-      {cabDetails.map((cab, id) => (
+      {sortedCabDetails.map((cab, id) => (
         <CardDetailsContainer key={id}>
           <TitleContainer>
             <TitleText>Date </TitleText>
