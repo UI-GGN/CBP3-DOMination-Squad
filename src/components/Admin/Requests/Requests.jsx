@@ -127,10 +127,17 @@ const Requests = () => {
                 value={requestType}
                 label="Request type"
                 onChange={handleChange}
+                sx={{ fontFamily: 'roboto-regular' }}
               >
-                <MenuItem value={'all'}>All</MenuItem>
-                <MenuItem value={'adhoc'}>Ad-hoc</MenuItem>
-                <MenuItem value={'regular'}>Regular</MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                  All
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
+                  Ad-hoc
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
+                  Regular
+                </MenuItem>
               </Select>
             </FormControl>
           </Box>
