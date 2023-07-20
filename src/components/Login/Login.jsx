@@ -9,6 +9,7 @@ import {
   Container,
   SignInSection,
   SignInSegment,
+  StyledForm,
   SignInTitle,
   StyledTextField,
   Button,
@@ -88,44 +89,41 @@ const Login = () => {
               <img src={thoughtworks_logo} />
             </Logo>
             <SignInTitle>Sign In</SignInTitle>
-            <StyledTextField
-              margin="normal"
-              fullWidth
-              id="email"
-              label="Email Address"
-              name="email"
-              autoComplete="email"
-              autoFocus
-              value={email}
-              onChange={handleEmailChange}
-              error={emailError}
-              helperText={emailError ? 'Please provide a valid email' : null}
-            />
-            <StyledTextField
-              margin="normal"
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-              value={password}
-              onChange={handlePasswordChange}
-              error={passwordError}
-              helperText={passwordError ? 'Password field cannot be empty' : null}
-            />
+            <StyledForm onSubmit={handleOnSubmit}>
+              <StyledTextField
+                margin="normal"
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                autoFocus
+                value={email}
+                onChange={handleEmailChange}
+                error={emailError}
+                helperText={emailError ? 'Please provide a valid email' : null}
+              />
+              <StyledTextField
+                margin="normal"
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+                value={password}
+                onChange={handlePasswordChange}
+                error={passwordError}
+                helperText={passwordError ? 'Password field cannot be empty' : null}
+              />
 
-            <Button color={primary} onClick={() => handleOnSubmit()}>
-              Sign in
-            </Button>
+              <Button color={primary} onClick={() => handleOnSubmit()}>
+                Sign in
+              </Button>
+            </StyledForm>
             {showAlert && <AlertText>Please enter valid credentials !</AlertText>}
           </SignInSegment>
         </SignInSection>
-        {/* <SignUpSection>
-          <ImageContainer>
-            <img src={cab} />
-          </ImageContainer>
-        </SignUpSection> */}
       </Container>
     </>
   );

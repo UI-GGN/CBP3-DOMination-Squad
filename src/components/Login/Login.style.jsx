@@ -49,6 +49,13 @@ export const SignInSegment = styled.div`
   }
 `;
 
+export const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+`;
+
 export const SignInTitle = styled.h1`
   font-size: 32px;
   line-height: 24px;
@@ -106,6 +113,7 @@ export const StyledTextField = styled(TextField)`
 
 export const Button = styled.button`
   width: 40%;
+  align-self: center;
   flex-shrink: 1;
   font-weight: 700;
   font-size: 16px;
