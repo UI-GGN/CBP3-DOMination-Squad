@@ -1,7 +1,18 @@
 import { purple } from '../../colors.json';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
-import { Container, FilterContainer, Filters, CardContainer, Button } from './Request.style.js';
+import cross from './../../../assets/cross.png';
+import tick from './../../../assets/tick.png';
+import {
+  Container,
+  FilterContainer,
+  Filters,
+  CardContainer,
+  Button,
+  AlertContainer,
+  ImageContainer,
+  AlertText,
+} from './Request.style.js';
 import Box from '@mui/material/Box';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
@@ -15,7 +26,13 @@ const Requests = () => {
   const [requests, setRequests] = useState([]);
   const [vendorList, setVendorList] = useState([]);
   const [filteredRequests, setFilteredRequests] = useState([]);
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertType, setAlertType] = useState(true);
   const [requestType, setRequestType] = useState('all');
+
+  const alertIcon = alertType ? tick : cross;
+  const alertText = alertType ? 'Vendor assigned successfully!' : 'Request declined!';
+
   const csvHeader = [
     { label: 'ID', key: 'id' },
     { label: 'Employee ID', key: 'employeeId' },
@@ -109,6 +126,14 @@ const Requests = () => {
     generateCSV(csvHeader, csvRequest, 'Employee requests');
   };
 
+  const handleAlert = (input) => {
+    setAlertType(input);
+    setShowAlert(true);
+    setTimeout(() => {
+      setShowAlert(false);
+    }, 2000);
+  };
+
   useEffect(() => {
     getRequests();
     getVendors();
@@ -116,6 +141,14 @@ const Requests = () => {
 
   return (
     <Container>
+      {showAlert && (
+        <AlertContainer alertType={alertType}>
+          <ImageContainer>
+            <img src={alertIcon} />
+          </ImageContainer>
+          <AlertText>{alertText}</AlertText>
+        </AlertContainer>
+      )}
       <FilterContainer>
         <Filters>
           <Box sx={{ minWidth: 120 }}>
@@ -162,6 +195,7 @@ const Requests = () => {
               drop={request?.dropLocation}
               vendorList={vendorList}
               vendorId={request?.vendorId}
+              onVendorAssign={handleAlert}
             />
           );
         })}

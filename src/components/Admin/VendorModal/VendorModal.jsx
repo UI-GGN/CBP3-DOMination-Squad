@@ -1,4 +1,5 @@
 import closeModalIcon from '../../../assets/closeModal.png';
+import { green, purple } from '../../colors.json';
 import {
   Container,
   Header,
@@ -26,7 +27,7 @@ const VendorModal = ({ onClose, onAssignVendor, vendorList }) => {
       {vendorList.map((vendor) => {
         return (
           <div key={vendor.id}>
-            <Button color="#3aafa9" onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
+            <Button color={purple} onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
               {vendor.name}
             </Button>
             <HorizontalLine />
@@ -35,7 +36,7 @@ const VendorModal = ({ onClose, onAssignVendor, vendorList }) => {
       })}
 
       <ActionContainer>
-        <ActionButton color="#3aafa9" onClick={() => onAssignVendor(selected)}>
+        <ActionButton color={green} onClick={() => onAssignVendor(selected)}>
           Assign Vendor
         </ActionButton>
         <ActionButton color="#d22b2b" onClick={() => onClose()}>

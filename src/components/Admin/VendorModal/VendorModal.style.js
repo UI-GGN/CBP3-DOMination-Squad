@@ -1,4 +1,4 @@
-import { primary, secondary, dark } from '../../colors.json';
+import { dark, purple, pink } from '../../colors.json';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -21,11 +21,12 @@ export const HeaderTitle = styled.h1`
   line-height: 24px;
   color: ${dark};
   font-family: roboto-regular;
+  margin-top: 8px;
+  margin-bottom: 12px;
 `;
 
 export const CrossContainer = styled.div`
   height: 1em;
-  align-self: end;
   margin-right: 4px;
   margin-top: 4px;
   margin-bottom: 12px;
@@ -38,17 +39,17 @@ export const CrossImage = styled.img`
 
 export const Button = styled.button`
   width: 100%;
-  background-color: ${(props) => (props?.isSelected ? primary : 'white')};
+  background-color: ${(props) => (props?.isSelected ? purple : 'white')};
   font-weight: 600;
   font-size: 16px;
-  border: 0.5px solid ${secondary};
   padding-top: 12px;
   padding-bottom: 12px;
+  border-radius: 4px;
   color: ${(props) => (props?.isSelected ? 'white' : props.color)};
   &:hover {
     font-weight: 700;
-    background-color: ${(props) => (props?.isSelected ? primary : secondary)};
-    color: ${(props) => (props?.isSelected ? 'white' : dark)};
+    background-color: ${(props) => (props?.isSelected ? purple : pink)};
+    color: white;
   }
 `;
 

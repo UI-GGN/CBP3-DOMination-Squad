@@ -44,6 +44,7 @@ const RequestCard = ({
   drop,
   vendorList,
   vendorId,
+  onVendorAssign,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [status, setStatus] = useState(requestStatus);
@@ -64,6 +65,7 @@ const RequestCard = ({
       .then(() => {
         setStatus('APPROVED');
         setVendorID(input);
+        onVendorAssign(true);
       })
       .catch((error) => {
         console.log(error);
@@ -83,6 +85,7 @@ const RequestCard = ({
     fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('DECLINED');
+        onVendorAssign(false);
       })
       .catch((error) => {
         console.log(error);

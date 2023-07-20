@@ -1,4 +1,4 @@
-import { primary, dark } from '../../colors.json';
+import { dark, dark_blue, green } from '../../colors.json';
 import styled from 'styled-components';
 
 export const TitleContainer = styled.div`
@@ -62,13 +62,13 @@ export const DetailsText = styled.h1`
 export const ApprovedText = styled.h1`
   font-size: 18px;
   font-weight: 700;
-  color: ${dark};
+  color: ${dark_blue};
 `;
 
 export const ShowDetailsText = styled.h1`
   font-size: 12px;
   font-weight: 700;
-  color: ${primary};
+  color: ${green};
   cursor: pointer;
 `;
 
