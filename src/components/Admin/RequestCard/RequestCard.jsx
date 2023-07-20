@@ -1,5 +1,6 @@
 import phoneIcon from '../../../assets/call.png';
 import VendorModal from '../../Admin/VendorModal';
+import { green } from '../../colors.json';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
 import {
   TitleContainer,
@@ -114,7 +115,7 @@ const RequestCard = ({
 
         {status === 'PENDING' && (
           <TitleContainer>
-            <Button color="#3aafa9" onClick={() => onApprove()}>
+            <Button color={green} onClick={() => onApprove()}>
               Approve
             </Button>
             <Button color="#d22b2b" marginTop="4px" onClick={() => onReject()}>

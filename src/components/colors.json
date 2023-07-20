@@ -1,5 +1,11 @@
 {
-  "primary": "#3aafa9",
-  "secondary": "#def2f1",
-  "dark": "#17252a"
+  "primary": "#003D4F",
+  "secondary": "#47A1AD",
+  "dark_blue": "#003D4F",
+  "blue": "#47A1AD",
+  "dark": "#17252a",
+  "gray": "#EDF1F3",
+  "pink": "#F2617A",
+  "green": "#6B9E78",
+  "purple": "#634F7D"
 }

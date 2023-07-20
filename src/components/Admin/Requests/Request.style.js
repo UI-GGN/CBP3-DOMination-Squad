@@ -18,20 +18,22 @@ export const FilterContainer = styled.div`
 
 export const Filters = styled.div`
   width: 10%;
+  margin-left: 20px;
 `;
 
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
 `;
 
 export const Button = styled.button`
   flex-shrink: 1;
-  font-weight: 700;
+  font-weight: 630;
   font-size: 14px;
-  border: 1px solid ${(props) => (props?.color ? props.color : dark)};
-  border-radius: 20px;
+  border: 2px solid ${(props) => (props?.color ? props.color : dark)};
+  border-radius: 24px;
   padding: 12px;
   color: ${(props) => (props?.isSelected ? dark : props.color)};
   &:hover {

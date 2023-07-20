@@ -1,19 +1,13 @@
-import AdminTab from '../AdminTab';
-import Header from '../Header';
+import Header from '../../common/Header';
 import Requests from '../Requests';
 import { Container, Details, Content } from './Dashboard.style';
 import { useState } from 'react';
 
 const Dashboard = () => {
   const [selected, setSelected] = useState('REQUESTS');
-  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
   const handleRoutes = (input) => {
     setSelected(input);
-  };
-
-  const handleHeaderVisibility = () => {
-    setIsHeaderVisible(!isHeaderVisible);
   };
 
   const getComponent = (input) => {
@@ -29,9 +23,8 @@ const Dashboard = () => {
 
   return (
     <Container>
-      {isHeaderVisible && <Header selected={selected} onPress={handleRoutes} onHeaderClose={handleHeaderVisibility} />}
       <Details>
-        <AdminTab selected={selected} onIconPress={handleHeaderVisibility} isHeaderVisible={isHeaderVisible} />
+        <Header selected={selected} onPress={handleRoutes} />
         <Content>{getComponent(selected)}</Content>
       </Details>
     </Container>

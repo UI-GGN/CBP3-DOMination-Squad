@@ -19,13 +19,13 @@ exports[`Head > should render Head component 1`] = `
         />
       </div>
       <h1
-        class="sc-jTrPJq eMSvBq"
+        class="sc-jTrPJq doJtuO"
       >
         Admin Access
       </h1>
     </div>
     <div
-      class="sc-eDDNvR kfivcA"
+      class="sc-eDDNvR jXhmjs"
     />
     <div
       class="sc-dmqHEX jFKZMM"
@@ -37,7 +37,7 @@ exports[`Head > should render Head component 1`] = `
           class="sc-qRumB gdVmCe"
         >
           <div
-            class="sc-jsMahE lzUdM"
+            class="sc-jsMahE iDSXYY"
           >
             <img
               class="sc-fsQiph hVDqoN"
@@ -52,24 +52,24 @@ exports[`Head > should render Head component 1`] = `
           </h1>
         </div>
         <div
-          class="sc-eDDNvR kfivcA"
+          class="sc-eDDNvR jXhmjs"
         />
         <div
           class="sc-csCMJt elNvL"
         >
           <button
-            class="sc-fbJfA hGHcJu"
+            class="sc-fbJfA glqqUm"
             data-testid="nav-option-requests"
           >
             Requests
           </button>
           <div
-            class="sc-eDDNvR kfivcA"
+            class="sc-eDDNvR jXhmjs"
           />
         </div>
       </div>
       <button
-        class="sc-brKeYL jtuOhI"
+        class="sc-brKeYL fjbKYs"
         data-testid="logout-button"
       >
         Log out

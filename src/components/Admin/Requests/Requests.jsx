@@ -1,4 +1,4 @@
-import { dark } from '../../colors.json';
+import { purple } from '../../colors.json';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import { Container, FilterContainer, Filters, CardContainer, Button } from './Request.style.js';
@@ -142,7 +142,7 @@ const Requests = () => {
             </FormControl>
           </Box>
         </Filters>
-        <Button color={dark} marginTop="4px" onClick={() => downloadCSV()}>
+        <Button color={purple} marginTop="4px" onClick={() => downloadCSV()}>
           Export requests
         </Button>
       </FilterContainer>

@@ -1,4 +1,5 @@
-import { primary, dark } from '../colors.json';
+import thoughtworks_logo from '../../assets/thoughtworks-logo.svg';
+import { primary } from '../colors.json';
 import { validateCredentials } from '../common/utils';
 import { useState } from 'react';
 import { useSignIn } from 'react-auth-kit';
@@ -7,12 +8,12 @@ import { useNavigate } from 'react-router-dom';
 import {
   Container,
   SignInSection,
-  SignUpSection,
   SignInSegment,
   SignInTitle,
   StyledTextField,
   Button,
   AlertText,
+  Logo,
 } from './Login.style';
 
 const Login = () => {
@@ -83,6 +84,9 @@ const Login = () => {
       <Container>
         <SignInSection>
           <SignInSegment>
+            <Logo>
+              <img src={thoughtworks_logo} />
+            </Logo>
             <SignInTitle>Sign In</SignInTitle>
             <StyledTextField
               margin="normal"
@@ -117,19 +121,11 @@ const Login = () => {
             {showAlert && <AlertText>Please enter valid credentials !</AlertText>}
           </SignInSegment>
         </SignInSection>
-        <SignUpSection>
-          <div className="w-full h-full bg-landing_image bg-cover bg-no-repeat">
-            <div className="w-full h-full bg-black bg-opacity-50 flex flex-col items-center justify-center">
-              <div className="text-white font-bold text-6xl mb-8">New Here?</div>
-              <p className="text-white text-xl m-8">
-                Effortless Commutes: Sign Up Now for Hassle-Free Office Cab Booking!
-              </p>
-              <Button color="white" bgColor={dark}>
-                Sign up
-              </Button>
-            </div>
-          </div>
-        </SignUpSection>
+        {/* <SignUpSection>
+          <ImageContainer>
+            <img src={cab} />
+          </ImageContainer>
+        </SignUpSection> */}
       </Container>
     </>
   );

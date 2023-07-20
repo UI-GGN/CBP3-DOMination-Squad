@@ -1,4 +1,4 @@
-import { primary, dark } from '../colors.json';
+import { primary, dark, pink } from '../colors.json';
 import { TextField } from '@mui/material';
 import styled from 'styled-components';
 
@@ -12,7 +12,7 @@ export const Container = styled.div`
 
 export const SignInSection = styled.div`
   display: flex;
-  width: 60%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 `;
@@ -24,14 +24,29 @@ export const SignUpSection = styled.div`
   justify-content: center;
 `;
 
+export const ImageContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+`;
+
 export const SignInSegment = styled.div`
-  min-width: 40%;
+  width: 25%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 24px;
   padding: 20px;
+
+  @media (max-width: 800px) {
+    width: 75%;
+  }
+
+  @media (max-width: 1200px) and (min-width: 800px) {
+    width: 60%;
+  }
 `;
 
 export const SignInTitle = styled.h1`
@@ -49,6 +64,13 @@ export const AlertText = styled.h1`
   color: #b23b3b;
 `;
 
+export const Logo = styled.div`
+  display: flex;
+  height: 80px;
+  width: 50%;
+  margin: 20px;
+`;
+
 export const StyledTextField = styled(TextField)`
   background: white;
   border-radius: 24px;
@@ -59,7 +81,8 @@ export const StyledTextField = styled(TextField)`
     transition: background-color 5000s ease-in-out 0s;
   }
   & label.Mui-focused {
-    color: ${primary};
+    color: ${pink};
+    font-family: roboto-regular;
   }
   & .MuiInput-underline:after {
     border-bottom-color: ${primary};
