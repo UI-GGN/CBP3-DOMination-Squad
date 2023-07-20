@@ -1,7 +1,8 @@
 import phoneIcon from '../../../assets/call.png';
 import VendorModal from '../../Admin/VendorModal';
-import { green } from '../../colors.json';
+import { green, red } from '../../colors.json';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
+import StyledButton from '../../common/StyledButton/StyledButton';
 import {
   TitleContainer,
   ApprovedContainer,
@@ -15,7 +16,6 @@ import {
   DeclinedText,
   ShowDetailsText,
   PhoneNumberText,
-  Button,
 } from './RequestCard.style.js';
 import { Modal } from '@mui/material';
 import { useState } from 'react';
@@ -118,12 +118,12 @@ const RequestCard = ({
 
         {status === 'PENDING' && (
           <TitleContainer>
-            <Button color={green} onClick={() => onApprove()}>
+            <StyledButton color={green} textColor={green} width="40%" onClick={() => onApprove()}>
               Approve
-            </Button>
-            <Button color="#d22b2b" marginTop="4px" onClick={() => onReject()}>
+            </StyledButton>
+            <StyledButton color={red} textColor={red} width="40%" onClick={() => onReject()}>
               Reject
-            </Button>
+            </StyledButton>
           </TitleContainer>
         )}
 

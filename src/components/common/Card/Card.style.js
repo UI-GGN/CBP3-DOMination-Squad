@@ -16,4 +16,8 @@ export const Container = styled.div`
   &:hover {
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
   }
+
+  @media (max-width: 500px) {
+    min-width: ${(props) => (props.width ? props.width : '340px')};
+  }
 `;

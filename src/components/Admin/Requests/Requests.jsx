@@ -1,4 +1,5 @@
-import { purple } from '../../colors.json';
+import { purple, dark } from '../../colors.json';
+import StyledButton from '../../common/StyledButton/StyledButton';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import cross from './../../../assets/cross.png';
@@ -8,7 +9,6 @@ import {
   FilterContainer,
   Filters,
   CardContainer,
-  Button,
   AlertContainer,
   ImageContainer,
   AlertText,
@@ -175,9 +175,9 @@ const Requests = () => {
             </FormControl>
           </Box>
         </Filters>
-        <Button color={purple} marginTop="4px" onClick={() => downloadCSV()}>
+        <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
           Export requests
-        </Button>
+        </StyledButton>
       </FilterContainer>
       <CardContainer>
         {filteredRequests.map((request) => {

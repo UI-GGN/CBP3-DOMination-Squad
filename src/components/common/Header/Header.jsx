@@ -1,5 +1,7 @@
 import thoughtworks_logo from '../../../assets/thoughtworks-logo-dark.svg';
-import { Container, Content, Logo, LogoImage, NavBar, NavBarOption, LogoutButton } from './Header.style';
+import StyledButton from '../StyledButton/StyledButton';
+import { pink } from './../../colors.json';
+import { Container, Content, Logo, LogoImage, NavBar, NavBarOption } from './Header.style';
 import { useSignOut } from 'react-auth-kit';
 import { useNavigate } from 'react-router-dom';
 
@@ -33,7 +35,8 @@ const Header = ({ selected, onPress }) => {
             About
           </NavBarOption>
         </NavBar>
-        <LogoutButton
+        <StyledButton
+          color={pink}
           onClick={() => {
             () => {
               signOut();
@@ -42,7 +45,7 @@ const Header = ({ selected, onPress }) => {
           }}
         >
           Log out
-        </LogoutButton>
+        </StyledButton>
       </Content>
       {/* <HorizontalLine /> */}
     </Container>

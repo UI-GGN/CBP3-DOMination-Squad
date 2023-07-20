@@ -1,5 +1,6 @@
 import closeModalIcon from '../../../assets/closeModal.png';
-import { green, purple } from '../../colors.json';
+import { green, purple, red } from '../../colors.json';
+import StyledButton from '../../common/StyledButton/StyledButton';
 import {
   Container,
   Header,
@@ -9,7 +10,6 @@ import {
   Button,
   HorizontalLine,
   ActionContainer,
-  ActionButton,
 } from './VendorModal.style';
 import { useState } from 'react';
 
@@ -36,12 +36,12 @@ const VendorModal = ({ onClose, onAssignVendor, vendorList }) => {
       })}
 
       <ActionContainer>
-        <ActionButton color={green} onClick={() => onAssignVendor(selected)}>
+        <StyledButton color={green} textColor={green} width="40%" onClick={() => onAssignVendor(selected)}>
           Assign Vendor
-        </ActionButton>
-        <ActionButton color="#d22b2b" onClick={() => onClose()}>
+        </StyledButton>
+        <StyledButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
           Cancel
-        </ActionButton>
+        </StyledButton>
       </ActionContainer>
     </Container>
   );

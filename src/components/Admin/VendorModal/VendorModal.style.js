@@ -54,7 +54,7 @@ export const Button = styled.button`
 `;
 
 export const HorizontalLine = styled.div`
-  height: 0.5px;
+  height: 0.7px;
   background-color: rgb(229, 231, 235);
 `;
 
@@ -66,20 +66,4 @@ export const ActionContainer = styled.div`
   margin-top: 20px;
   margin-left: 12px;
   margin-right: 12px;
-`;
-
-export const ActionButton = styled.button`
-  width: 40%;
-  flex-shrink: 1;
-  font-weight: 700;
-  font-size: 14px;
-  border: 1px solid ${(props) => (props?.color ? props.color : dark)};
-  border-radius: 20px;
-  padding: 4px;
-  color: ${(props) => (props?.isSelected ? dark : props.color)};
-  &:hover {
-    font-weight: 700;
-    color: white;
-    background-color: ${(props) => (props?.color ? props.color : dark)};
-  }
 `;
