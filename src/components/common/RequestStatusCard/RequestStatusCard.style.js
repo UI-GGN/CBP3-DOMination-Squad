@@ -55,6 +55,16 @@ export const LocationPathIcon = styled.div`
   align-items: center;
 `;
 
+export const LocationPathImage = styled.img`
+  max-height: 70%;
+  max-width: 100%;
+  align-self: center;
+
+  @media (max-width: 800px) {
+    max-width: 80%;
+  }
+`;
+
 export const LocationDetails = styled.div`
   display: flex;
   flex-direction: column;

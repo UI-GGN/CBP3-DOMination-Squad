@@ -13,13 +13,13 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         class="sc-gLDzan hmbCMJ"
       >
         <h1
-          class="sc-csCMJt byeZtC"
+          class="sc-fbJfA cedOEj"
           data-testid="name-label"
         >
           Name
         </h1>
         <h1
-          class="sc-csCMJt byeZtC"
+          class="sc-fbJfA cedOEj"
           data-testid="project-code-label"
         >
           Project Code
@@ -29,7 +29,7 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         class="sc-iAEyYk czncTD"
       >
         <h1
-          class="sc-fbJfA EwfjU"
+          class="sc-brKeYL dwsKPC"
           data-testid="name"
         >
           Shivansh Garg
@@ -38,14 +38,14 @@ exports[`Card > should render RequestStatusCard component 1`] = `
           )
         </h1>
         <h1
-          class="sc-fbJfA EwfjU"
+          class="sc-brKeYL dwsKPC"
           data-testid="project-code"
         >
           123
         </h1>
       </div>
       <div
-        class="sc-brKeYL gLJAgJ"
+        class="sc-ktEKTO kAVaEc"
       />
     </div>
     <div
@@ -55,13 +55,13 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         class="sc-gLDzan hmbCMJ"
       >
         <h1
-          class="sc-csCMJt byeZtC"
+          class="sc-fbJfA cedOEj"
           data-testid="date-label"
         >
           Date
         </h1>
         <h1
-          class="sc-csCMJt byeZtC"
+          class="sc-fbJfA cedOEj"
           data-testid="pickup-time-label"
         >
           Pickup Time
@@ -71,20 +71,20 @@ exports[`Card > should render RequestStatusCard component 1`] = `
         class="sc-iAEyYk czncTD"
       >
         <h1
-          class="sc-fbJfA EwfjU"
+          class="sc-brKeYL dwsKPC"
           data-testid="date"
         >
           2023-07-03
         </h1>
         <h1
-          class="sc-irTswW eVfxgY"
+          class="sc-csCMJt cfDkEU"
           data-testid="pickup-time"
         >
           10:00 AM
         </h1>
       </div>
       <div
-        class="sc-brKeYL gLJAgJ"
+        class="sc-ktEKTO kAVaEc"
       />
     </div>
     <div
@@ -101,47 +101,47 @@ exports[`Card > should render RequestStatusCard component 1`] = `
             class="sc-jsMahE iQgzMo"
           >
             <img
+              class="sc-kFuwaP llEZif"
               src="/src/assets/circle_icon.png"
-              style="max-height: 70%;"
             />
           </div>
           <div
-            class="sc-ktEKTO jXJbVu"
+            class="sc-hAtEyd bEtTip"
           />
           <div
             class="sc-jsMahE iQgzMo"
           >
             <img
+              class="sc-kFuwaP llEZif"
               src="/src/assets/destination_icon.png"
-              style="max-height: 70%;"
             />
           </div>
         </div>
         <div
-          class="sc-kFuwaP iYgQDa"
+          class="sc-irTswW gTXNtA"
         >
           <h1
-            class="sc-csCMJt byeZtC"
+            class="sc-fbJfA cedOEj"
             data-testid="start-point-label"
           >
             Start Point
           </h1>
           <h1
-            class="sc-fbJfA EwfjU"
+            class="sc-brKeYL dwsKPC"
             data-testid="pickup-location"
             style="margin-bottom: 10px;"
           >
             Home
           </h1>
           <h1
-            class="sc-csCMJt byeZtC"
+            class="sc-fbJfA cedOEj"
             data-testid="end-point-label"
             style="margin-top: 10px;"
           >
             End Point
           </h1>
           <h1
-            class="sc-fbJfA EwfjU"
+            class="sc-brKeYL dwsKPC"
             data-testid="drop-location"
           >
             Office

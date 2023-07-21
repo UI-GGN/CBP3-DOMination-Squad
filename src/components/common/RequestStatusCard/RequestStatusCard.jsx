@@ -10,6 +10,7 @@ import {
   LocationSegment,
   LocationPathIconSegment,
   LocationPathIcon,
+  LocationPathImage,
   LocationDetails,
   HighlightedText,
   TitleText,
@@ -54,11 +55,11 @@ const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location
           <LocationSegment>
             <LocationPathIconSegment>
               <LocationPathIcon>
-                <img src={circle} style={{ maxHeight: '70%' }} />
+                <LocationPathImage src={circle} />
               </LocationPathIcon>
               <VerticalLine />
               <LocationPathIcon>
-                <img src={destination} style={{ maxHeight: '70%' }} />
+                <LocationPathImage src={destination} />
               </LocationPathIcon>
             </LocationPathIconSegment>
             <LocationDetails>
