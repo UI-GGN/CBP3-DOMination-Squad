@@ -1,10 +1,11 @@
 import { CustomButton } from './StyledButton.style';
 
-const StyledButton = ({ children, className, onClick, color, textColor, fontSize, width }) => {
+const StyledButton = ({ children, className, onClick, color, bgColor, textColor, fontSize, width }) => {
   return (
     <CustomButton
       className={className}
       color={color}
+      bgColor={bgColor}
       textColor={textColor}
       onClick={onClick}
       width={width}

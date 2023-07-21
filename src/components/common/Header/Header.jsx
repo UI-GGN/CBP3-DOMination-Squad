@@ -37,6 +37,7 @@ const Header = ({ selected, onPress }) => {
         </NavBar>
         <StyledButton
           color={pink}
+          bgColor={pink}
           onClick={() => {
             () => {
               signOut();
