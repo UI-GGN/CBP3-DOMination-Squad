@@ -14,11 +14,12 @@ export const FilterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  width: 93%;
+  margin: 0 auto;
 `;
 
 export const Filters = styled.div`
   width: 10%;
-  margin-left: 20px;
 `;
 
 export const CardContainer = styled.div`

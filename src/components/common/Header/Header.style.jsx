@@ -25,14 +25,18 @@ export const Logo = styled.div`
   display: flex;
   align-items: center;
 
-  @media (max-width: 800px) {
+  @media (max-width: 500px) {
+    width: 40%;
+  }
+
+  @media (max-width: 800px) and (min-width: 500px) {
     width: 30%;
   }
 `;
 
 export const LogoImage = styled.img`
   @media (max-width: 800px) {
-    max-width: 80%;
+    max-width: 90%;
   }
 `;
 
@@ -40,6 +44,10 @@ export const NavBar = styled.div`
   display: flex;
   flex-direction: row;
   width: 60%;
+
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;
 
 export const NavBarOption = styled.button`

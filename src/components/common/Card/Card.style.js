@@ -17,7 +17,12 @@ export const Container = styled.div`
     box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2);
   }
 
+  @media (max-width: 768px) {
+    min-width: 300px;
+  }
+
   @media (max-width: 500px) {
-    min-width: ${(props) => (props.width ? props.width : '340px')};
+    width: 250px;
+    padding: 12px 16px;
   }
 `;
