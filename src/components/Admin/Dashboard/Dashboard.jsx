@@ -1,5 +1,7 @@
 import Header from '../../common/Header';
+import About from '../About';
 import Requests from '../Requests';
+import Vendors from '../Vendors';
 import { Container, Details, Content } from './Dashboard.style';
 import { useState } from 'react';
 
@@ -14,8 +16,10 @@ const Dashboard = () => {
     switch (input) {
       case 'REQUESTS':
         return <Requests />;
-      // case 'ROUTES':
-      //   return <Routes />;
+      case 'VENDORS':
+        return <Vendors />;
+      case 'ABOUT':
+        return <About />;
       default:
         return <Requests type={'admin'} />;
     }

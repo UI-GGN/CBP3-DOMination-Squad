@@ -69,6 +69,15 @@ const Header = ({ selected, onPress }) => {
             Requests
           </NavBarOption>
           <NavBarOption
+            isSelected={selected === 'VENDORS'}
+            onClick={() => {
+              onPress('VENDORS');
+            }}
+            data-testid="header-nav-option-vendors"
+          >
+            Vendors
+          </NavBarOption>
+          <NavBarOption
             isSelected={selected === 'ABOUT'}
             onClick={() => {
               onPress('ABOUT');
