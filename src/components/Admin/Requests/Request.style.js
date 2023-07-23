@@ -58,6 +58,10 @@ export const AlertContainer = styled.div`
   background-color: ${(props) => (props.alertType ? green : '#b23b3b')};
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
+
+  @media (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 
 export const ImageContainer = styled.div`
@@ -68,6 +72,10 @@ export const ImageContainer = styled.div`
   width: 30px;
   border-radius: 20px;
   margin-right: 12px;
+
+  @media (max-width: 800px) {
+    margin-bottom: 4px;
+  }
 `;
 
 export const AlertText = styled.h1`
