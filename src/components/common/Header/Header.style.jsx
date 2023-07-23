@@ -83,6 +83,7 @@ export const LogoutButton = styled(StyledButton)`
   }
 
   @media (max-width: 800px) {
-    width: 25%;
+    min-width: 85px;
+    padding: 4px 4px;
   }
 `;

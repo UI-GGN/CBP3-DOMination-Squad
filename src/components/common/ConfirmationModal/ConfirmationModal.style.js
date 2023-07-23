@@ -1,4 +1,5 @@
 import { dark, purple, pink } from '../../colors.json';
+import StyledButton from '../../common/StyledButton/StyledButton';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -63,4 +64,15 @@ export const ActionContainer = styled.div`
   margin-top: 20px;
   margin-left: 12px;
   margin-right: 12px;
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
+
+export const ActionButton = styled(StyledButton)`
+  @media (max-width: 600px) {
+    margin-bottom: 8px;
+    width: 90%;
+  }
 `;

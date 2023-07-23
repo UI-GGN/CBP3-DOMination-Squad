@@ -1,7 +1,14 @@
 import closeModalIcon from '../../../assets/closeModal.png';
 import { primary, red } from '../../colors.json';
-import StyledButton from '../StyledButton/StyledButton';
-import { Container, Header, HeaderTitle, CrossContainer, CrossImage, ActionContainer } from './ConfirmationModal.style';
+import {
+  Container,
+  Header,
+  HeaderTitle,
+  CrossContainer,
+  CrossImage,
+  ActionContainer,
+  ActionButton,
+} from './ConfirmationModal.style';
 
 const ConfirmationModal = ({ onClose, onConfirm, confirmText }) => {
   return (
@@ -14,12 +21,12 @@ const ConfirmationModal = ({ onClose, onConfirm, confirmText }) => {
       </Header>
 
       <ActionContainer>
-        <StyledButton color={primary} textColor={primary} width="40%" onClick={() => onConfirm()}>
+        <ActionButton color={primary} textColor={primary} width="40%" onClick={() => onConfirm()}>
           {confirmText}
-        </StyledButton>
-        <StyledButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
+        </ActionButton>
+        <ActionButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
           Cancel
-        </StyledButton>
+        </ActionButton>
       </ActionContainer>
     </Container>
   );
