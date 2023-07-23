@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const CustomButton = styled.button`
   padding: 6px 16px;
+  min-height: ${(props) => (props?.height ? props.height : '30px')};
   border: 1px solid ${(props) => (props?.color ? props.color : primary)};
   min-width: ${(props) => (props?.width ? props.width : '100px')};
   background-color: ${(props) => (props?.bgColor ? props.bgColor : '')};

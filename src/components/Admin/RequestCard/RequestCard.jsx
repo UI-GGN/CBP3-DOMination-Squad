@@ -1,8 +1,10 @@
 import phoneIcon from '../../../assets/call.png';
 import VendorModal from '../../Admin/VendorModal';
 import { green, red } from '../../colors.json';
+import ConfirmationModal from '../../common/ConfirmationModal/ConfirmationModal';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
 import StyledButton from '../../common/StyledButton/StyledButton';
+import { getModalWidth } from '../../common/utils.jsx';
 import {
   TitleContainer,
   ApprovedContainer,
@@ -18,19 +20,8 @@ import {
   PhoneNumberText,
 } from './RequestCard.style.js';
 import { Modal } from '@mui/material';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
-
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: '30%',
-  backgroundColor: 'white',
-  borderRadius: 20,
-  boxShadow: 24,
-  outline: 0,
-};
 
 const RequestCard = ({
   id,
@@ -45,14 +36,39 @@ const RequestCard = ({
   vendorList,
   vendorId,
   onVendorAssign,
+  isLoading,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [status, setStatus] = useState(requestStatus);
   const [showDetails, setShowDetails] = useState(false);
   const [vendorID, setVendorID] = useState(vendorId);
+  const [modalData, setModalData] = useState({
+    data: '',
+    type: 'vendor_modal',
+  });
+
+  const matchesPhone = useMediaQuery('(max-width:600px)');
+  const matchesTablet = useMediaQuery('(max-width:800px)');
+  const matchesWiderThanTablet = useMediaQuery('(max-width:1000px)');
+  const matchesLessThan1200 = useMediaQuery('(max-width:1200px)');
+
   const showDetailsText = showDetails ? 'Hide Details' : 'Show details';
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: getModalWidth(matchesPhone, matchesTablet, matchesWiderThanTablet, matchesLessThan1200, modalData.type),
+    backgroundColor: 'white',
+    borderRadius: 20,
+    boxShadow: 24,
+    outline: 0,
+  };
+
   const onAssignVendor = (input) => {
     setIsVisible(false);
+    isLoading(true);
 
     const options = {
       method: 'PUT',
@@ -66,14 +82,17 @@ const RequestCard = ({
         setStatus('APPROVED');
         setVendorID(input);
         onVendorAssign(true);
+        isLoading(false);
       })
       .catch((error) => {
+        isLoading(false);
         console.log(error);
       });
   };
 
-  const onReject = () => {
+  const onRejectVendor = () => {
     setIsVisible(false);
+    isLoading(true);
 
     const options = {
       method: 'PUT',
@@ -86,8 +105,10 @@ const RequestCard = ({
       .then(() => {
         setStatus('DECLINED');
         onVendorAssign(false);
+        isLoading(false);
       })
       .catch((error) => {
+        isLoading(false);
         console.log(error);
       });
   };
@@ -98,6 +119,18 @@ const RequestCard = ({
 
   const onApprove = () => {
     setIsVisible(true);
+    setModalData({
+      data: <VendorModal onClose={onModalClose} onAssignVendor={onAssignVendor} vendorList={vendorList} />,
+      type: 'vendor_modal',
+    });
+  };
+
+  const onReject = () => {
+    setIsVisible(true);
+    setModalData({
+      data: <ConfirmationModal onClose={onModalClose} onConfirm={onRejectVendor} confirmText="Reject" />,
+      type: 'confirmation_modal',
+    });
   };
 
   const Footer = () => {
@@ -111,9 +144,7 @@ const RequestCard = ({
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <div style={style}>
-            <VendorModal onClose={onModalClose} onAssignVendor={onAssignVendor} vendorList={vendorList} />
-          </div>
+          <div style={style}>{modalData.data}</div>
         </Modal>
 
         {status === 'PENDING' && (

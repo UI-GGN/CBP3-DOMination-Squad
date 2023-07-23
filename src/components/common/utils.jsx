@@ -1,3 +1,24 @@
+const getModalWidth = (matchesPhone, matchesTablet, matchesWiderThanTablet, matchesLessThan1200, type) => {
+  switch (true) {
+    case matchesPhone:
+      return '70%';
+    case matchesTablet:
+      return '60%';
+    case matchesWiderThanTablet:
+      return '50%';
+    case matchesLessThan1200:
+      return '40%';
+    default:
+      if (type === 'confirmation_modal') {
+        return '20%';
+      } else if (type === 'vendor_modal') {
+        return '30%';
+      } else {
+        return '30%';
+      }
+  }
+};
+
 const validCredentials = [
   { email: 'user@gmail.com', password: 'domination' },
   { email: 'admin@gmail.com', password: 'domination' },
@@ -31,12 +52,12 @@ const download = (data, fileName) => {
   document.body.removeChild(a);
 };
 
-export const generateCSV = (header, data, filename) => {
+const generateCSV = (header, data, filename) => {
   const csvData = arrayToCsv(header, data);
   download(csvData, filename);
 };
 
-export const validateCredentials = (email, password) => {
+const validateCredentials = (email, password) => {
   const userDetails = validCredentials.find((obj) => {
     return obj.email === email;
   });
@@ -59,3 +80,5 @@ export const validateCredentials = (email, password) => {
     };
   }
 };
+
+export { getModalWidth, validateCredentials, generateCSV };

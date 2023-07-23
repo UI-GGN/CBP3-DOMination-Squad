@@ -1,6 +1,18 @@
 import { dark, dark_blue, green } from '../../colors.json';
 import styled from 'styled-components';
 
+export const ModalContainer = styled.div`
+  position: absolute,
+  top: 50%,
+  left: 50%,
+  transform: translate(-50%, -50%),
+  width: 30%,
+  backgroundColor: white,
+  borderRadius: 20,
+  boxShadow: 24,
+  outline: 0,
+`;
+
 export const TitleContainer = styled.div`
   display: flex;
   flex-direction: row;

@@ -17,5 +17,5 @@ export const Content = styled.div`
   display: flex;
   flex-wrap: wrap;
   overflow-y: auto;
-  max-height: 90%;
+  height: 90%;
 `;

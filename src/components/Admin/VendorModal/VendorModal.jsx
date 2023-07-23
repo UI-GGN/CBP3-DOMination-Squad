@@ -1,15 +1,16 @@
 import closeModalIcon from '../../../assets/closeModal.png';
 import { green, purple, red } from '../../colors.json';
-import StyledButton from '../../common/StyledButton/StyledButton';
 import {
   Container,
   Header,
   HeaderTitle,
+  VendorList,
   CrossContainer,
   CrossImage,
   Button,
   HorizontalLine,
   ActionContainer,
+  ActionButton,
 } from './VendorModal.style';
 import { useState } from 'react';
 
@@ -24,24 +25,26 @@ const VendorModal = ({ onClose, onAssignVendor, vendorList }) => {
           <CrossImage src={closeModalIcon} onClick={() => onClose()} />
         </CrossContainer>
       </Header>
-      {vendorList.map((vendor) => {
-        return (
-          <div key={vendor.id}>
-            <Button color={purple} onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
-              {vendor.name}
-            </Button>
-            <HorizontalLine />
-          </div>
-        );
-      })}
+      <VendorList>
+        {vendorList.map((vendor) => {
+          return (
+            <div key={vendor.id}>
+              <Button color={purple} onClick={() => setSelected(vendor.id)} isSelected={selected === vendor.id}>
+                {vendor.name}
+              </Button>
+              <HorizontalLine />
+            </div>
+          );
+        })}
+      </VendorList>
 
       <ActionContainer>
-        <StyledButton color={green} textColor={green} width="40%" onClick={() => onAssignVendor(selected)}>
+        <ActionButton color={green} textColor={green} width="40%" onClick={() => onAssignVendor(selected)}>
           Assign Vendor
-        </StyledButton>
-        <StyledButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
+        </ActionButton>
+        <ActionButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
           Cancel
-        </StyledButton>
+        </ActionButton>
       </ActionContainer>
     </Container>
   );

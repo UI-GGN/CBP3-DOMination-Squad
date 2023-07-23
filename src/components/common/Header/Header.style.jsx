@@ -1,4 +1,5 @@
 import { dark_blue, pink } from '../../colors.json';
+import StyledButton from '../StyledButton/StyledButton';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -59,7 +60,6 @@ export const NavBarOption = styled.button`
   color: ${(props) => (props.isSelected ? pink : 'white')};
   &:hover {
     font-weight: ${(props) => (props.isSelected ? '' : '600')};
-    // border-bottom: 3px solid ${pink};
     color: ${pink};
   }
 `;
@@ -76,16 +76,10 @@ export const HorizontalLine = styled.div`
   background-color: ${dark_blue};
 `;
 
-export const LogoutButton = styled.button`
-  flex-shrink: 1;
-  font-weight: 630;
-  font-size: 14px;
-  background-color: ${pink};
-  border-radius: 24px;
-  padding: 12px 20px;
-  color: white;
+export const LogoutButton = styled(StyledButton)`
   &:hover {
     background-color: #9b293c;
+    border: 1px solid #9b293c;
   }
 
   @media (max-width: 800px) {

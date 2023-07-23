@@ -1,11 +1,11 @@
 import { dark, purple, pink } from '../../colors.json';
-import StyledButton from '../../common/StyledButton/StyledButton';
 import styled from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 24px;
+  background-color: white;
 `;
 
 export const Header = styled.div`
@@ -14,28 +14,19 @@ export const Header = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
-`;
-
-export const VendorList = styled.div`
-  height: 50vh;
-  overflow-y: auto;
 `;
 
 export const HeaderTitle = styled.h1`
-  font-size: 24px;
+  font-size: 20px;
   line-height: 24px;
   color: ${dark};
   font-family: roboto-regular;
-  margin-top: 8px;
-  margin-bottom: 12px;
 `;
 
 export const CrossContainer = styled.div`
   height: 1em;
   margin-right: 4px;
   margin-top: 4px;
-  margin-bottom: 12px;
 `;
 
 export const CrossImage = styled.img`
@@ -64,10 +55,6 @@ export const HorizontalLine = styled.div`
   background-color: rgb(229, 231, 235);
 `;
 
-export const ActionButton = styled(StyledButton)`
-  margin-bottom: 8px;
-`;
-
 export const ActionContainer = styled.div`
   display: flex;
   flex-direction: row;
@@ -76,8 +63,4 @@ export const ActionContainer = styled.div`
   margin-top: 20px;
   margin-left: 12px;
   margin-right: 12px;
-
-  @media (max-width: 600px) {
-    flex-direction: column;
-  }
 `;

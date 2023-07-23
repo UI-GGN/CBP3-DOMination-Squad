@@ -3,9 +3,11 @@ import StyledButton from '../../common/StyledButton/StyledButton';
 import { generateCSV } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import cross from './../../../assets/cross.png';
+import loader from './../../../assets/loader.json';
 import tick from './../../../assets/tick.png';
 import {
   Container,
+  Loader,
   FilterContainer,
   Filters,
   CardContainer,
@@ -21,6 +23,7 @@ import Select from '@mui/material/Select';
 import axios from 'axios';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import Lottie from 'react-lottie';
 
 const Requests = () => {
   const [requests, setRequests] = useState([]);
@@ -29,9 +32,19 @@ const Requests = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState(true);
   const [requestType, setRequestType] = useState('all');
+  const [isLoading, setIsLoading] = useState(true);
 
   const alertIcon = alertType ? tick : cross;
   const alertText = alertType ? 'Vendor assigned successfully!' : 'Request declined!';
+
+  const loaderOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: loader,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   const csvHeader = [
     { label: 'ID', key: 'id' },
@@ -89,6 +102,7 @@ const Requests = () => {
       .get('https://shuttle-service-tw.vercel.app/api/v1/vendor')
       .then((response) => {
         setVendorList(response?.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -134,13 +148,22 @@ const Requests = () => {
     }, 2000);
   };
 
+  const handleLoader = (input) => {
+    setIsLoading(input);
+  };
+
   useEffect(() => {
     getRequests();
     getVendors();
   }, []);
 
   return (
-    <Container>
+    <Container isLoading={isLoading}>
+      {isLoading && (
+        <Loader>
+          <Lottie options={loaderOptions} height="auto" width="100%" />
+        </Loader>
+      )}
       {showAlert && (
         <AlertContainer alertType={alertType}>
           <ImageContainer>
@@ -149,36 +172,40 @@ const Requests = () => {
           <AlertText>{alertText}</AlertText>
         </AlertContainer>
       )}
-      <FilterContainer>
-        <Filters>
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Request type</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={requestType}
-                label="Request type"
-                onChange={handleChange}
-                sx={{ fontFamily: 'roboto-regular' }}
-              >
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
-                  All
-                </MenuItem>
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
-                  Ad-hoc
-                </MenuItem>
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
-                  Regular
-                </MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </Filters>
-        <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
-          Export requests
-        </StyledButton>
-      </FilterContainer>
+      {!isLoading && (
+        <FilterContainer>
+          <Filters>
+            <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Request type</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={requestType}
+                  label="Request type"
+                  onChange={handleChange}
+                  sx={{ fontFamily: 'roboto-regular' }}
+                  style={{ borderRadius: '24px', height: 40 }}
+                >
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                    All
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
+                    Ad-hoc
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
+                    Regular
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Filters>
+          <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
+            Export requests
+          </StyledButton>
+        </FilterContainer>
+      )}
+
       <CardContainer>
         {filteredRequests.map((request) => {
           return (
@@ -196,6 +223,7 @@ const Requests = () => {
               vendorList={vendorList}
               vendorId={request?.vendorId}
               onVendorAssign={handleAlert}
+              isLoading={handleLoader}
             />
           );
         })}
