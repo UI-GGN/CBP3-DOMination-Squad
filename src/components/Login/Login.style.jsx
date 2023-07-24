@@ -10,7 +10,11 @@ export const Container = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+
+  @media (max-width: 800px) {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
 `;
 
 export const SignInSection = styled.div`
@@ -18,20 +22,6 @@ export const SignInSection = styled.div`
   width: 100%;
   align-items: center;
   justify-content: center;
-`;
-
-export const SignUpSection = styled.div`
-  display: flex;
-  width: 40%;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const ImageContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
 `;
 
 export const SignInSegment = styled.div`

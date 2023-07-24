@@ -11,10 +11,10 @@ import {
   SignInSegment,
   StyledForm,
   SignInTitle,
-  StyledTextField,
   Button,
   AlertText,
   Logo,
+  StyledTextField,
 } from './Login.style';
 
 const Login = () => {
