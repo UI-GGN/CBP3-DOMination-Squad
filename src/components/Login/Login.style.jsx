@@ -76,7 +76,6 @@ export const AlertText = styled.h1`
 
 export const Logo = styled.div`
   display: flex;
-  height: 80px;
   width: 50%;
   margin: 20px;
 `;
