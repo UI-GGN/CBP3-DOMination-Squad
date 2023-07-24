@@ -7,6 +7,7 @@ import loader from './../../../assets/loader.json';
 import tick from './../../../assets/tick.png';
 import {
   Container,
+  LoaderContainer,
   Loader,
   FilterContainer,
   Filters,
@@ -160,9 +161,11 @@ const Requests = () => {
   return (
     <Container isLoading={isLoading}>
       {isLoading && (
-        <Loader>
-          <Lottie options={loaderOptions} height="auto" width="100%" />
-        </Loader>
+        <LoaderContainer>
+          <Loader>
+            <Lottie options={loaderOptions} height="auto" width="100%" />
+          </Loader>
+        </LoaderContainer>
       )}
       {showAlert && (
         <AlertContainer alertType={alertType}>
@@ -172,39 +175,37 @@ const Requests = () => {
           <AlertText>{alertText}</AlertText>
         </AlertContainer>
       )}
-      {!isLoading && (
-        <FilterContainer>
-          <Filters>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Request type</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={requestType}
-                  label="Request type"
-                  onChange={handleChange}
-                  sx={{ fontFamily: 'roboto-regular' }}
-                  style={{ borderRadius: '24px', height: 40 }}
-                >
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
-                    All
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
-                    Ad-hoc
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
-                    Regular
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          </Filters>
-          <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
-            Export requests
-          </StyledButton>
-        </FilterContainer>
-      )}
+      <FilterContainer>
+        <Filters>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Request type</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={requestType}
+                label="Request type"
+                onChange={handleChange}
+                sx={{ fontFamily: 'roboto-regular' }}
+                style={{ borderRadius: '24px', height: 40 }}
+              >
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                  All
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
+                  Ad-hoc
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
+                  Regular
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+        </Filters>
+        <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
+          Export requests
+        </StyledButton>
+      </FilterContainer>
 
       <CardContainer>
         {filteredRequests.map((request) => {

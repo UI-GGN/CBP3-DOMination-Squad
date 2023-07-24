@@ -66,6 +66,9 @@ export const HorizontalLine = styled.div`
 
 export const ActionButton = styled(StyledButton)`
   margin-bottom: 8px;
+  @media (max-width: 600px) {
+    width: 75%;
+  }
 `;
 
 export const ActionContainer = styled.div`

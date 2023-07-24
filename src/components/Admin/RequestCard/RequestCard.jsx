@@ -17,6 +17,7 @@ import {
   ApprovedText,
   DeclinedText,
   ShowDetailsText,
+  ReassignVendorText,
   PhoneNumberText,
 } from './RequestCard.style.js';
 import { Modal } from '@mui/material';
@@ -113,6 +114,11 @@ const RequestCard = ({
       });
   };
 
+  const onReassignVendor = () => {
+    setIsVisible(false);
+    setStatus('PENDING');
+  };
+
   const onModalClose = () => {
     setIsVisible(false);
   };
@@ -129,6 +135,14 @@ const RequestCard = ({
     setIsVisible(true);
     setModalData({
       data: <ConfirmationModal onClose={onModalClose} onConfirm={onRejectVendor} confirmText="Reject" />,
+      type: 'confirmation_modal',
+    });
+  };
+
+  const onReassign = () => {
+    setIsVisible(true);
+    setModalData({
+      data: <ConfirmationModal onClose={onModalClose} onConfirm={onReassignVendor} confirmText="Reassign" />,
       type: 'confirmation_modal',
     });
   };
@@ -185,6 +199,7 @@ const RequestCard = ({
                 </DetailsContainer>
               </ShowDetailsContainer>
             )}
+            <ReassignVendorText onClick={() => onReassign()}>Reassign vendor</ReassignVendorText>
           </ApprovedContainer>
         )}
 

@@ -7,6 +7,10 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 24px;
   background-color: white;
+
+  @media (max-width: 600px) {
+    margin: 24px 16px 16px 16px;
+  }
 `;
 
 export const Header = styled.div`
@@ -67,6 +71,8 @@ export const ActionContainer = styled.div`
 
   @media (max-width: 600px) {
     flex-direction: column;
+    margin-left: 2px;
+    margin-right: 2px;
   }
 `;
 

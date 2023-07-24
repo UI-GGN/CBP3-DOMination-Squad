@@ -1,4 +1,4 @@
-import { dark, dark_blue, green } from '../../colors.json';
+import { dark, dark_blue, green, purple } from '../../colors.json';
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
@@ -81,6 +81,13 @@ export const ShowDetailsText = styled.h1`
   font-size: 12px;
   font-weight: 700;
   color: ${green};
+  cursor: pointer;
+`;
+
+export const ReassignVendorText = styled.h1`
+  font-size: 12px;
+  font-weight: 630;
+  color: ${purple};
   cursor: pointer;
 `;
 

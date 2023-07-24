@@ -21,10 +21,10 @@ const ConfirmationModal = ({ onClose, onConfirm, confirmText }) => {
       </Header>
 
       <ActionContainer>
-        <ActionButton color={primary} textColor={primary} width="40%" onClick={() => onConfirm()}>
+        <ActionButton color={red} textColor={red} width="45%" onClick={() => onConfirm()}>
           {confirmText}
         </ActionButton>
-        <ActionButton color={red} textColor={red} width="40%" onClick={() => onClose()}>
+        <ActionButton color={primary} textColor={primary} width="45%" onClick={() => onClose()}>
           Cancel
         </ActionButton>
       </ActionContainer>

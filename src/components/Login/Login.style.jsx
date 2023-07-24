@@ -7,7 +7,10 @@ export const Container = styled.div`
   background-color: white;
   flex-direction: row;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 `;
 
 export const SignInSection = styled.div`

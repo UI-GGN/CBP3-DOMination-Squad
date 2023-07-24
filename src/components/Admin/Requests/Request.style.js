@@ -7,7 +7,19 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px;
+`;
+
+export const LoaderContainer = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Black with 50% opacity */
+  z-index: 9999;
 `;
 
 export const Loader = styled.div`
@@ -16,7 +28,7 @@ export const Loader = styled.div`
   align-items: center;
   position: absolute;
   left: 50%;
-  top: 60%;
+  top: 50%;
   transform: translate(-50%, -50%);
 
   @media (max-width: 800px) {
@@ -30,7 +42,7 @@ export const FilterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 93%;
-  margin: 0 auto;
+  margin: 20px auto 0px auto;
 `;
 
 export const Filters = styled.div`
