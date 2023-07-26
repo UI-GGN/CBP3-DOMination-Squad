@@ -12,8 +12,7 @@ export const Container = styled.div`
   justify-content: center;
 
   @media (max-width: 800px) {
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
+    max-height: 100vh;
   }
 `;
 
