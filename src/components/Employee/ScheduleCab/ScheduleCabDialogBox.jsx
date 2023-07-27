@@ -7,9 +7,12 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import { LocalizationProvider, DatePicker, DateTimePicker } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 import Moment from 'moment';
 import { useState } from 'react';
 
+dayjs.extend(utc);
 function handleError(e) {
   console.log(e);
   alert('We are unable to process your request. Please reach out to Admin team');
