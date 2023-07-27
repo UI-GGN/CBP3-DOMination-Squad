@@ -15,6 +15,7 @@ import {
   VerticalLine,
 } from '../../common/RequestStatusCard/RequestStatusCard.style.js';
 import fetchCabRequestDetailsService from '../../services/fetchCabRequestDetailsService.jsx';
+import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox.jsx';
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isTomorrow from 'dayjs/plugin/isTomorrow';
@@ -56,6 +57,7 @@ const CabRequestDetails = () => {
 
   return (
     <>
+      <ScheduleCabDialogBox />
       {sortedCabDetails.map((cab, id) => (
         <CardDetailsContainer key={id}>
           <TitleContainer>
@@ -77,11 +79,11 @@ const CabRequestDetails = () => {
           <LocationSegment>
             <LocationPathIconSegment>
               <LocationPathIcon>
-                <img src={circle} style={{ maxHeight: '70%' }} />
+                <img src={circle} style={{ maxHeight: '70%' }} alt="icon" />
               </LocationPathIcon>
               <VerticalLine />
               <LocationPathIcon>
-                <img src={destination} style={{ maxHeight: '70%' }} />
+                <img src={destination} style={{ maxHeight: '70%' }} alt="icon" />
               </LocationPathIcon>
             </LocationPathIconSegment>
             <LocationDetails>

@@ -1,4 +1,5 @@
 import './styles.css';
+import newCabIcon from '../../../assets/plus.png';
 import createNewCabRequestService from '../../services/createNewCabRequestService.jsx';
 import { DialogContent, DialogTitle, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -17,11 +18,10 @@ function handleError(e) {
 const ScheduleCabDialogBox = () => {
   const [open, setOpen] = useState(false);
   const [project, setProject] = useState('');
-  const [city, setCity] = useState('');
-  const [area, setArea] = useState('');
-  const [address, setAddress] = useState('');
-  const [pincode, setPincode] = useState('');
-  const [landmark, setLandmark] = useState('');
+  const [pickupAddress, setPickupAddress] = useState('');
+  const [dropAddress, setDropAddress] = useState('');
+  const [pickupPincode, setPickupPincode] = useState('');
+  const [dropPincode, setDropPincode] = useState('');
   const [mobileNumber, setMobileNumber] = useState('');
   const [pickupDateTime, setPickupDateTime] = useState('');
   const currentDate = Moment(new Date()).format('YYYY-MM-DD');
@@ -46,7 +46,7 @@ const ScheduleCabDialogBox = () => {
     setScheduleTillDate(event.$d.toLocaleDateString('en-CA'));
   };
 
-  const handlePincodeBlur = () => {
+  const handlePincodeBlur = (pincode) => {
     const isPincodeValid = /^\d{6}$/.test(pincode);
     if (!isPincodeValid) {
       setPincodeError(true);
@@ -63,15 +63,29 @@ const ScheduleCabDialogBox = () => {
       setMobileError(false);
     }
   };
+  const closeDialog = () => {
+    setProject('');
+    setPickupAddress('');
+    setDropAddress('');
+    setPickupPincode('');
+    setDropPincode('');
+    setMobileNumber('');
+    setScheduleTillDate(currentDate);
+    setOpen(false);
+    setPincodeError(false);
+    setMobileError(false);
+    setPickupDateTime('');
+  };
 
   const onSaveButtonClick = () => {
-    let pickupLocation = `${address.replaceAll('\n', ' ')}, ${area}, ${city}, ${pincode}`;
+    let pickupLocation = `${pickupAddress.replaceAll('\n', ' ')}, ${pickupAddress}, ${pickupPincode}`;
+    let dropLocation = `${dropAddress.replaceAll('\n', ' ')}, ${dropAddress}, ${dropPincode}`;
     let expireDateInISO = `${scheduleTillDate}${pickupDateTime.slice(10)}`;
     const addressDetail = {
       employeeId: '12345',
       employeeName: 'CBP3',
       pickupLocation: pickupLocation,
-      dropLocation: 'Thoughtworks Technologies',
+      dropLocation: dropLocation,
       projectCode: project,
       phoneNumber: mobileNumber,
       pickupTime: pickupDateTime,
@@ -83,25 +97,15 @@ const ScheduleCabDialogBox = () => {
         !mobileError &&
         !pincodeError &&
         project.length &&
-        city.length &&
-        area.length &&
-        address.length &&
-        pickupDateTime.length
+        pickupAddress.length &&
+        pickupDateTime.length &&
+        dropAddress.length
       ) {
         console.log(addressDetail);
         createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
           console.log(r);
         });
-        setProject('');
-        setCity('');
-        setAddress('');
-        setArea('');
-        setPincode('');
-        setLandmark('');
-        setMobileNumber('');
-        setScheduleTillDate(currentDate);
-        setOpen(false);
-        setPickupDateTime('');
+        closeDialog();
       } else {
         alert('Please fill in required fields without errors to submit');
       }
@@ -113,11 +117,11 @@ const ScheduleCabDialogBox = () => {
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen} className="Button violet">
-        Schedule a Cab
+        <img src={newCabIcon} alt="New cab request" />
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className="DialogContent">
-          <DialogTitle className="DialogTitle">Schedule a Cab</DialogTitle>
+          <DialogTitle className="DialogTitle">Request Cab</DialogTitle>
           <fieldset className="Fieldset">
             <TextField
               label="Project code"
@@ -129,62 +133,62 @@ const ScheduleCabDialogBox = () => {
               fullWidth
             />
           </fieldset>
+          <p style={{ opacity: 0.5, margin: 5 }}>Pickup Details</p>
           <fieldset className="Fieldset">
             <TextField
-              label="City"
-              value={city}
+              label="Pickup Address"
+              value={pickupAddress}
               size="small"
+              inputProps={{ style: { height: 60 } }}
               color="success"
-              onChange={(event) => setCity(event.target.value)}
-              required
-              fullWidth
-            />
-          </fieldset>
-          <fieldset className="Fieldset">
-            <TextField
-              label="Area/Sector"
-              value={area}
-              size="small"
-              color="success"
-              onChange={(event) => setArea(event.target.value)}
-              required
-              fullWidth
-            />
-          </fieldset>
-          <fieldset className="Fieldset">
-            <TextField
-              label="Address"
-              value={address}
-              size="small"
-              color="success"
-              onChange={(event) => setAddress(event.target.value)}
+              onChange={(event) => setPickupAddress(event.target.value)}
               required
               fullWidth
               multiline
               minRows={1}
-              maxRows={3}
+              maxRows={5}
             />
           </fieldset>
           <fieldset className="Fieldset">
             <TextField
-              label="Landmark"
-              value={landmark}
+              value={pickupPincode}
               size="small"
               color="success"
-              onChange={(event) => setLandmark(event.target.value)}
+              label="Pincode of pickup address"
+              onChange={(event) => setPickupPincode(event.target.value)}
+              onBlur={() => handlePincodeBlur(pickupPincode)}
+              error={pincodeError}
+              helperText={pincodeError ? 'Enter 6 digit valid Pincode' : ''}
+              required
               fullWidth
             />
           </fieldset>
+          <p style={{ opacity: 0.5, margin: 5 }}>Drop Details</p>
           <fieldset className="Fieldset">
             <TextField
-              value={pincode}
+              label="Drop Address"
+              value={dropAddress}
+              size="small"
+              inputProps={{ style: { height: 60 } }}
+              color="success"
+              onChange={(event) => setDropAddress(event.target.value)}
+              required
+              fullWidth
+              multiline
+              minRows={1}
+              maxRows={5}
+            />
+          </fieldset>
+          <fieldset className="Fieldset">
+            <TextField
+              value={dropPincode}
               size="small"
               color="success"
-              label="Pincode"
-              onChange={(event) => setPincode(event.target.value)}
-              onBlur={handlePincodeBlur}
+              label="Pincode of drop address"
+              onChange={(event) => setDropPincode(event.target.value)}
+              onBlur={() => handlePincodeBlur(dropPincode)}
               error={pincodeError}
-              helperText={pincodeError ? 'Invalid Pincode' : ''}
+              helperText={pincodeError ? 'Enter 6 digit valid Pincode' : ''}
               required
               fullWidth
             />
@@ -198,7 +202,7 @@ const ScheduleCabDialogBox = () => {
               onChange={(event) => setMobileNumber(event.target.value)}
               onBlur={handleMobileNumberBlur}
               error={mobileError}
-              helperText={mobileError ? 'Invalid Mobile Number' : ''}
+              helperText={mobileError ? 'Enter 10 digit Mobile Number' : ''}
               required
               fullWidth
             />
@@ -212,7 +216,7 @@ const ScheduleCabDialogBox = () => {
               onChange={handlePickupDateTimeChange}
               label="Pickup Date and Time"
               formatDensity="dense"
-              sx={{ width: 220 }}
+              sx={{ width: 219 }}
               required
             />
             <DatePicker
@@ -222,14 +226,17 @@ const ScheduleCabDialogBox = () => {
               onChange={handlePickupDateChange}
               label="Schedule till"
               formatDensity="dense"
-              sx={{ width: 180 }}
+              sx={{ width: 178, marginLeft: 0.5 }}
               required
             />
           </LocalizationProvider>
 
           <DialogActions>
+            <Button onClick={() => closeDialog()} className="Button cancel">
+              Cancel
+            </Button>
             <Button onClick={onSaveButtonClick} className="Button save">
-              Request Cab
+              Submit
             </Button>
           </DialogActions>
         </DialogContent>

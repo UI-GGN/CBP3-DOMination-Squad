@@ -1,16 +1,12 @@
 import CabRequestDetails from '../CabRequestDetails/CabRequestDetails.jsx';
-import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox.jsx';
-import { Container, CabRequests, ScheduleCab } from './EmployeeDashboard.style.js';
-
+import { Container, CabRequests } from './EmployeeDashboard.style.js';
+import EmployeeNavBar from './EmployeeNavBar.jsx';
 const EmployeeDashboard = () => {
   return (
-    <main className="flex flex-col h-screen">
+    <main>
+      <EmployeeNavBar />
       <Container>
-        <ScheduleCab>
-          <ScheduleCabDialogBox />
-        </ScheduleCab>
         <CabRequests>
-          <header className="heading">Your Scheduled Cabs</header>
           <CabRequestDetails />
         </CabRequests>
       </Container>

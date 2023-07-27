@@ -3,7 +3,7 @@ import StyledButton from '../StyledButton/StyledButton';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 10%;
+  height: 3em;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 95%;
+  width: 99%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -21,10 +21,11 @@ export const Content = styled.div`
 `;
 
 export const Logo = styled.div`
-  height: 100px;
+  height: 3em;
   width: 200px;
   display: flex;
   align-items: center;
+  margin-right: 2em;
 
   @media (max-width: 500px) {
     width: 40%;
@@ -44,7 +45,9 @@ export const LogoImage = styled.img`
 export const NavBar = styled.div`
   display: flex;
   flex-direction: row;
-  width: 60%;
+  width: 100%;
+  height: 3em;
+  align-items: center;
 
   @media (max-width: 800px) {
     display: none;
@@ -81,7 +84,6 @@ export const LogoutButton = styled(StyledButton)`
     background-color: #9b293c;
     border: 1px solid #9b293c;
   }
-
   @media (max-width: 800px) {
     min-width: 85px;
     padding: 4px 4px;

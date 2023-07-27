@@ -41,23 +41,9 @@ export const ScheduleCab = styled.section`
 `;
 
 export const CabRequests = styled.section`
-  flex: 3;
-  position: relative;
-  background-color: #f1fcfa;
-  .heading {
-    font-size: x-large;
-    text-align: center;
-    padding: 1em;
-    //position: fixed;
-    //top: 0;
-  }
-
-  //@media (max-height: 100vh) {
-  //  height: 100vh;
-  //}
-  //justify-content: center;
-  //align-items: center;
-  //display: flex;
-  //flex-wrap: wrap;
-  //flex-direction: row;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-gap: 0.1em;
+  justify-content: center;
 `;
