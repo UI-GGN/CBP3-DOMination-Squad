@@ -3,7 +3,7 @@ import StyledButton from '../StyledButton/StyledButton';
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  height: 3em;
+  height: 10%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -12,7 +12,7 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  width: 99%;
+  width: 95%;
   margin: 0 auto;
   display: flex;
   flex-direction: row;
@@ -21,7 +21,7 @@ export const Content = styled.div`
 `;
 
 export const Logo = styled.div`
-  height: 3em;
+  height: 100px;
   width: 200px;
   display: flex;
   align-items: center;
@@ -45,9 +45,9 @@ export const LogoImage = styled.img`
 export const NavBar = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
-  height: 3em;
-  align-items: center;
+  width: 60%;
+  // height: 3em;
+  // align-items: center;
 
   @media (max-width: 800px) {
     display: none;

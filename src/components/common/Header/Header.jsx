@@ -56,7 +56,7 @@ const Header = ({ selected, onPress }) => {
       </Modal>
       <Content>
         <Logo>
-          <LogoImage src={thoughtworks_logo} style={{ fill: 'red' }} />
+          <LogoImage src={thoughtworks_logo} />
         </Logo>
         <NavBar>
           <NavBarOption
