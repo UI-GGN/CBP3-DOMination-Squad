@@ -100,11 +100,11 @@ const RequestCard = ({
       headers: {
         'Content-Type': 'application/json;charset=utf-8',
       },
-      body: JSON.stringify({ status: 'DECLINED' }),
+      body: JSON.stringify({ status: 'REJECTED' }),
     };
     fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
-        setStatus('DECLINED');
+        setStatus('REJECTED');
         onVendorAssign(false);
         isLoading(false);
       })
@@ -203,7 +203,7 @@ const RequestCard = ({
           </ApprovedContainer>
         )}
 
-        {status === 'DECLINED' && (
+        {status === 'REJECTED' && (
           <TitleContainer>
             <DeclinedText>Request declined</DeclinedText>
           </TitleContainer>
