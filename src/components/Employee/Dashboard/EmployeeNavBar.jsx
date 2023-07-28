@@ -11,9 +11,9 @@ const EmployeeNavBar = () => {
   return (
     <Container>
       <Content>
-        <NavBar style={{ justifyContent: 'space-between' }}>
+        <NavBar style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
           <Logo>
-            <LogoImage src={thoughtworks_logo} style={{ fill: 'red' }} />
+            <LogoImage src={thoughtworks_logo} />
           </Logo>
           <LogoutButton
             color={pink}
