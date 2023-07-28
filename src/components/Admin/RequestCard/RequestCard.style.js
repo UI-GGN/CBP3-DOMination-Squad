@@ -1,4 +1,4 @@
-import { dark, dark_blue, green, purple } from '../../colors.json';
+import { dark, dark_blue, green } from '../../colors.json';
 import styled from 'styled-components';
 
 export const ModalContainer = styled.div`
@@ -42,7 +42,6 @@ export const DetailsContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
 `;
 
 export const PhoneNumberContainer = styled.div`
@@ -82,13 +81,7 @@ export const ShowDetailsText = styled.h1`
   font-weight: 700;
   color: ${green};
   cursor: pointer;
-`;
-
-export const ReassignVendorText = styled.h1`
-  font-size: 12px;
-  font-weight: 630;
-  color: ${purple};
-  cursor: pointer;
+  width: fit-content;
 `;
 
 export const DeclinedText = styled.h1`
@@ -111,4 +104,11 @@ export const Button = styled.button`
     color: white;
     background-color: ${(props) => (props?.color ? props.color : dark)};
   }
+`;
+
+export const ImageContainer = styled.div`
+  display: flex;
+  width: 5%;
+  align-items: center;
+  cursor: pointer;
 `;

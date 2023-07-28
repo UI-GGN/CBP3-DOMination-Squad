@@ -1,4 +1,5 @@
 import phoneIcon from '../../../assets/call.png';
+import trash from '../../../assets/trash.png';
 import VendorModal from '../../Admin/VendorModal';
 import { green, red } from '../../colors.json';
 import ConfirmationModal from '../../common/ConfirmationModal/ConfirmationModal';
@@ -17,7 +18,7 @@ import {
   ApprovedText,
   DeclinedText,
   ShowDetailsText,
-  ReassignVendorText,
+  ImageContainer,
   PhoneNumberText,
 } from './RequestCard.style.js';
 import { Modal } from '@mui/material';
@@ -102,7 +103,7 @@ const RequestCard = ({
       },
       body: JSON.stringify({ status: 'REJECTED' }),
     };
-    fetch(`https://cab-schedule-serverless.vercel.app/api/v1/cab-request/${id}`, options)
+    fetch(`https://shuttle-service-tw.vercel.app/api/v1/cab-request/${id}`, options)
       .then(() => {
         setStatus('REJECTED');
         onVendorAssign(false);
@@ -114,9 +115,26 @@ const RequestCard = ({
       });
   };
 
-  const onReassignVendor = () => {
+  const onRemoveVendor = () => {
     setIsVisible(false);
-    setStatus('PENDING');
+    isLoading(true);
+
+    const options = {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8',
+      },
+      body: JSON.stringify({ status: 'PENDING' }),
+    };
+    fetch(`https://shuttle-service-tw.vercel.app/api/v1/cab-request/${id}`, options)
+      .then(() => {
+        setStatus('PENDING');
+        isLoading(false);
+      })
+      .catch((error) => {
+        isLoading(false);
+        console.log(error);
+      });
   };
 
   const onModalClose = () => {
@@ -139,10 +157,10 @@ const RequestCard = ({
     });
   };
 
-  const onReassign = () => {
+  const onRemove = () => {
     setIsVisible(true);
     setModalData({
-      data: <ConfirmationModal onClose={onModalClose} onConfirm={onReassignVendor} confirmText="Reassign" />,
+      data: <ConfirmationModal onClose={onModalClose} onConfirm={onRemoveVendor} confirmText="Remove" />,
       type: 'confirmation_modal',
     });
   };
@@ -176,13 +194,9 @@ const RequestCard = ({
           <ApprovedContainer>
             <VendorAssignedContainer>
               <ApprovedText>Vendor Assigned </ApprovedText>
-              <ShowDetailsText
-                onClick={() => {
-                  setShowDetails(!showDetails);
-                }}
-              >
-                {showDetailsText}
-              </ShowDetailsText>
+              <ImageContainer>
+                <img src={trash} onClick={() => onRemove()} />
+              </ImageContainer>
             </VendorAssignedContainer>
             {showDetails && (
               <ShowDetailsContainer>
@@ -199,7 +213,14 @@ const RequestCard = ({
                 </DetailsContainer>
               </ShowDetailsContainer>
             )}
-            <ReassignVendorText onClick={() => onReassign()}>Reassign vendor</ReassignVendorText>
+            <ShowDetailsText
+              onClick={() => {
+                setShowDetails(!showDetails);
+              }}
+            >
+              {showDetailsText}
+            </ShowDetailsText>
+            {/* <ReassignVendorText onClick={() => onRemove()}>Reassign vendor</ReassignVendorText> */}
           </ApprovedContainer>
         )}
 
