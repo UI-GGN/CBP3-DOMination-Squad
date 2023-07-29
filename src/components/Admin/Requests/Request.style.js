@@ -54,6 +54,7 @@ export const CardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin: 0px 12px;
 
   @media (max-width: 800px) {
     justify-content: center;
