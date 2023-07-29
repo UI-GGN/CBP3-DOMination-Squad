@@ -1,3 +1,4 @@
+import { dark } from '../../colors.json';
 import Card from '../../common/Card';
 import styled from 'styled-components';
 
@@ -35,4 +36,25 @@ export const TitleText = styled.h1`
 export const DetailsText = styled.h1`
   font-size: 16px;
   line-height: 24px;
+`;
+
+export const PhoneNumberContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+export const PhoneNumberIcon = styled.div`
+  display: flex;
+  height: 20px;
+  margin-right: 4px;
+  align-items: center;
+`;
+
+export const PhoneNumberText = styled.a`
+  font-size: 16px;
+  line-height: 24px;
+  color: ${dark};
+  font-family: roboto-medium;
 `;
