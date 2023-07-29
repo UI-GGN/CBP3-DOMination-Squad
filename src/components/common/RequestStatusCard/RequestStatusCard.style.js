@@ -5,6 +5,10 @@ export const CardDetailsContainer = styled(Card)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    flex-grow: 1;
+  }
 `;
 
 export const Header = styled.div`

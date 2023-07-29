@@ -19,18 +19,20 @@ export const Container = styled.div`
 export const SignInSection = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 export const SignInSegment = styled.div`
   width: 25%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 24px;
-  padding: 20px;
+  padding: 0px 20px;
 
   @media (max-width: 800px) {
     width: 75%;
@@ -49,7 +51,7 @@ export const StyledForm = styled.form`
 `;
 
 export const SignInTitle = styled.h1`
-  font-size: 32px;
+  font-size: 28px;
   line-height: 24px;
   color: ${dark};
   font-family: roboto-regular;
@@ -65,8 +67,43 @@ export const AlertText = styled.h1`
 
 export const Logo = styled.div`
   display: flex;
+  width: 90%;
+  margin: 24px;
+  display: flex;
+`;
+
+export const LogoImage = styled.img`
   width: 50%;
-  margin: 20px;
+  margin-bottom: 0.8em;
+  margin-left: 8px;
+  align-self: end;
+
+  @media (max-width: 500px) {
+    margin-bottom: 0.5em;
+  }
+
+  @media (min-width: 500px) and (max-width: 800px) {
+    margin-bottom: 0.6em;
+    width: 40%;
+  }
+
+  @media (min-width: 800px) and (max-width: 1200px) {
+    margin-bottom: 0.6em;
+    width: 40%;
+  }
+`;
+
+export const LogoText = styled.h1`
+  font-size: 2.8em;
+  color: ${primary};
+
+  @media (max-width: 500px) {
+    font-size: 2em;
+  }
+
+  @media (min-width: 500px) and (max-width: 800px) {
+    font-size: 2.5em;
+  }
 `;
 
 export const StyledTextField = styled(TextField)`

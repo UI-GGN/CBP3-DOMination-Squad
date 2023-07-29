@@ -14,6 +14,8 @@ import {
   Button,
   AlertText,
   Logo,
+  LogoText,
+  LogoImage,
   StyledTextField,
 } from './Login.style';
 
@@ -86,7 +88,8 @@ const Login = () => {
         <SignInSection>
           <SignInSegment>
             <Logo>
-              <img src={thoughtworks_logo} />
+              <LogoText>onTrack</LogoText>
+              <LogoImage src={thoughtworks_logo} />
             </Logo>
             <SignInTitle>Sign In</SignInTitle>
             <StyledForm onSubmit={handleOnSubmit}>
