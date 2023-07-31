@@ -18,32 +18,9 @@ export const Container = styled.div`
   }
 `;
 
-export const ScheduleCab = styled.section`
-  display: flex;
-  flex: 1;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-
-  @media (min-width: 100vh) {
-    height: 98.5vh;
-  }
-
-  @media (max-width: 800px) {
-    flex-wrap: wrap;
-    height: 5%;
-    .flex-container {
-      flex-direction: column;
-    }
-  }
-`;
-
 export const CabRequests = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  grid-gap: 0.1em;
-  justify-content: center;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: space-evenly;
+  margin: 0 12px;
 `;
