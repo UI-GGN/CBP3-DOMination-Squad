@@ -42,7 +42,7 @@ export const ScheduleCab = styled.section`
 
 export const CabRequests = styled.section`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
   grid-gap: 0.1em;
   justify-content: center;
