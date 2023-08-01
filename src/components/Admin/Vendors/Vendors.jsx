@@ -45,6 +45,9 @@ const Vendors = () => {
 
       <CardContainer>
         {vendorList.map((vendor) => {
+          if (vendor?.name === '') {
+            return null;
+          }
           return <VendorCard key={vendor?.id} name={vendor?.name} phoneNumber={vendor?.phoneNumber} />;
         })}
       </CardContainer>

@@ -1,4 +1,4 @@
-import { green, pink, yellow } from '../../colors.json';
+import { green } from '../../colors.json';
 import cab_background from './../../../assets/cab-about.jpg';
 import { Container, Title, Content, Header, Description, ImageContainer } from './About.style.js';
 
@@ -12,16 +12,16 @@ const About = () => {
           way
         </Description>
         <Header>What is the problem?</Header>
-        <Description color={pink}>
+        <Description color="gray">
           Employees who want to come to the office have to call admin to request for a cab. The admin then assigns a
           vendor for that employee. When the office has high footfall, this process becomes cumbersome for both
           employees and admin.
         </Description>
         <Header>How can we solve it?</Header>
-        <Description color={yellow}>
+        <Description color="gray">
           The idea is to design a website where employees can schedule a cab - this request can be either an adhoc
           request or a regular one. The system also provides admin the ability to view these requests and take actions
-          like approve or decline the request
+          like approve or decline the request.
         </Description>
       </Content>
       <ImageContainer>

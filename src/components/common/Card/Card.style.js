@@ -10,6 +10,7 @@ export const Container = styled.div`
   background-color: ${(props) => (props.color ? props.color : 'white')};
   flex-shrink: 0;
   width: ${(props) => (props.width ? props.width : '380px')};
+  max-width: 420px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin: 20px;

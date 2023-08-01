@@ -27,7 +27,8 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: start;
+  margin: 0px 24px;
 
   @media (max-width: 800px) {
     justify-content: center;

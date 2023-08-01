@@ -3,7 +3,7 @@
 exports[`Card > should render Card component 1`] = `
 <div>
   <div
-    class="sc-gueYoa imZGzO"
+    class="sc-gueYoa inQSmg"
   />
 </div>
 `;

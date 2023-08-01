@@ -43,7 +43,7 @@ export const Description = styled.h1`
   line-height: 24px;
   color: ${(props) => (props?.color ? props.color : 'white')};
   font-family: roboto-regular;
-  width: 80%;
+  width: 90%;
 `;
 
 export const ImageContainer = styled.div`
