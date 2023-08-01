@@ -46,7 +46,10 @@ export const FilterContainer = styled.div`
 `;
 
 export const Filters = styled.div`
-  width: 10%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 20%;
 `;
 
 export const CardContainer = styled.div`

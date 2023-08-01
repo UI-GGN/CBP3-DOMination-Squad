@@ -23,6 +23,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import axios from 'axios';
 import { useState } from 'react';
+import { useRef } from 'react';
 import { useEffect } from 'react';
 import Lottie from 'react-lottie';
 
@@ -32,8 +33,9 @@ const Requests = () => {
   const [filteredRequests, setFilteredRequests] = useState([]);
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState(true);
-  const [requestType, setRequestType] = useState('all');
+  const requestType = useRef('all');
   const [isLoading, setIsLoading] = useState(true);
+  const requestStatus = useRef('all');
 
   const alertIcon = alertType ? tick : cross;
   const alertText = alertType ? 'Vendor assigned successfully!' : 'Request declined!';
@@ -59,15 +61,22 @@ const Requests = () => {
     { label: 'Status', key: 'status' },
   ];
 
-  const filterRequests = (requestType) => {
+  const filterRequests = () => {
+    let filteredByRequestType = filterByRequestType(requests);
+    let filteredByRequestStatus = filterByRequestStatus(filteredByRequestType);
+
+    setFilteredRequests(filteredByRequestStatus);
+  };
+
+  const filterByRequestType = (requests) => {
     let filteredRequests = [];
-    if (requestType === 'adhoc') {
+    if (requestType.current === 'adhoc') {
       filteredRequests = requests.filter((request) => {
         let pickup = new Date(request.pickupTime);
         let expire = new Date(request.expireDate);
         return pickup.getTime() == expire.getTime();
       });
-    } else if (requestType === 'regular') {
+    } else if (requestType.current === 'regular') {
       filteredRequests = requests.filter((request) => {
         let pickup = new Date(request.pickupTime);
         let expire = new Date(request.expireDate);
@@ -76,13 +85,28 @@ const Requests = () => {
     } else {
       filteredRequests = requests;
     }
-
-    setFilteredRequests(filteredRequests);
+    return filteredRequests;
   };
 
-  const handleChange = (event) => {
-    setRequestType(event.target.value);
-    filterRequests(event.target.value);
+  const filterByRequestStatus = (requests) => {
+    if (requestStatus.current === 'all') {
+      return requests;
+    }
+
+    return requests.filter((request) => {
+      return request.status === requestStatus.current;
+    });
+  };
+
+  const handleChange = (event, type) => {
+    console.log(event.target.value);
+    if (type === 'type') {
+      requestType.current = event.target.value;
+    }
+    if (type === 'status') {
+      requestStatus.current = event.target.value;
+    }
+    filterRequests();
   };
 
   const getRequests = () => {
@@ -175,38 +199,68 @@ const Requests = () => {
           <AlertText>{alertText}</AlertText>
         </AlertContainer>
       )}
-      <FilterContainer>
-        <Filters>
-          <Box sx={{ minWidth: 120 }}>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">Request type</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={requestType}
-                label="Request type"
-                onChange={handleChange}
-                sx={{ fontFamily: 'roboto-regular' }}
-                style={{ borderRadius: '24px', height: 40 }}
-              >
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
-                  All
-                </MenuItem>
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
-                  Ad-hoc
-                </MenuItem>
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
-                  Regular
-                </MenuItem>
-              </Select>
-            </FormControl>
-          </Box>
-        </Filters>
-        <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
-          Export requests
-        </StyledButton>
-      </FilterContainer>
-
+        <FilterContainer>
+          <Filters>
+            <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Request type</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={requestType.current}
+                  label="Request type"
+                  onChange={(event) => {
+                    handleChange(event, 'type');
+                  }}
+                  sx={{ fontFamily: 'roboto-regular' }}
+                  style={{ borderRadius: '24px', height: 40 }}
+                >
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                    All
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
+                    Ad-hoc
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
+                    Regular
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+            <Box sx={{ minWidth: 120 }}>
+              <FormControl fullWidth>
+                <InputLabel id="demo-simple-select-label">Request Status</InputLabel>
+                <Select
+                  labelId="demo-simple-select-label"
+                  id="demo-simple-select"
+                  value={requestStatus.current}
+                  label="Request status"
+                  onChange={(event) => {
+                    handleChange(event, 'status');
+                  }}
+                  sx={{ fontFamily: 'roboto-regular' }}
+                  style={{ borderRadius: '24px', height: 40 }}
+                >
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                    All
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'PENDING'}>
+                    Pending
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'APPROVED'}>
+                    Approved
+                  </MenuItem>
+                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'DECLINED'}>
+                    Declined
+                  </MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Filters>
+          <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
+            Export requests
+          </StyledButton>
+        </FilterContainer>
       <CardContainer>
         {filteredRequests.map((request) => {
           return (
