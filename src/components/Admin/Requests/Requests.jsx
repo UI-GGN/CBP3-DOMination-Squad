@@ -199,68 +199,68 @@ const Requests = () => {
           <AlertText>{alertText}</AlertText>
         </AlertContainer>
       )}
-        <FilterContainer>
-          <Filters>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Request type</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={requestType.current}
-                  label="Request type"
-                  onChange={(event) => {
-                    handleChange(event, 'type');
-                  }}
-                  sx={{ fontFamily: 'roboto-regular' }}
-                  style={{ borderRadius: '24px', height: 40 }}
-                >
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
-                    All
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
-                    Ad-hoc
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
-                    Regular
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-            <Box sx={{ minWidth: 120 }}>
-              <FormControl fullWidth>
-                <InputLabel id="demo-simple-select-label">Request Status</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={requestStatus.current}
-                  label="Request status"
-                  onChange={(event) => {
-                    handleChange(event, 'status');
-                  }}
-                  sx={{ fontFamily: 'roboto-regular' }}
-                  style={{ borderRadius: '24px', height: 40 }}
-                >
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
-                    All
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'PENDING'}>
-                    Pending
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'APPROVED'}>
-                    Approved
-                  </MenuItem>
-                  <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'DECLINED'}>
-                    Declined
-                  </MenuItem>
-                </Select>
-              </FormControl>
-            </Box>
-          </Filters>
-          <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
-            Export requests
-          </StyledButton>
-        </FilterContainer>
+      <FilterContainer>
+        <Filters>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Request type</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={requestType.current}
+                label="Request type"
+                onChange={(event) => {
+                  handleChange(event, 'type');
+                }}
+                sx={{ fontFamily: 'roboto-regular' }}
+                style={{ borderRadius: '24px', height: 40 }}
+              >
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                  All
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'adhoc'}>
+                  Ad-hoc
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'regular'}>
+                  Regular
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+          <Box sx={{ minWidth: 120 }}>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">Request Status</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                value={requestStatus.current}
+                label="Request status"
+                onChange={(event) => {
+                  handleChange(event, 'status');
+                }}
+                sx={{ fontFamily: 'roboto-regular' }}
+                style={{ borderRadius: '24px', height: 40 }}
+              >
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'all'}>
+                  All
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'PENDING'}>
+                  Pending
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'APPROVED'}>
+                  Approved
+                </MenuItem>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'DECLINED'}>
+                  Declined
+                </MenuItem>
+              </Select>
+            </FormControl>
+          </Box>
+        </Filters>
+        <StyledButton color={purple} textColor={dark} width="10%" onClick={() => downloadCSV()}>
+          Export requests
+        </StyledButton>
+      </FilterContainer>
       <CardContainer>
         {filteredRequests.map((request) => {
           return (
