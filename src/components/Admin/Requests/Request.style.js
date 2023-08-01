@@ -41,8 +41,12 @@ export const FilterContainer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 93%;
-  margin: 20px auto 0px auto;
+  width: 95%;
+  margin-top: 20px;
+
+  @media (max-width: 767px) {
+    align-items: start;
+  }
 `;
 
 export const Filters = styled.div`
@@ -53,6 +57,7 @@ export const Filters = styled.div`
 
   @media (max-width: 767px) {
     flex-direction: column;
+    justify-content: start;
   }
 `;
 
@@ -60,8 +65,8 @@ export const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin: 0px 12px;
+  justify-content: start;
+  margin: 0px 24px;
 
   @media (max-width: 800px) {
     justify-content: center;

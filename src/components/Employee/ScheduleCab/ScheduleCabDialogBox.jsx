@@ -1,5 +1,6 @@
 import './styles.css';
-import newCabIcon from '../../../assets/plus.png';
+import { red, green } from '../../colors.json';
+import StyledButton from '../../common/StyledButton/StyledButton';
 import createNewCabRequestService from '../../services/createNewCabRequestService.jsx';
 import { DialogContent, DialogTitle, TextField } from '@mui/material';
 import Button from '@mui/material/Button';
@@ -122,7 +123,7 @@ const ScheduleCabDialogBox = () => {
   return (
     <>
       <Button variant="outlined" onClick={handleClickOpen} className="Button violet">
-        <img src={newCabIcon} alt="New cab request" />
+        +
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className="DialogContent">
@@ -237,12 +238,12 @@ const ScheduleCabDialogBox = () => {
           </LocalizationProvider>
 
           <DialogActions>
-            <Button onClick={() => closeDialog()} className="Button cancel">
+            <StyledButton color={red} textColor={red} onClick={() => closeDialog()}>
               Cancel
-            </Button>
-            <Button onClick={onSaveButtonClick} className="Button save">
+            </StyledButton>
+            <StyledButton color={green} textColor={green} onClick={onSaveButtonClick}>
               Submit
-            </Button>
+            </StyledButton>
           </DialogActions>
         </DialogContent>
       </Dialog>

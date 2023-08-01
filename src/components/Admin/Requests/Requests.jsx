@@ -252,7 +252,7 @@ const Requests = () => {
                 <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'APPROVED'}>
                   Approved
                 </MenuItem>
-                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'DECLINED'}>
+                <MenuItem sx={{ fontFamily: 'roboto-regular' }} value={'REJECTED'}>
                   Declined
                 </MenuItem>
               </Select>

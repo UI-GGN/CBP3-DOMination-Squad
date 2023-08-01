@@ -20,7 +20,7 @@
   background-color: #ffffff;
 }
 .DialogContent:focus {
-  outline: #067A6F;
+  outline: #067a6f;
 }
 
 .DialogTitle {
@@ -96,23 +96,25 @@
   border-style: dashed;
 }
 .Button.violet {
+  min-height: 200px;
   text-transform: revert;
   color: #003d4f;
   font-weight: bold;
-  font-size: large;
-  border-style: dashed;
-  border-color: #003d4f;
+  font-size: 48px;
+  border-style: dotted;
+  border-color: gray;
   border-width: 2px;
   border-spacing: 4px;
   border-radius: 20px;
   padding: 16px 20px;
-  margin: 20px 10px;
+  margin: 20px;
 }
 .Button.violet:hover {
-  background-color: white;
+  background-color: #003d4f;
   border-style: dashed;
   border-color: #003d4f;
   border-width: 2px;
+  color: white;
 }
 .Button.violet:focus {
   border-style: dashed;

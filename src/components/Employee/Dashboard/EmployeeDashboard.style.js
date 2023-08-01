@@ -21,6 +21,6 @@ export const Container = styled.div`
 export const CabRequests = styled.section`
   display: flex;
   flex-flow: wrap;
-  justify-content: space-evenly;
-  margin: 0 12px;
+  justify-content: start;
+  margin: 0 24px;
 `;
