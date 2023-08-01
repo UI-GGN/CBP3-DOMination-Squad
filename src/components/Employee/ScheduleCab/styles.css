@@ -96,7 +96,10 @@
   border-style: dashed;
 }
 .Button.violet {
+  min-width: 380px;
   min-height: 200px;
+  max-width: 420px;
+  flex-grow: 1;
   text-transform: revert;
   color: #003d4f;
   font-weight: bold;
@@ -108,6 +111,11 @@
   border-radius: 20px;
   padding: 16px 20px;
   margin: 20px;
+
+  @media (max-width: 800px) {
+    min-width: 250px;
+    max-width: 325px;
+  }
 }
 .Button.violet:hover {
   background-color: #003d4f;

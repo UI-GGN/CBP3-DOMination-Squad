@@ -22,5 +22,9 @@ export const CabRequests = styled.section`
   display: flex;
   flex-flow: wrap;
   justify-content: start;
-  margin: 0 24px;
+  margin: 16px 24px;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;

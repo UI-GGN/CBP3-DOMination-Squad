@@ -70,7 +70,6 @@ export const CardContainer = styled.div`
 
   @media (max-width: 800px) {
     justify-content: center;
-    margin: 0px 24px;
   }
 `;
 
