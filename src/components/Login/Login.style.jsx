@@ -55,7 +55,7 @@ export const SignInTitle = styled.h1`
   line-height: 24px;
   color: ${dark};
   font-family: roboto-regular;
-  align-self: start;
+  align-self: center;
   margin-bottom: 24px;
 `;
 
@@ -69,6 +69,7 @@ export const Logo = styled.div`
   display: flex;
   width: 90%;
   margin: 24px;
+  margin-bottom: 40px;
   display: flex;
 `;
 
