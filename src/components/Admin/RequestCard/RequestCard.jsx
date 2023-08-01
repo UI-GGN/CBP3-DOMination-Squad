@@ -224,7 +224,7 @@ const RequestCard = ({
           </ApprovedContainer>
         )}
 
-        {status === 'REJECTED' && (
+        {(status === 'REJECTED' || status === 'DECLINED') && (
           <TitleContainer>
             <DeclinedText>Request declined</DeclinedText>
           </TitleContainer>

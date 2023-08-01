@@ -49,7 +49,11 @@ export const Filters = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 20%;
+  max-width: 20%;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 `;
 
 export const CardContainer = styled.div`

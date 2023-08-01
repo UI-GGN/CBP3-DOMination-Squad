@@ -21,6 +21,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import axios from 'axios';
 import { useState } from 'react';
 import { useRef } from 'react';
@@ -34,8 +35,9 @@ const Requests = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [alertType, setAlertType] = useState(true);
   const requestType = useRef('all');
-  const [isLoading, setIsLoading] = useState(true);
   const requestStatus = useRef('all');
+  const [isLoading, setIsLoading] = useState(true);
+  const matchesPhone = useMediaQuery('(max-width:767px)');
 
   const alertIcon = alertType ? tick : cross;
   const alertText = alertType ? 'Vendor assigned successfully!' : 'Request declined!';
@@ -201,7 +203,7 @@ const Requests = () => {
       )}
       <FilterContainer>
         <Filters>
-          <Box sx={{ minWidth: 120 }}>
+          <Box sx={{ minWidth: 120, marginRight: 4 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Request type</InputLabel>
               <Select
@@ -227,7 +229,7 @@ const Requests = () => {
               </Select>
             </FormControl>
           </Box>
-          <Box sx={{ minWidth: 120 }}>
+          <Box sx={{ minWidth: 120, marginTop: matchesPhone ? 2 : 0 }}>
             <FormControl fullWidth>
               <InputLabel id="demo-simple-select-label">Request Status</InputLabel>
               <Select
