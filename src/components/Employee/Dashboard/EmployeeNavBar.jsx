@@ -1,7 +1,8 @@
 import thoughtworks_logo from '../../../assets/thoughtworks-logo-dark.svg';
 import { pink } from '../../colors.json';
 import ConfirmationModal from '../../common/ConfirmationModal/index.js';
-import { Container, Content, Logo, LogoImage, LogoutButton, NavBar } from '../../common/Header/Header.style.jsx';
+import { Content, Logo, LogoImage, LogoutButton } from '../../common/Header/Header.style.jsx';
+import { NavBarContainer, NavBar } from './EmployeeNavBar.style.jsx';
 import { Modal } from '@mui/material';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useState } from 'react';
@@ -38,14 +39,14 @@ const EmployeeNavBar = () => {
   };
 
   return (
-    <Container>
+    <NavBarContainer>
       <Modal open={isVisible} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <div style={style}>
           <ConfirmationModal onClose={onModalClose} onConfirm={onLogout} confirmText="Log out" />
         </div>
       </Modal>
       <Content>
-        <NavBar style={{ justifyContent: 'space-between', width: '100%', alignItems: 'center' }}>
+        <NavBar>
           <Logo>
             <LogoImage src={thoughtworks_logo} />
           </Logo>
@@ -54,7 +55,7 @@ const EmployeeNavBar = () => {
           </LogoutButton>
         </NavBar>
       </Content>
-    </Container>
+    </NavBarContainer>
   );
 };
 

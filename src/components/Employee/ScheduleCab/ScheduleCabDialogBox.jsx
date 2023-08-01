@@ -151,7 +151,7 @@ const ScheduleCabDialogBox = () => {
               fullWidth
               multiline
               minRows={1}
-              maxRows={5}
+              maxRows={4}
             />
           </fieldset>
           <fieldset className="Fieldset">
@@ -181,7 +181,7 @@ const ScheduleCabDialogBox = () => {
               fullWidth
               multiline
               minRows={1}
-              maxRows={5}
+              maxRows={4}
             />
           </fieldset>
           <fieldset className="Fieldset">
