@@ -19,7 +19,18 @@ import {
   VerticalLine,
 } from './RequestStatusCard.style.js';
 
-const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location, pickup, drop, footer: Footer }) => {
+const RequestStatusCard = ({
+  name,
+  employeeID,
+  projectCode,
+  date,
+  time,
+  location,
+  pickup,
+  drop,
+  footer: Footer,
+  requestStatus,
+}) => {
   return (
     <CardDetailsContainer>
       {name && (
@@ -77,7 +88,7 @@ const RequestStatusCard = ({ name, employeeID, projectCode, date, time, location
         </Location>
       )}
 
-      {Footer && <Footer />}
+      {Footer && <Footer requestStatus={requestStatus} />}
     </CardDetailsContainer>
   );
 };

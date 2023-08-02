@@ -81,4 +81,25 @@ const validateCredentials = (email, password) => {
   }
 };
 
-export { getModalWidth, validateCredentials, generateCSV };
+const formatDate = (input) => {
+  const date = new Date(input);
+  var day = date.getDate();
+  day = day < 10 ? '0' + day : day;
+  var month = date.getMonth() + 1;
+  month = month < 10 ? '0' + month : month;
+  var year = date.getFullYear();
+  return day + '-' + month + '-' + year;
+};
+
+const formatTime = (input) => {
+  const date = new Date(input);
+  var hours = date.getUTCHours();
+  var minutes = date.getUTCMinutes();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12;
+  minutes = minutes < 10 ? '0' + minutes : minutes;
+  return hours + ':' + minutes + ' ' + ampm;
+};
+
+export { getModalWidth, validateCredentials, generateCSV, formatDate, formatTime };

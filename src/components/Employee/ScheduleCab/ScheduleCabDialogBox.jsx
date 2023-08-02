@@ -1,9 +1,8 @@
 import './styles.css';
-import { red, green } from '../../colors.json';
+import { red, green, purple } from '../../colors.json';
 import StyledButton from '../../common/StyledButton/StyledButton';
 import createNewCabRequestService from '../../services/createNewCabRequestService.jsx';
 import { DialogContent, DialogTitle, TextField } from '@mui/material';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import { LocalizationProvider, DatePicker, DateTimePicker } from '@mui/x-date-pickers';
@@ -122,9 +121,9 @@ const ScheduleCabDialogBox = () => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen} className="Button violet">
-        +
-      </Button>
+      <StyledButton color={purple} textColor={purple} onClick={handleClickOpen} width="10%" className="New">
+        New Request
+      </StyledButton>
       <Dialog open={open} onClose={handleClose}>
         <DialogContent className="DialogContent">
           <DialogTitle className="DialogTitle">Request Cab</DialogTitle>
@@ -139,7 +138,7 @@ const ScheduleCabDialogBox = () => {
               fullWidth
             />
           </fieldset>
-          <p style={{ opacity: 0.5, margin: 5 }}>Pickup Details</p>
+          <p style={{ opacity: 1, margin: 5 }}>Pickup Details</p>
           <fieldset className="Fieldset">
             <TextField
               label="Pickup Address"
@@ -169,7 +168,7 @@ const ScheduleCabDialogBox = () => {
               fullWidth
             />
           </fieldset>
-          <p style={{ opacity: 0.5, margin: 5 }}>Drop Details</p>
+          <p style={{ margin: 5 }}>Drop Details</p>
           <fieldset className="Fieldset">
             <TextField
               label="Drop Address"

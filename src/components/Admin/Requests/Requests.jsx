@@ -1,6 +1,7 @@
 import { purple, dark } from '../../colors.json';
 import StyledButton from '../../common/StyledButton/StyledButton';
 import { generateCSV } from '../../common/utils.jsx';
+import { formatDate, formatTime } from '../../common/utils.jsx';
 import RequestCard from '../RequestCard/RequestCard.jsx';
 import cross from './../../../assets/cross.png';
 import loader from './../../../assets/loader.json';
@@ -23,9 +24,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import axios from 'axios';
-import { useState } from 'react';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Lottie from 'react-lottie';
 
 const Requests = () => {
@@ -134,27 +133,6 @@ const Requests = () => {
       .catch((error) => {
         console.log(error);
       });
-  };
-
-  const formatDate = (input) => {
-    const date = new Date(input);
-    var day = date.getDate();
-    day = day < 10 ? '0' + day : day;
-    var month = date.getMonth() + 1;
-    month = month < 10 ? '0' + month : month;
-    var year = date.getFullYear();
-    return day + '-' + month + '-' + year;
-  };
-
-  const formatTime = (input) => {
-    const date = new Date(input);
-    var hours = date.getUTCHours();
-    var minutes = date.getUTCMinutes();
-    const ampm = hours >= 12 ? 'pm' : 'am';
-    hours = hours % 12;
-    hours = hours ? hours : 12;
-    minutes = minutes < 10 ? '0' + minutes : minutes;
-    return hours + ':' + minutes + ' ' + ampm;
   };
 
   const downloadCSV = () => {

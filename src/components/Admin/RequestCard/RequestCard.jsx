@@ -220,7 +220,6 @@ const RequestCard = ({
             >
               {showDetailsText}
             </ShowDetailsText>
-            {/* <ReassignVendorText onClick={() => onRemove()}>Reassign vendor</ReassignVendorText> */}
           </ApprovedContainer>
         )}
 
