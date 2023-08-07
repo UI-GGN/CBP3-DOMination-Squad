@@ -112,7 +112,7 @@ const ScheduleCabDialogBox = () => {
         // createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
         //   console.log(r);
         // });
-        createNewCabRequestService.newCabRequestService(addressDetail)
+        createNewCabRequestService.newCabRequestService(addressDetail);
         closeDialog();
       } else {
         alert('Please fill in required fields without errors to submit');
