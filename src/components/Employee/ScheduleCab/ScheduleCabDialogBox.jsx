@@ -97,6 +97,8 @@ const ScheduleCabDialogBox = () => {
       expireDate: expireDateInISO,
     };
 
+    console.log(JSON.stringify(addressDetail));
+
     try {
       if (
         !mobileError &&
@@ -107,9 +109,10 @@ const ScheduleCabDialogBox = () => {
         dropAddress.length
       ) {
         console.log(addressDetail);
-        createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
-          console.log(r);
-        });
+        // createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
+        //   console.log(r);
+        // });
+        createNewCabRequestService.newCabRequestService(addressDetail)
         closeDialog();
       } else {
         alert('Please fill in required fields without errors to submit');
