@@ -6,7 +6,6 @@ export const Container = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 `;
 
 export const LoaderContainer = styled.div`
@@ -42,7 +41,7 @@ export const FilterContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 95%;
-  margin-top: 20px;
+  margin: 20px auto 0px auto;
 
   @media (max-width: 767px) {
     align-items: start;
