@@ -223,6 +223,11 @@ const ScheduleCabDialogBox = () => {
               label="Pickup Date and Time"
               formatDensity="dense"
               sx={{ width: 219 }}
+              slotProps={{
+                textField: {
+                  helperText: 'Please book your cab at least 1 hour ahead to ensure availability.',
+                },
+              }}
               required
             />
             <DatePicker

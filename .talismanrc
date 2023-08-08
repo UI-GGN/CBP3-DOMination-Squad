@@ -1,6 +1,8 @@
 fileignoreconfig:
 - filename: package-lock.json
-  checksum: 6f408c2c5b0ee3d3973d1999528c4a06762c51b1a986a035ebe63a4315fa6ce1
+  checksum: 803025a8f02e837070da4450d868d0bf2b05b59c13ef92e93d3bf2ed02e8cf38
+- filename: yarn.lock
+  checksum: 1e584d3aeca2643a6b228516a996ec7a916b8ed5bae9f1540da45ea42167f280
 - filename: src/components/Admin/Requests/Requests.jsx
   checksum: 3ecae594f6cdc3e79ac6dd7518e737f047dda4674310b214f762fb44fa79c3cd
 - filename: src/components/common/CustomTabs/CustomTabs.jsx
