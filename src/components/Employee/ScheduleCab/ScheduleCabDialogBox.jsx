@@ -46,7 +46,9 @@ const ScheduleCabDialogBox = () => {
   };
 
   const handlePickupDateTimeChange = (event) => {
-    let dateTime = `${event.$d.toLocaleDateString('en-CA')}` + 'T' + `${event.$d.toLocaleTimeString() + '.000Z'}`;
+    let time = event.$d.toLocaleTimeString('en-US', { hour12: false, timeStyle: 'medium' });
+    let date = event.$d.toLocaleDateString('en-CA');
+    let dateTime = `${date}` + 'T' + `${time + '.000Z'}`;
     setPickupDateTime(dateTime);
     setScheduleTillDate(event.$d.toLocaleDateString('en-CA'));
   };
@@ -83,8 +85,8 @@ const ScheduleCabDialogBox = () => {
   };
 
   const onSaveButtonClick = () => {
-    let pickupLocation = `${pickupAddress.replaceAll('\n', ' ')}, ${pickupAddress}, ${pickupPincode}`;
-    let dropLocation = `${dropAddress.replaceAll('\n', ' ')}, ${dropAddress}, ${dropPincode}`;
+    let pickupLocation = `${pickupAddress.replaceAll('\n', ' ')}, ${pickupPincode}`;
+    let dropLocation = `${dropAddress.replaceAll('\n', ' ')}, ${dropPincode}`;
     let expireDateInISO = `${scheduleTillDate}${pickupDateTime.slice(10)}`;
     const addressDetail = {
       employeeId: '12345',
@@ -95,9 +97,9 @@ const ScheduleCabDialogBox = () => {
       phoneNumber: mobileNumber,
       pickupTime: pickupDateTime,
       expireDate: expireDateInISO,
+      status: 'PENDING',
+      vendorId: null,
     };
-
-    console.log(JSON.stringify(addressDetail));
 
     try {
       if (
@@ -108,10 +110,6 @@ const ScheduleCabDialogBox = () => {
         pickupDateTime.length &&
         dropAddress.length
       ) {
-        console.log(addressDetail);
-        // createNewCabRequestService.newCabRequestService(addressDetail).then((r) => {
-        //   console.log(r);
-        // });
         createNewCabRequestService.newCabRequestService(addressDetail);
         closeDialog();
       } else {
