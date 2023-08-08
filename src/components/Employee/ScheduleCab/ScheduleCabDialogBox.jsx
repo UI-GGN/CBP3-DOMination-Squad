@@ -12,6 +12,7 @@ import timezone from 'dayjs/plugin/timezone';
 import utc from 'dayjs/plugin/utc';
 import Moment from 'moment';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -21,6 +22,7 @@ function handleError(e) {
 }
 
 const ScheduleCabDialogBox = () => {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const [project, setProject] = useState('');
   const [pickupAddress, setPickupAddress] = useState('');
@@ -82,6 +84,7 @@ const ScheduleCabDialogBox = () => {
     setPincodeError(false);
     setMobileError(false);
     setPickupDateTime('');
+    navigate('/');
   };
 
   const onSaveButtonClick = () => {
@@ -112,6 +115,7 @@ const ScheduleCabDialogBox = () => {
       ) {
         createNewCabRequestService.newCabRequestService(addressDetail);
         closeDialog();
+        navigate('/employee/dashboard');
       } else {
         alert('Please fill in required fields without errors to submit');
       }

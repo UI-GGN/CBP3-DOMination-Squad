@@ -1,7 +1,7 @@
 import loader from '../../../assets/loader.json';
 import { red, green } from '../../colors.json';
 import RequestStatusCard from '../../common/RequestStatusCard/RequestStatusCard';
-import { formatDate, formatTime } from '../../common/utils';
+import { formatTime } from '../../common/utils';
 import fetchCabRequestDetailsService from '../../services/fetchCabRequestDetailsService.jsx';
 import ScheduleCabDialogBox from '../ScheduleCab/ScheduleCabDialogBox';
 import {
