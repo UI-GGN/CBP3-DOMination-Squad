@@ -155,7 +155,7 @@ const CabRequestDetails = () => {
           <RequestStatusCard
             key={id}
             id={cab?.id}
-            date={cab?.pickupTime.slice(0,10)}
+            date={cab?.pickupTime.slice(0, 10)}
             time={formatTime(cab?.pickupTime)}
             pickup={cab?.pickupLocation}
             drop={cab?.dropLocation}
