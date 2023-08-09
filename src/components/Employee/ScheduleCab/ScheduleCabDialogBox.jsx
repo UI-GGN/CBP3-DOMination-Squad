@@ -33,7 +33,8 @@ const ScheduleCabDialogBox = () => {
   const [pickupDateTime, setPickupDateTime] = useState('');
   const currentDate = Moment(new Date()).format('YYYY-MM-DD');
   const [scheduleTillDate, setScheduleTillDate] = useState(currentDate);
-  const [pincodeError, setPincodeError] = useState(false);
+  const [dropPincodeError, setDropPincodeError] = useState(false);
+  const [pickupPincodeError, setPickupPincodeError] = useState(false);
   const [mobileError, setMobileError] = useState(false);
 
   const handleClickOpen = () => {
@@ -58,9 +59,18 @@ const ScheduleCabDialogBox = () => {
   const handlePincodeBlur = (pincode) => {
     const isPincodeValid = /^\d{6}$/.test(pincode);
     if (!isPincodeValid) {
-      setPincodeError(true);
+      setPickupPincodeError(true);
     } else {
-      setPincodeError(false);
+      setPickupPincodeError(false);
+    }
+  };
+
+  const handleDropPincodeBlur = (pincode) => {
+    const isPincodeValid = /^\d{6}$/.test(pincode);
+    if (!isPincodeValid) {
+      setDropPincodeError(true);
+    } else {
+      setDropPincodeError(false);
     }
   };
 
@@ -81,7 +91,8 @@ const ScheduleCabDialogBox = () => {
     setMobileNumber('');
     setScheduleTillDate(currentDate);
     setOpen(false);
-    setPincodeError(false);
+    setPickupPincodeError(false);
+    setDropPincodeError(false);
     setMobileError(false);
     setPickupDateTime('');
     navigate('/');
@@ -107,7 +118,8 @@ const ScheduleCabDialogBox = () => {
     try {
       if (
         !mobileError &&
-        !pincodeError &&
+        !pickupPincodeError &&
+        !dropPincodeError &&
         project.length &&
         pickupAddress.length &&
         pickupDateTime.length &&
@@ -143,10 +155,9 @@ const ScheduleCabDialogBox = () => {
               fullWidth
             />
           </fieldset>
-          <p style={{ opacity: 1, margin: 5 }}>Pickup Details</p>
           <fieldset className="Fieldset">
             <TextField
-              label="Pickup Address"
+              label="Pickup address"
               value={pickupAddress}
               size="small"
               inputProps={{ style: { height: 60 } }}
@@ -167,16 +178,15 @@ const ScheduleCabDialogBox = () => {
               label="Pincode of pickup address"
               onChange={(event) => setPickupPincode(event.target.value)}
               onBlur={() => handlePincodeBlur(pickupPincode)}
-              error={pincodeError}
-              helperText={pincodeError ? 'Enter 6 digit valid Pincode' : ''}
+              error={pickupPincodeError}
+              helperText={pickupPincodeError ? 'Enter 6 digit valid Pincode' : ''}
               required
               fullWidth
             />
           </fieldset>
-          <p style={{ margin: 5 }}>Drop Details</p>
           <fieldset className="Fieldset">
             <TextField
-              label="Drop Address"
+              label="Drop address"
               value={dropAddress}
               size="small"
               inputProps={{ style: { height: 60 } }}
@@ -196,9 +206,9 @@ const ScheduleCabDialogBox = () => {
               color="success"
               label="Pincode of drop address"
               onChange={(event) => setDropPincode(event.target.value)}
-              onBlur={() => handlePincodeBlur(dropPincode)}
-              error={pincodeError}
-              helperText={pincodeError ? 'Enter 6 digit valid Pincode' : ''}
+              onBlur={() => handleDropPincodeBlur(dropPincode)}
+              error={dropPincodeError}
+              helperText={dropPincodeError ? 'Enter 6 digit valid Pincode' : ''}
               required
               fullWidth
             />
@@ -208,7 +218,7 @@ const ScheduleCabDialogBox = () => {
               value={mobileNumber}
               size="small"
               color="success"
-              label="Mobile Number"
+              label="Mobile number"
               onChange={(event) => setMobileNumber(event.target.value)}
               onBlur={handleMobileNumberBlur}
               error={mobileError}
@@ -224,7 +234,7 @@ const ScheduleCabDialogBox = () => {
               format="YYYY-MM-DD hh:mm a"
               timezone="IST"
               onChange={handlePickupDateTimeChange}
-              label="Pickup Date and Time"
+              label="Pickup date and time"
               formatDensity="dense"
               sx={{ width: 219 }}
               slotProps={{
